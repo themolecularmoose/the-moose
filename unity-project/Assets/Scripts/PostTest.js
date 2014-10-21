@@ -1,6 +1,6 @@
 #pragma strict
 
-var serverUrl = "http://requestb.in/13nlt401";
+var serverUrl = "http://localhost:8080/api/student";
 
 function start(){
 }
@@ -13,25 +13,18 @@ function OnMouseUp(){
 }
 
 function postUser( username:String, firstname:String, lastname:String, email:String ){
-	var jsonString = "{ username:"+username+",firstname:"+firstname+
-		",lastname:"+lastname+",email:"+email+"}";
+	//TODO use json parser or sanitize if necessary
+	var jsonString = '{"username":"'+username+'","firstName":"'+firstname+
+		'","lastName":"'+lastname+'","email":"'+email+'"}';
 	postJson(jsonString);
 }
 
 function postJson( jsonString:String ){
-	//var form = new WWWForm();
-	//var headers : Hashtable = form.headers;
-	//headers["Content-Type"] = "application/json";
-	
 	var headers = new Hashtable();
 	headers.Add("Content-Type", "application/json");
-	
-	//headers["Content-Length"] = jsonString.Length;
-	
-	
 	var encoding = new System.Text.UTF8Encoding();
-	//form.AddBinaryData("", encoding.GetBytes(jsonString));
-	
+		
+	//Note: have to use www-url-encoded to use current use of WWW, using old use for app/json
 	var response = new WWW( serverUrl, encoding.GetBytes(jsonString), headers );
 	yield response;
 	
