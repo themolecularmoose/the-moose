@@ -1,6 +1,17 @@
 #pragma strict
 
-var serverUrl = "http://localhost:8080/api/student";
+import SimpleJSON;
+import System.Security.Cryptography; //HMACSHA256
+import System.IO; //StreamReader
+import System.Text; //UTF8Encoding  
+import System.Net; //HTTPWebRequest
+
+var serverUrl = "http://obscure-temple-1449.herokuapp.com/api/student";
+var username = "hmac1";
+private var privatekey : String = "1424a6f0-603f-11e4-9803-0800200c9a66";
+private var utf8encode : UTF8Encoding = new UTF8Encoding();
+private var asciiencode : ASCIIEncoding = new ASCIIEncoding();
+private var hmac : HMACSHA256 = HMACSHA256( utf8encode.GetBytes( privatekey ) );
 
 function start(){
 }
@@ -9,27 +20,72 @@ function update(){
 }
 
 function OnMouseUp(){
-	postUser("foobar","foo","bar","foo@bar.com");
+	postUser(username,"foo","bar","foo@bar.com");
 }
 
 function postUser( username:String, firstname:String, lastname:String, email:String ){
-	//TODO use json parser or sanitize if necessary
-	var jsonString = '{"username":"'+username+'","firstName":"'+firstname+
-		'","lastName":"'+lastname+'","email":"'+email+'"}';
-	postJson(jsonString);
+	var json : JSONClass = new JSONClass();
+	json["username"] = username;
+	json["firstName"] = firstname;
+	json["lastName"] = lastname;
+	json["email"] = email;
+	postJson(json);
 }
 
-function postJson( jsonString:String ){
+function postJson( json : JSONClass ){
+	json["access"] = "unity";
+	var unixTimestamp : int = Mathf.RoundToInt((System.DateTime.UtcNow - new System.DateTime(1970, 1, 1)).TotalSeconds);
+	//json["expires"] = new JSONData(unixTimestamp);
+	var utf8json = utf8encode.GetBytes( json.ToJSON(0) );
+	_postJson(utf8json);
+	/* deprecated
 	var headers = new Hashtable();
 	headers.Add("Content-Type", "application/json");
-	var encoding = new System.Text.UTF8Encoding();
+	headers.Add("X-signature", getXSignature(utf8json));
 		
 	//Note: have to use www-url-encoded to use current use of WWW, using old use for app/json
-	var response = new WWW( serverUrl, encoding.GetBytes(jsonString), headers );
+	var response = new WWW( serverUrl, utf8json, headers );
 	yield response;
 	
 	if( response.error ){
 		print( "Error submitting form: " + response.error );
 		return;
-	}
+	} */
+	
 }
+
+function getXSignature( utf8json : byte[] ){
+	for( var by : byte in hmac.ComputeHash( utf8json )){
+		print(by);
+	}
+	return System.Convert.ToBase64String( hmac.ComputeHash( utf8json ));
+}
+
+function _postJson( utf8json : byte[] ){
+	var request : WebRequest = WebRequest.Create(serverUrl);
+	request.Method = "POST";
+	request.ContentType = "application/json";
+	request.ContentLength = utf8json.Length;
+	request.Headers.Add("X-signature", getXSignature(utf8json));
+	request.GetRequestStream().Write(utf8json, 0, utf8json.Length);
+	request.GetRequestStream().Close();
+	
+	//downcast to get status description
+	var resp : HttpWebResponse = request.GetResponse();
+	print( "Response status code: " + resp.StatusDescription );
+	if( resp.StatusCode == HttpStatusCode.OK ){
+		var stream : Stream = resp.GetResponseStream();
+		var reader : StreamReader = new StreamReader(stream);
+		var stringResponse : String =  reader.ReadToEnd();
+		if( stringResponse.length > 0 ){
+			var jsonResponse : JSONNode = JSON.Parse( stringResponse );
+			if( jsonResponse ){
+				print( "Response json: " + jsonResponse.ToString() );
+			}
+		}
+		reader.Close();
+	}
+	resp.Close();
+}
+
+
