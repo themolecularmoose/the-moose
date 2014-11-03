@@ -36,7 +36,7 @@ function postJson( json : JSONClass ){
 	json["access"] = "unity";
 	var unixTimestamp : int = Mathf.RoundToInt((System.DateTime.UtcNow - new System.DateTime(1970, 1, 1)).TotalSeconds);
 	//json["expires"] = new JSONData(unixTimestamp);
-	var utf8json = utf8encode.GetBytes( json.ToJSON(0) );
+	var utf8json = utf8encode.GetBytes( json.ToJSON(-1) );
 	_postJson(utf8json);
 	/* deprecated
 	var headers = new Hashtable();
@@ -55,9 +55,6 @@ function postJson( json : JSONClass ){
 }
 
 function getXSignature( utf8json : byte[] ){
-	for( var by : byte in hmac.ComputeHash( utf8json )){
-		print(by);
-	}
 	return System.Convert.ToBase64String( hmac.ComputeHash( utf8json ));
 }
 
