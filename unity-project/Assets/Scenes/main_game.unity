@@ -519,6 +519,7 @@ GameObject:
   - 33: {fileID: 1312870602}
   - 65: {fileID: 1312870601}
   - 23: {fileID: 1312870600}
+  - 114: {fileID: 1312870604}
   m_Layer: 0
   m_Name: Boundary
   m_TagString: Untagged
@@ -580,6 +581,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1312870604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1312870599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a9ad5cdb5f84c7aaaa6fa5a24f39de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1319195875
 Prefab:
   m_ObjectHideFlags: 0
@@ -617,6 +629,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41e7ff8531f21564e9a1672325295420, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: 41e7ff8531f21564e9a1672325295420, type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
