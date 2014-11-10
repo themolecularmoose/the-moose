@@ -928,18 +928,28 @@ namespace SimpleJSON
 		public override string ToJSON (int prefix)
 		{
 			string s = new string (' ', (prefix + 1) * 2);
-			//REMOVING_SPACES string ret = "{ ";
+			string ret = "{ ";
+			foreach (KeyValuePair<string,JSONNode> n in m_Dict) {
+				if (ret.Length > 3)
+					ret += ", ";
+				ret += "\n" + s;
+				ret += string.Format ("\"{0}\": {1}", n.Key, n.Value.ToJSON (prefix + 1));
+			}
+			ret += "\n" + s + "}";
+			return ret;
+		}
+
+		//doesn't support arrays atm
+		public string ToSpacelessJSON ()
+		{
+			string s = "";
 			string ret = "{";
 			foreach (KeyValuePair<string,JSONNode> n in m_Dict) {
 				if (ret.Length > 3)
-					//REMOVING_SPACES ret += ", ";
 					ret += ",";
-				//REMOVING_SPACES ret += "\n" + s;
 				ret += s;
-				//REMOVING_SPACES ret += string.Format ("\"{0}\": {1}", n.Key, n.Value.ToJSON (prefix + 1));
-				ret += string.Format ("\"{0}\":{1}", n.Key, n.Value.ToJSON (prefix + 1));
+				ret += string.Format ("\"{0}\":{1}", n.Key, n.Value.ToJSON (0));
 			}
-			//REMOVING_SPACES ret += "\n" + s + "}";
 			ret += s + "}";
 			return ret;
 		}

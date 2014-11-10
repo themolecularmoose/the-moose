@@ -34,24 +34,10 @@ function postUser( username:String, firstname:String, lastname:String, email:Str
 
 function postJson( json : JSONClass ){
 	json["access"] = "unity";
-	var unixTimestamp : int = Mathf.RoundToInt((System.DateTime.UtcNow - new System.DateTime(1970, 1, 1)).TotalSeconds);
-	//json["expires"] = new JSONData(unixTimestamp);
-	var utf8json = utf8encode.GetBytes( json.ToJSON(-1) );
+	var unixTimestamp : int = (System.DateTime.UtcNow - new System.DateTime(1970, 1, 1)).TotalSeconds;
+	json["expires"] = new JSONData(unixTimestamp);
+	var utf8json = utf8encode.GetBytes( json.ToSpacelessJSON() );
 	_postJson(utf8json);
-	/* deprecated
-	var headers = new Hashtable();
-	headers.Add("Content-Type", "application/json");
-	headers.Add("X-signature", getXSignature(utf8json));
-		
-	//Note: have to use www-url-encoded to use current use of WWW, using old use for app/json
-	var response = new WWW( serverUrl, utf8json, headers );
-	yield response;
-	
-	if( response.error ){
-		print( "Error submitting form: " + response.error );
-		return;
-	} */
-	
 }
 
 function getXSignature( utf8json : byte[] ){
