@@ -16,9 +16,13 @@ function Start()
 
 function OnCollisionEnter(collision:Collision){
 	if(collision.gameObject.tag == "Player"){
+		Debug.Log("Hit by player");
     	Destroy(this.gameObject);
+
     	gameController.AddScore(100);
     	gameController.DecreaseCount();
+    	//Destroy(this);
+    	collision.gameObject.SendMessage("HitCollectable");
     }
     
 }
