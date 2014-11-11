@@ -8,7 +8,6 @@ public var rotSpeed : int;
 function FixedUpdate()
 {
 	//get value for when the user presses a horizontal key
-	//var h : float = Input.GetAxis("Horizontal");
 	var x : float = Input.GetAxis("Mouse X");
 	var y : float = Input.GetAxis("Mouse Y")*(-0.5);
 	
