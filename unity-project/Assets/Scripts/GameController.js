@@ -5,10 +5,13 @@ private var count : int;
 private var startTime : float;
 private var levelTime : float;
 public var base : GameObject;
+private var timeLimit : float;
 
 function Start () 
 {
 	var collectablesObject : GameObject = GameObject.FindWithTag("Collectables");
+	timeLimit = 12;
+	Screen.lockCursor = true;
 	Screen.showCursor = false;
 	
 	if(collectablesObject != null)
@@ -18,6 +21,16 @@ function Start ()
 	startTime = Time.time;
 	
 	score = 0;
+}
+
+function Update()
+{
+	timeLimit -= (Time.deltaTime);
+	Debug.Log(timeLimit);
+	if(timeLimit <= 0)
+	{
+		Debug.Log("Game Over, buddy");
+	}
 }
 
 function AddScore(scoreVal : int) 
