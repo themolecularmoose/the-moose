@@ -72,7 +72,6 @@ function GetCount()
 function TimerCountDown()
 {
 	timeLimit -= (Time.deltaTime);
-	Debug.Log(timeLimit);
 }
 
 function EndLevel()
