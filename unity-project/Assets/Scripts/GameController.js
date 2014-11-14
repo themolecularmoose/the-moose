@@ -78,14 +78,17 @@ function EndLevel()
 {
 	levelTime = Time.time - startTime;
 	endLevel = true;
+	PlayerPrefs.SetInt ("Score", score);
+	PlayerPrefs.SetString ("Level" ,Application.loadedLevelName);
 	if(winState)
 	{
-		Debug.Log("You have won this level!");
-		Debug.Log("Time taken to complete this level: " + levelTime);
+		PlayerPrefs.SetInt ("Win", 1);
+		Application.LoadLevel('game_over');
 	}
 	else
 	{
-		Debug.Log("Game Over");
+		PlayerPrefs.SetInt ("Win", 0);
+		Application.LoadLevel('game_over');
 	}
 		
 }
