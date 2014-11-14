@@ -9,6 +9,8 @@ public var base : GameObject;
 function Start () 
 {
 	var collectablesObject : GameObject = GameObject.FindWithTag("Collectables");
+	Screen.showCursor = false;
+	
 	if(collectablesObject != null)
 	{
 		count = collectablesObject.transform.childCount;
