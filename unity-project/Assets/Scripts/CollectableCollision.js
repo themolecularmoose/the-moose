@@ -20,7 +20,7 @@ function OnCollisionEnter(collision:Collision){
     	Destroy(this.gameObject);
 
     	gameController.AddScore(100);
-    	gameController.DecreaseCount();
+    	gameController.CollectedIncrease();
     	//Destroy(this);
     	collision.gameObject.SendMessage("HitCollectable");
     }
