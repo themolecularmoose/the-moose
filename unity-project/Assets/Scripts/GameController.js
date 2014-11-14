@@ -5,10 +5,19 @@ private var count : int;
 private var startTime : float;
 private var levelTime : float;
 public var base : GameObject;
+private var timeLimit : float;
+private var endLevel : boolean;
+private var winState : boolean; //true is win false is lose
 
 function Start () 
 {
 	var collectablesObject : GameObject = GameObject.FindWithTag("Collectables");
+	endLevel = false;
+	winState = false;
+	timeLimit = 60 * 3;
+	
+	//hide cursor
+	Screen.lockCursor = true;
 	Screen.showCursor = false;
 	
 	if(collectablesObject != null)
@@ -20,6 +29,22 @@ function Start ()
 	score = 0;
 }
 
+function Update()
+{
+	if(endLevel == false)
+	{
+		if(timeLimit <= 0)
+		{
+			//Lose state
+			EndLevel();
+		}
+		else
+		{
+			TimerCountDown();
+		}
+	}
+}
+
 function AddScore(scoreVal : int) 
 {
 	score += scoreVal;
@@ -29,6 +54,12 @@ function AddScore(scoreVal : int)
 function DecreaseCount()
 {
 	count--;
+	if(count == 0)
+	{
+		//Winstate
+		winState = true;
+		EndLevel();
+	}
 }
 
 function GetCount()
@@ -36,9 +67,24 @@ function GetCount()
 	return count;
 }
 
+function TimerCountDown()
+{
+	timeLimit -= (Time.deltaTime);
+	Debug.Log(timeLimit);
+}
+
 function EndLevel()
 {
 	levelTime = Time.time - startTime;
-	Debug.Log("You have won this level!");
-	Debug.Log("Time taken to complete this level: " + levelTime);
+	endLevel = true;
+	if(winState)
+	{
+		Debug.Log("You have won this level!");
+		Debug.Log("Time taken to complete this level: " + levelTime);
+	}
+	else
+	{
+		Debug.Log("Game Over");
+	}
+		
 }

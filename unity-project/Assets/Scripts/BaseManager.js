@@ -26,11 +26,7 @@ function Start () {
 }
 
 function Update () {
-	if(items == count && levelDone == false)
-	{
-		gameController.EndLevel();
-		levelDone = true;
-	}
+
 }
 
 function OnTriggerEnter(collision:Collider){
