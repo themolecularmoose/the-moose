@@ -110,7 +110,7 @@ GUIText:
   m_GameObject: {fileID: 29275836}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: SOME CHEMISTRY GAME NAME
+  m_Text: GLEEB-GLOB
   m_Anchor: 4
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
@@ -118,7 +118,7 @@ GUIText:
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: 30e14b2ce74f8a045a378f18b5d93482, type: 3}
   m_Material: {fileID: 0}
-  m_FontSize: 32
+  m_FontSize: 72
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
@@ -299,7 +299,7 @@ GUIText:
   m_GameObject: {fileID: 1702550732}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: START GAME
+  m_Text: START GAME !
   m_Anchor: 4
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
@@ -307,7 +307,7 @@ GUIText:
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: 30e14b2ce74f8a045a378f18b5d93482, type: 3}
   m_Material: {fileID: 0}
-  m_FontSize: 24
+  m_FontSize: 36
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
