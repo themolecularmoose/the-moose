@@ -20,7 +20,7 @@ function OnGUI () {
 function getTimeRemainingStr( totalSeconds : int ){
 	var minutes : int = totalSeconds/60.0;
 	var seconds : int = totalSeconds - 60 * minutes;
-	return minutes + ":" + seconds; 
+	return minutes + ":" + seconds.ToString("00"); 
 }
 
 function getCollectProgressStr( collectRemaining : int, totalCollects : int ){

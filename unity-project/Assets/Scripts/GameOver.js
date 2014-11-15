@@ -31,7 +31,7 @@ function OnGUI () {
 
 	var victory = '';
 	if(win) {
-		victory = "Wiener!";
+		victory = "Winner!";
 	} else {
 		victory = "Loser";
 	}
