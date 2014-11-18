@@ -59,8 +59,8 @@ function CollectedIncrease()
 	if(count == collected)
 	{
 		//Winstate
-		winState = true;
-		EndLevel();
+		//winState = true;
+		//EndLevel();
 	}
 }
 
@@ -106,4 +106,16 @@ function GetTime()
 function GetCollected()
 {
 	return collected;
+}
+
+function ChangeWinState()
+{
+	if(winState)
+	{
+		winState = false;
+	}
+	else
+	{
+		winState = true;
+	}
 }

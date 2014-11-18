@@ -25,13 +25,16 @@ function Start () {
 	}
 }
 
-function Update () {
 
-}
 
 function OnTriggerEnter(collision:Collider){
 	if(collision.gameObject.tag == "Player"){
-		items = count - gameController.GetCount();
+		items = count - gameController.GetCollected();
 		Debug.Log(items);
+		if(items == 0)
+		{
+			gameController.ChangeWinState();
+			gameController.EndLevel();
+		}
     }
 }
