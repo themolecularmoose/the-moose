@@ -5,10 +5,16 @@ var gameController : GameController;
 var showHelp = true;
 
 function Start () {
+	Invoke("HideHelp",5);
 }
 
 function Update () {
-
+	if(Input.GetKeyDown("h")){
+		if(!showHelp){
+			showHelp = true;
+			Invoke("HideHelp",5);
+		}
+	}
 }
 
 function OnGUI () {
@@ -18,7 +24,6 @@ function OnGUI () {
   	DrawScore( gameController.GetScore().ToString() );
  	if(showHelp){
  		DrawHelpMessage();
- 		showHelpMessage();
  	}
 }
 
@@ -32,10 +37,8 @@ function getCollectProgressStr( collectRemaining : int, totalCollects : int ){
 	return collectRemaining.ToString("00") + "/" + totalCollects;
 }
 
-//Displays the Help Message for 10sec
-function showHelpMessage(){
-	yield WaitForSeconds(10);
-	showHelp = false;
+function HideHelp(){
+	showHelp = false;	
 }
 
 function DrawHelpMessage(){
