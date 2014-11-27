@@ -2,12 +2,13 @@
 
 var hudFont : Font;
 var gameController : GameController;
-
+var showHelp = true;
 
 function Start () {
 }
 
 function Update () {
+
 }
 
 function OnGUI () {
@@ -15,7 +16,10 @@ function OnGUI () {
   	DrawCollectablesCounter(
   		getCollectProgressStr(gameController.GetCollected(),gameController.GetCount()));
   	DrawScore( gameController.GetScore().ToString() );
-  	DrawHelpMessage();
+ 	if(showHelp){
+ 		DrawHelpMessage();
+ 		showHelpMessage();
+ 	}
 }
 
 function getTimeRemainingStr( totalSeconds : int ){
@@ -26,6 +30,12 @@ function getTimeRemainingStr( totalSeconds : int ){
 
 function getCollectProgressStr( collectRemaining : int, totalCollects : int ){
 	return collectRemaining.ToString("00") + "/" + totalCollects;
+}
+
+//Displays the Help Message for 10sec
+function showHelpMessage(){
+	yield WaitForSeconds(10);
+	showHelp = false;
 }
 
 function DrawHelpMessage(){
