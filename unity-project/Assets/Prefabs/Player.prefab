@@ -136,8 +136,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -172,11 +172,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4d0c6a949ddee45988dc1722c8361c, type: 3}
+  m_Script: {fileID: 11500000, guid: 27cf19552bcd0e74aaaf60db031f8440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  rotSpeed: 200
+  speed_max: 100
+  speed_min: 5
+  speed_accel: .150000006
+  speed_decel: .0500000007
+  strafe_max: 30
+  strafe_accel: .0500000007
+  strafe_decel: .0500000007
+  speed_scale: .100000001
+  rotate_speed: 180
+  rotate_lift: .75
+  horiz_sens: 1
+  horiz_invert: 1
+  vert_sens: 1
+  vert_invert: -1
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
