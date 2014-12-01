@@ -12,10 +12,10 @@ var strafe_decel : float = 0.05;
 var speed_scale : float = 0.1;
 
 var rotate_speed : int = 200;
-var rotate_lift : float = 0.75;
+var rotate_dim : float = 0.3;
 
-var horiz_sens : float = 1.0;
-var horiz_invert : int = -1;
+var horiz_sens : float = 0.75;
+var horiz_invert : int = 1;
 var vert_sens : float = 1.0;
 var vert_invert : int = -1;
 
@@ -30,11 +30,6 @@ function FixedUpdate()
 	var x : float = Input.GetAxis("Mouse X")*(horiz_sens * horiz_invert);
 	var y : float = Input.GetAxis("Mouse Y")*(vert_sens * vert_invert);
 		
-	//create a vector3 value for when our ship rotates
-	var new_rotate : Vector3 = new Vector3( y + Mathf.Abs(x * rotate_lift), 0.0f, x);
-	
-	transform.Rotate(new_rotate * rotate_speed * Time.fixedDeltaTime); 
-	
 	//if the forward button is pressed, move forward at the desired speed.
 	if(Input.GetButton("Forward"))
 	{
@@ -61,5 +56,19 @@ function FixedUpdate()
 	}
 	transform.position += transform.right * strafe * speed_scale * Time.fixedDeltaTime;
 	
+	
+	//create a vector3 value for when our ship rotates
+	var new_rotate : Vector3 = new Vector3( y, x, x);
+	
+	transform.Rotate(new_rotate * (rotate_speed - (rotate_dim * speed / speed_max)) * Time.fixedDeltaTime); 
 
+}
+
+function HitCollectable(){
+	Debug.Log("Hit collectable");
+}
+
+function HitFluid(){
+	speed = .1;
+	Debug.Log("Hit fluid");
 }

@@ -65,3 +65,12 @@ function FixedUpdate()
 	//Update the ships rotation 
 	transform.rotation.eulerAngles = current_rotate + new_rotate * rotate_speed * Time.fixedDeltaTime;
 }
+
+function HitCollectable(){
+	Debug.Log("Hit collectable");
+}
+
+function HitFluid(){
+	speed = .1;
+	Debug.Log("Hit fluid");
+}
