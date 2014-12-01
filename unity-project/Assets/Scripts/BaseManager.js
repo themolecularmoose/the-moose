@@ -38,3 +38,9 @@ function OnTriggerEnter(collision:Collider){
 		}
     }
 }
+
+function OnCollisionEnter(collision:Collision)
+{
+	Debug.Log("Ouch!");
+	collision.gameObject.SendMessage("HitObject");
+}

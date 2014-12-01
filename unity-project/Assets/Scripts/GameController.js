@@ -9,6 +9,7 @@ public var base : GameObject;
 private var timeLimit : float;
 private var endLevel : boolean;
 private var winState : boolean; //true is win false is lose
+private var tractorBeam : boolean;
 
 function Start () 
 {
@@ -16,6 +17,7 @@ function Start ()
 	collected = 0;
 	endLevel = false;
 	winState = false;
+	tractorBeam = false;
 	timeLimit = 60 * 3;
 	
 	//hide cursor
@@ -106,6 +108,16 @@ function GetTime()
 function GetCollected()
 {
 	return collected;
+}
+
+function isBeamOn()
+{
+	return tractorBeam;
+}
+
+function beamState(state:boolean)
+{
+	tractorBeam = state;
 }
 
 function ChangeWinState()

@@ -15,7 +15,7 @@ function Start()
 }
 
 function OnCollisionEnter(collision:Collision){
-	if(collision.gameObject.tag == "Player"){
+	if(collision.gameObject.tag == "Player" && gameController.isBeamOn()){
 		Debug.Log("Hit by player");
     	Destroy(this.gameObject);
 

@@ -3,6 +3,20 @@
 //public variables for how fast the ship moves forward/backward and rotates
 public var speed : int;
 public var rotSpeed : int;
+public var gameController: GameController;
+
+function Start()
+{
+	rigidbody.freezeRotation = true;
+	var gameControllerObject : GameObject = GameObject.FindWithTag("GameController");
+	if(gameControllerObject != null){
+		gameController = gameControllerObject.GetComponent(GameController);
+	}
+	if(gameControllerObject == null){
+		Debug.Log("Can't fint 'GameController' script!");
+	}
+		
+}
 
 //movement is not currently final
 function FixedUpdate()
@@ -36,6 +50,15 @@ function FixedUpdate()
 	
 	//Update the ships rotation 
 	transform.rotation.eulerAngles = rot + rotate * rotSpeed * Time.deltaTime;
+	
+	if(Input.GetButton("Tractor Beam"))
+	{
+		gameController.beamState(true);
+	}
+	else
+	{
+		gameController.beamState(false);
+	}
 }
 
 function HitCollectable(){
@@ -45,4 +68,13 @@ function HitCollectable(){
 function HitFluid(){
 	speed = .1;
 	Debug.Log("Hit fluid");
+}
+
+function HitObject()
+{
+	Debug.Log("Hit base!");
+	WaitForSeconds(1);
+	Debug.Log("Good to go");
+	
+	
 }
