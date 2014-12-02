@@ -13,7 +13,7 @@ var strafe_accel : float = 0.05; //strafe acceleration
 var strafe_decel : float = 0.05; //strafe passive decelleration
 var speed_scale : float = 0.1; //general speed scalar so numbers are reasonable
 
-var rotate_speed : int = 200; //base turn sensitivity
+var rotate_speed : int = 120; //base turn sensitivity
 // min rotate = rotate_speed - rotate_dim * speed_min / speed_max
 // max rotate = rotate_speed - rotate_dim
 var rotate_dim : float = 0.3; 
