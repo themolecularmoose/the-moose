@@ -1,8 +1,8 @@
 ﻿#pragma strict
 
 //public variables for how fast the ship moves forward/backward and rotates
-var speed_max : float = 150.0;
-var speed_min : float = 5.0;
+var speed_max : float = 150.0; //max speed
+var speed_min : float = 5.0; //min speed 
 var speed_accel : float = 0.15; //acceleration on forward
 var speed_brake : float = 0.05; //deceleration on back
 var speed_decel : float = 0.002; //passive deceleration
