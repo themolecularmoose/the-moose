@@ -4,16 +4,18 @@
 public var speed : int;
 public var rotSpeed : int;
 public var gameController: GameController;
+public var moveBack : boolean;
 
 function Start()
 {
+	moveBack = false;
 	rigidbody.freezeRotation = true;
 	var gameControllerObject : GameObject = GameObject.FindWithTag("GameController");
 	if(gameControllerObject != null){
 		gameController = gameControllerObject.GetComponent(GameController);
 	}
 	if(gameControllerObject == null){
-		Debug.Log("Can't fint 'GameController' script!");
+		Debug.Log("Can't find 'GameController' script!");
 	}
 		
 }
@@ -38,12 +40,17 @@ function FixedUpdate()
 	transform.position += transform.forward * speed * Time.deltaTime * .2;
 	
 	//if the forward button is pressed, move forward at the desired speed.
-	if(Input.GetButton("Forward"))
+	if(Input.GetButton("Forward") && !moveBack)
 	{
 		transform.position += transform.forward * speed * Time.deltaTime;
 	}
 	//back button pressed, move backward at the desired speed.
-	if(Input.GetButton("Back"))
+	if(Input.GetButton("Back") && !moveBack)
+	{
+		transform.position -= transform.forward * speed * Time.deltaTime;
+	}
+	
+	if(moveBack)
 	{
 		transform.position -= transform.forward * speed * Time.deltaTime;
 	}
@@ -68,13 +75,4 @@ function HitCollectable(){
 function HitFluid(){
 	speed = .1;
 	Debug.Log("Hit fluid");
-}
-
-function HitObject()
-{
-	Debug.Log("Hit base!");
-	WaitForSeconds(1);
-	Debug.Log("Good to go");
-	
-	
 }

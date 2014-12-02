@@ -3,6 +3,7 @@
 private var score : int;
 private var count : int;
 private var collected : int;
+private var beamEnergy : int;
 private var startTime : float;
 private var levelTime : float;
 public var base : GameObject;
@@ -14,6 +15,7 @@ private var tractorBeam : boolean;
 function Start () 
 {
 	var collectablesObject : GameObject = GameObject.FindWithTag("Collectables");
+	RefillEnergy();
 	collected = 0;
 	endLevel = false;
 	winState = false;
@@ -58,12 +60,7 @@ function AddScore(scoreVal : int)
 function CollectedIncrease()
 {
 	collected++;
-	if(count == collected)
-	{
-		//Winstate
-		//winState = true;
-		//EndLevel();
-	}
+	beamEnergy -= 10;
 }
 
 function GetCount()
@@ -117,7 +114,14 @@ function isBeamOn()
 
 function beamState(state:boolean)
 {
-	tractorBeam = state;
+	if(beamEnergy <= 0)
+	{
+		tractorBeam = false;
+	}
+	else
+	{
+		tractorBeam = state;
+	}
 }
 
 function ChangeWinState()
@@ -130,4 +134,9 @@ function ChangeWinState()
 	{
 		winState = true;
 	}
+}
+
+function RefillEnergy()
+{
+	beamEnergy = 100;
 }
