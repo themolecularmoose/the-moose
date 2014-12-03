@@ -18,9 +18,9 @@ function OnCollisionEnter(collision:Collision){
 	if(collision.gameObject.tag == "Player" && gameController.isBeamOn()){
 		Debug.Log("Hit by player");
     	Destroy(this.gameObject);
-
+    	
     	gameController.AddScore(100);
-    	gameController.CollectedIncrease();
+    	gameController.CollectedIncrease(this.gameObject.tag);
     	//Destroy(this);
     	collision.gameObject.SendMessage("HitCollectable");
     }

@@ -11,6 +11,8 @@ private var timeLimit : float;
 private var endLevel : boolean;
 private var winState : boolean; //true is win false is lose
 private var tractorBeam : boolean;
+private var waterCount : int;
+private var methaneCount : int;
 
 function Start () 
 {
@@ -21,6 +23,8 @@ function Start ()
 	winState = false;
 	tractorBeam = false;
 	timeLimit = 60 * 3;
+	waterCount = 0;
+	methaneCount = 0;
 	
 	//hide cursor
 	Screen.lockCursor = true;
@@ -57,10 +61,19 @@ function AddScore(scoreVal : int)
 	Debug.Log(score);
 }
 
-function CollectedIncrease()
+function CollectedIncrease(type : String)
 {
 	collected++;
 	beamEnergy -= 10;
+	if(type == "Water")
+	{
+		waterCount++;
+	}
+	else
+	{
+		methaneCount++;
+	}
+	Debug.Log(methaneCount);
 }
 
 function GetCount()
@@ -107,6 +120,16 @@ function GetCollected()
 	return collected;
 }
 
+function GetWater()
+{
+	return waterCount;
+}
+
+function GetMethane()
+{
+	return methaneCount;
+}
+
 function isBeamOn()
 {
 	return tractorBeam;
@@ -139,4 +162,6 @@ function ChangeWinState()
 function RefillEnergy()
 {
 	beamEnergy = 100;
+	waterCount = 0;
+	methaneCount = 0;
 }

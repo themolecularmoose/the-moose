@@ -331,7 +331,7 @@ GameObject:
   - 114: {fileID: 68669954}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -688,7 +688,7 @@ GameObject:
   - 114: {fileID: 130332854}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1114,7 +1114,7 @@ GameObject:
   - 114: {fileID: 233995314}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2705,7 +2705,7 @@ GameObject:
   - 114: {fileID: 767677164}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2798,7 +2798,7 @@ GameObject:
   - 114: {fileID: 790432323}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3277,7 +3277,7 @@ GameObject:
   - 114: {fileID: 862290225}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3578,7 +3578,7 @@ GameObject:
   - 114: {fileID: 888858883}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3729,7 +3729,7 @@ GameObject:
   - 114: {fileID: 902769886}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Untagged
+  m_TagString: Methane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3827,7 +3827,7 @@ GameObject:
   - 114: {fileID: 913367076}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Untagged
+  m_TagString: Methane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4826,7 +4826,7 @@ GameObject:
   - 114: {fileID: 1159679753}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4919,7 +4919,7 @@ GameObject:
   - 114: {fileID: 1168320763}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6640,7 +6640,7 @@ GameObject:
   - 114: {fileID: 1506639544}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Untagged
+  m_TagString: Methane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7098,7 +7098,7 @@ GameObject:
   - 114: {fileID: 1626523897}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8844,7 +8844,7 @@ GameObject:
   - 114: {fileID: 1984731521}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Untagged
+  m_TagString: Methane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9270,7 +9270,7 @@ GameObject:
   - 114: {fileID: 2055066218}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Untagged
+  m_TagString: Methane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
