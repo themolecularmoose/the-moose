@@ -331,7 +331,7 @@ GameObject:
   - 114: {fileID: 68669954}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -688,7 +688,7 @@ GameObject:
   - 114: {fileID: 130332854}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1114,7 +1114,7 @@ GameObject:
   - 114: {fileID: 233995314}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1193,84 +1193,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 1
---- !u!1001 &244427620
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.31559136e-06
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.58193064
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 11.3892412
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: .707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_UseLightProbes
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6500000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 4e33bdd360f5c4e0d98be69da82ae7d3,
-        type: 2}
-    - target: {fileID: 2000000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2000000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2000000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-  m_RootGameObject: {fileID: 842825821}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &260973098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,7 +2875,7 @@ GameObject:
   - 114: {fileID: 767677164}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3046,7 +2968,7 @@ GameObject:
   - 114: {fileID: 790432323}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3262,7 +3184,7 @@ MeshFilter:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 842825826}
@@ -3283,7 +3205,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a,
     type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 842825821}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3292,12 +3214,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rotSpeed: 200
+  gameController: {fileID: 141271535}
+  moveBack: 0
 --- !u!23 &842825823
 Renderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 2300000, guid: 316fdc8fd79d35642bbe3990f7c0c21a,
     type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 842825821}
   m_Enabled: 1
   m_CastShadows: 1
@@ -3318,7 +3242,7 @@ BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6500000, guid: 316fdc8fd79d35642bbe3990f7c0c21a,
     type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 842825821}
   m_Material: {fileID: 13400000, guid: 4e33bdd360f5c4e0d98be69da82ae7d3, type: 2}
   m_IsTrigger: 0
@@ -3331,14 +3255,14 @@ MeshFilter:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 3300000, guid: 316fdc8fd79d35642bbe3990f7c0c21a,
     type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 842825821}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &842825826
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 842825821}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
   m_LocalPosition: {x: 1.31559136e-06, y: 3.58193064, z: 11.3892412}
@@ -3350,16 +3274,17 @@ Transform:
 --- !u!54 &842825827
 Rigidbody:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 5400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 842825821}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1.00000001e-07
   m_Drag: 100
   m_AngularDrag: .0500000007
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 36
   m_CollisionDetection: 0
 --- !u!1 &854272190
@@ -3522,7 +3447,7 @@ GameObject:
   - 114: {fileID: 862290225}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3823,7 +3748,7 @@ GameObject:
   - 114: {fileID: 888858883}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3974,7 +3899,7 @@ GameObject:
   - 114: {fileID: 902769886}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Untagged
+  m_TagString: Methane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4072,7 +3997,7 @@ GameObject:
   - 114: {fileID: 913367076}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Untagged
+  m_TagString: Methane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5156,7 +5081,7 @@ GameObject:
   - 114: {fileID: 1159679753}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5249,7 +5174,7 @@ GameObject:
   - 114: {fileID: 1168320763}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5403,6 +5328,66 @@ MeshFilter:
   m_PrefabInternal: {fileID: 489667258}
   m_GameObject: {fileID: 1180200013}
   m_Mesh: {fileID: 4300006, guid: 4a74f01835e019a47b886f84c5698ec2, type: 3}
+--- !u!1001 &1187281513
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.31559136e-06
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.58193064
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 11.3892412
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 141271535}
+    - target: {fileID: 100000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_Mass
+      value: 1.00000001e-07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
+  m_RootGameObject: {fileID: 842825821}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1190498445
 GameObject:
   m_ObjectHideFlags: 0
@@ -7228,7 +7213,7 @@ GameObject:
   - 114: {fileID: 1506639544}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Untagged
+  m_TagString: Methane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7530,7 +7515,7 @@ MeshFilter:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100002, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1570395521}
@@ -7550,7 +7535,7 @@ AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 8100000, guid: 316fdc8fd79d35642bbe3990f7c0c21a,
     type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 1570395516}
   m_Enabled: 1
 --- !u!124 &1570395518
@@ -7558,7 +7543,7 @@ Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 12400000, guid: 316fdc8fd79d35642bbe3990f7c0c21a,
     type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 1570395516}
   m_Enabled: 1
 --- !u!92 &1570395519
@@ -7566,7 +7551,7 @@ Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 9200000, guid: 316fdc8fd79d35642bbe3990f7c0c21a,
     type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 1570395516}
   m_Enabled: 1
 --- !u!20 &1570395520
@@ -7574,7 +7559,7 @@ Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 2000000, guid: 316fdc8fd79d35642bbe3990f7c0c21a,
     type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 1570395516}
   m_Enabled: 1
   serializedVersion: 2
@@ -7606,7 +7591,7 @@ Camera:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400002, guid: 316fdc8fd79d35642bbe3990f7c0c21a, type: 2}
-  m_PrefabInternal: {fileID: 244427620}
+  m_PrefabInternal: {fileID: 1187281513}
   m_GameObject: {fileID: 1570395516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: .25}
@@ -7686,7 +7671,7 @@ GameObject:
   - 114: {fileID: 1626523897}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9495,7 +9480,7 @@ GameObject:
   - 114: {fileID: 1984731521}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Untagged
+  m_TagString: Methane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10007,7 +9992,7 @@ GameObject:
   - 114: {fileID: 2055066218}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Untagged
+  m_TagString: Methane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
