@@ -29,6 +29,7 @@ function Start () {
 
 function OnTriggerEnter(collision:Collider){
 	if(collision.gameObject.tag == "Player"){
+		gameController.RefillEnergy();
 		items = count - gameController.GetCollected();
 		Debug.Log(items);
 		if(items == 0)
@@ -37,4 +38,9 @@ function OnTriggerEnter(collision:Collider){
 			gameController.EndLevel();
 		}
     }
+}
+
+function OnCollisionEnter(collision:Collision)
+{
+	collision.gameObject.SendMessage("HitObject");
 }

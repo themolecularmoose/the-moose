@@ -3,20 +3,28 @@
 private var score : int;
 private var count : int;
 private var collected : int;
+private var beamEnergy : int;
 private var startTime : float;
 private var levelTime : float;
 public var base : GameObject;
 private var timeLimit : float;
 private var endLevel : boolean;
 private var winState : boolean; //true is win false is lose
+private var tractorBeam : boolean;
+private var waterCount : int;
+private var methaneCount : int;
 
 function Start () 
 {
 	var collectablesObject : GameObject = GameObject.FindWithTag("Collectables");
+	RefillEnergy();
 	collected = 0;
 	endLevel = false;
 	winState = false;
+	tractorBeam = false;
 	timeLimit = 60 * 3;
+	waterCount = 0;
+	methaneCount = 0;
 	
 	//hide cursor
 	Screen.lockCursor = true;
@@ -53,15 +61,19 @@ function AddScore(scoreVal : int)
 	Debug.Log(score);
 }
 
-function CollectedIncrease()
+function CollectedIncrease(type : String)
 {
 	collected++;
-	if(count == collected)
+	beamEnergy -= 10;
+	if(type == "Water")
 	{
-		//Winstate
-		//winState = true;
-		//EndLevel();
+		waterCount++;
 	}
+	else
+	{
+		methaneCount++;
+	}
+	Debug.Log(methaneCount);
 }
 
 function GetCount()
@@ -108,6 +120,33 @@ function GetCollected()
 	return collected;
 }
 
+function GetWater()
+{
+	return waterCount;
+}
+
+function GetMethane()
+{
+	return methaneCount;
+}
+
+function isBeamOn()
+{
+	return tractorBeam;
+}
+
+function beamState(state:boolean)
+{
+	if(beamEnergy <= 0)
+	{
+		tractorBeam = false;
+	}
+	else
+	{
+		tractorBeam = state;
+	}
+}
+
 function ChangeWinState()
 {
 	if(winState)
@@ -118,4 +157,11 @@ function ChangeWinState()
 	{
 		winState = true;
 	}
+}
+
+function RefillEnergy()
+{
+	beamEnergy = 100;
+	waterCount = 0;
+	methaneCount = 0;
 }

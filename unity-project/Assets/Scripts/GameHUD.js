@@ -15,6 +15,11 @@ function OnGUI () {
   	DrawCollectablesCounter(
   		getCollectProgressStr(gameController.GetCollected(),gameController.GetCount()));
   	DrawScore( gameController.GetScore().ToString() );
+  	if(gameController.GetWater() != 0)
+  		DrawWater( "x " + gameController.GetWater().ToString() );
+  		
+  	if(gameController.GetMethane() != 0)
+  		DrawMethane("x " + gameController.GetMethane().ToString() );
 }
 
 function getTimeRemainingStr( totalSeconds : int ){
@@ -55,4 +60,24 @@ function DrawScore( score : String ){
 	topRightStyle.normal.textColor = Color.yellow;
 	//top right
 	GUI.Label (Rect (Screen.width - 250, 25, 200, 100), score, topRightStyle);
+}
+
+function DrawWater( water : String ){
+	var bottomLeftStyle = GUI.skin.GetStyle("Label");
+	bottomLeftStyle.alignment = TextAnchor.LowerLeft;
+	bottomLeftStyle.fontSize = 32;
+	bottomLeftStyle.font = hudFont;
+	bottomLeftStyle.normal.textColor = Color.yellow;
+	
+	GUI.Label(Rect (50, Screen.height - 200, 200, 200), water, bottomLeftStyle);
+}
+
+function DrawMethane( methane : String ){
+	var bottomLeftStyle = GUI.skin.GetStyle("Label");
+	bottomLeftStyle.alignment = TextAnchor.LowerLeft;
+	bottomLeftStyle.fontSize = 32;
+	bottomLeftStyle.font = hudFont;
+	bottomLeftStyle.normal.textColor = Color.yellow;
+	
+	GUI.Label(Rect (50, Screen.height - 250, 200, 200), methane, bottomLeftStyle);
 }
