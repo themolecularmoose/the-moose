@@ -2,12 +2,19 @@
 
 var hudFont : Font;
 var gameController : GameController;
-
+var showHelp = true;
 
 function Start () {
+	Invoke("HideHelp",5);
 }
 
 function Update () {
+	if(Input.GetKeyDown("h")){
+		if(!showHelp){
+			showHelp = true;
+			Invoke("HideHelp",5);
+		}
+	}
 }
 
 function OnGUI () {
@@ -15,11 +22,16 @@ function OnGUI () {
   	DrawCollectablesCounter(
   		getCollectProgressStr(gameController.GetCollected(),gameController.GetCount()));
   	DrawScore( gameController.GetScore().ToString() );
+
   	if(gameController.GetWater() != 0)
   		DrawWater( "x " + gameController.GetWater().ToString() );
   		
   	if(gameController.GetMethane() != 0)
   		DrawMethane("x " + gameController.GetMethane().ToString() );
+
+ 	if(showHelp){
+ 		DrawHelpMessage();
+ 	}
 }
 
 function getTimeRemainingStr( totalSeconds : int ){
@@ -30,6 +42,20 @@ function getTimeRemainingStr( totalSeconds : int ){
 
 function getCollectProgressStr( collectRemaining : int, totalCollects : int ){
 	return collectRemaining.ToString("00") + "/" + totalCollects;
+}
+
+function HideHelp(){
+	showHelp = false;	
+}
+
+function DrawHelpMessage(){
+	var message = "Navigate your ship in sub-atomic space to collect all the water and methane molecules before time runs out.";
+	var helpMessageStyle = GUI.skin.GetStyle("Label");
+	helpMessageStyle.alignment = TextAnchor.UpperLeft;
+	helpMessageStyle.fontSize = 20;
+	helpMessageStyle.font = hudFont;
+	helpMessageStyle.normal.textColor = Color.blue;
+	GUI.Label(Rect (Screen.width - 250, Screen.height - 200, 200, 200), message, helpMessageStyle);
 }
 
 function DrawTimer( time : String ){
