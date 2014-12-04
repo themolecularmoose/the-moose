@@ -74,12 +74,3 @@ function FixedUpdate()
 	transform.Rotate(new_rotate * (rotate_speed - (rotate_dim * speed / speed_max)) * Time.fixedDeltaTime); 
 
 }
-
-function HitCollectable(){
-	Debug.Log("Hit collectable");
-}
-
-function HitFluid(){
-	speed = .1;
-	Debug.Log("Hit fluid");
-}
