@@ -1,56 +1,49 @@
 fileFormatVersion: 2
-guid: 8af3df9ca30756a4ab262eeeda2489a2
+guid: b53b7545a07c65444a2180cea3f50e5d
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: Cylinder
-    100002: Cylinder_001
-    100004: Cylinder_002
-    100006: Cylinder_003
-    100008: //RootNode
-    100010: Sphere
-    100012: Sphere_001
-    100014: Sphere_002
-    100016: Sphere_003
-    100018: Sphere_004
-    400000: Cylinder
-    400002: Cylinder_001
-    400004: Cylinder_002
-    400006: Cylinder_003
-    400008: //RootNode
-    400010: Sphere
-    400012: Sphere_001
-    400014: Sphere_002
-    400016: Sphere_003
-    400018: Sphere_004
+    100000: Camera
+    100002: Cylinder
+    100004: Cylinder.001
+    100006: Cylinder.002
+    100008: Lamp
+    100010: //RootNode
+    100012: Sphere
+    100014: Sphere.001
+    100016: Sphere.002
+    100018: Sphere.003
+    400000: Camera
+    400002: Cylinder
+    400004: Cylinder.001
+    400006: Cylinder.002
+    400008: Lamp
+    400010: //RootNode
+    400012: Sphere
+    400014: Sphere.001
+    400016: Sphere.002
+    400018: Sphere.003
     2300000: Cylinder
-    2300002: Cylinder_001
-    2300004: Cylinder_002
-    2300006: Cylinder_003
-    2300008: Sphere
-    2300010: Sphere_001
-    2300012: Sphere_002
-    2300014: Sphere_003
-    2300016: Sphere_004
+    2300002: Cylinder.001
+    2300004: Cylinder.002
+    2300006: Sphere
+    2300008: Sphere.001
+    2300010: Sphere.002
+    2300012: Sphere.003
     3300000: Cylinder
-    3300002: Cylinder_001
-    3300004: Cylinder_002
-    3300006: Cylinder_003
-    3300008: Sphere
-    3300010: Sphere_001
-    3300012: Sphere_002
-    3300014: Sphere_003
-    3300016: Sphere_004
-    4300000: Cylinder_003
-    4300002: Cylinder_002
-    4300004: Cylinder_001
-    4300006: Cylinder
-    4300008: Sphere_004
-    4300010: Sphere_003
-    4300012: Sphere_002
-    4300014: Sphere_001
-    4300016: Sphere
-    7400000: Default Take
+    3300002: Cylinder.001
+    3300004: Cylinder.002
+    3300006: Sphere
+    3300008: Sphere.001
+    3300010: Sphere.002
+    3300012: Sphere.003
+    4300000: Cylinder.002
+    4300002: Cylinder.001
+    4300004: Sphere.003
+    4300006: Sphere.002
+    4300008: Cylinder
+    4300010: Sphere.001
+    4300012: Sphere
     9500000: //RootNode
   materials:
     importMaterials: 0
