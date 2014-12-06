@@ -31,6 +31,7 @@ function FixedUpdate () {
 }
 
 function HitCollectable(){
+	audio.Play();
  	Debug.Log("Hit collectable");
  }
  
