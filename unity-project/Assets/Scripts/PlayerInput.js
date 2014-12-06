@@ -69,7 +69,7 @@ function FixedUpdate()
 }
 
 function HitCollectable(){
-	Debug.Log("Hit collectable");
+	Debug.Log("Player Input Hit collectable");
 }
 
 function HitFluid(){

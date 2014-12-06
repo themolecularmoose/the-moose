@@ -2,6 +2,7 @@
 
 public var gameController: GameController;
 
+
 function Start()
 {
 	rigidbody.freezeRotation = true;
@@ -31,7 +32,8 @@ function FixedUpdate () {
 }
 
 function HitCollectable(){
- 	Debug.Log("Hit collectable");
+	audio.Play();
+ 	Debug.Log("Player Collision Hit collectable");
  }
  
 function HitFluid(){
