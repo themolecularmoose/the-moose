@@ -381,6 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!65 &68669956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -738,6 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!65 &130332856
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1164,6 +1166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!65 &233995316
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2925,6 +2928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!65 &767677166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3018,6 +3022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!65 &790432325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3524,6 +3529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!65 &862290227
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3773,6 +3779,7 @@ GameObject:
   - 65: {fileID: 888858885}
   - 114: {fileID: 888858884}
   - 114: {fileID: 888858883}
+  - 82: {fileID: 888858887}
   m_Layer: 0
   m_Name: water_collectable
   m_TagString: Water
@@ -3825,6 +3832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!65 &888858885
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3854,6 +3862,64 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 1
+--- !u!82 &888858887
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 888858881}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 1ef1b4f529fdb4d29a554828e22d60f0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &900456878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3981,6 +4047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!54 &902769888
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4079,6 +4146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!54 &913367078
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4583,6 +4651,7 @@ GameObject:
   - 4: {fileID: 1021313386}
   - 33: {fileID: 1021313388}
   - 23: {fileID: 1021313387}
+  - 82: {fileID: 1021313389}
   m_Layer: 0
   m_Name: Sphere.002
   m_TagString: Untagged
@@ -4631,6 +4700,64 @@ MeshFilter:
   m_PrefabInternal: {fileID: 423108785}
   m_GameObject: {fileID: 1021313385}
   m_Mesh: {fileID: 4300012, guid: aeace0383549f8b4a9fe647e883ebdf4, type: 3}
+--- !u!82 &1021313389
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1021313385}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 1ef1b4f529fdb4d29a554828e22d60f0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1030954599
 GameObject:
   m_ObjectHideFlags: 0
@@ -5158,6 +5285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!65 &1159679755
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5251,6 +5379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!65 &1168320765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7295,6 +7424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!54 &1506639546
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7337,6 +7467,7 @@ GameObject:
   - 23: {fileID: 1537097283}
   - 65: {fileID: 1537097287}
   - 114: {fileID: 1537097286}
+  - 82: {fileID: 1537097288}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -7422,6 +7553,64 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &1537097288
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537097281}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 649829902d1804aa891759a79aa7c653, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1539013284
 GameObject:
   m_ObjectHideFlags: 0
@@ -7748,6 +7937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!65 &1626523899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9567,6 +9757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!54 &1984731523
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10080,6 +10271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
 --- !u!54 &2055066220
 Rigidbody:
   m_ObjectHideFlags: 0
