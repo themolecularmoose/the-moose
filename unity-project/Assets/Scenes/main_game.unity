@@ -8556,6 +8556,11 @@ Prefab:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 141271535}
+    - target: {fileID: 11400000, guid: 45100af814ffdde4085b3c74bd2b9d52, type: 2}
+      propertyPath: helpFont
+      value: 
+      objectReference: {fileID: 12800000, guid: 8d95f9ea8b36a4091a7686aa00923796,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45100af814ffdde4085b3c74bd2b9d52, type: 2}
   m_RootGameObject: {fileID: 2035065592}
@@ -9848,6 +9853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudFont: {fileID: 12800000, guid: 30e14b2ce74f8a045a378f18b5d93482, type: 3}
+  helpFont: {fileID: 12800000, guid: 8d95f9ea8b36a4091a7686aa00923796, type: 3}
   gameController: {fileID: 141271535}
   showHelp: 1
 --- !u!4 &2035065594

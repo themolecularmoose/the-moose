@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 var hudFont : Font;
+var helpFont : Font;
 var gameController : GameController;
 var showHelp = true;
 
@@ -49,12 +50,13 @@ function HideHelp(){
 }
 
 function DrawHelpMessage(){
-	var message = "Navigate your ship in sub-atomic space to collect all the water and methane molecules before time runs out.";
-	var helpMessageStyle = GUI.skin.GetStyle("Label");
+	var message = "MISSION:\nNavigate your ship in sub-atomic space to collect all the water and methane molecules before time runs out.";
+	var helpMessageStyle = GUI.skin.GetStyle("Box");
+	helpMessageStyle.wordWrap = true; 
 	helpMessageStyle.alignment = TextAnchor.UpperLeft;
-	helpMessageStyle.fontSize = 20;
-	helpMessageStyle.font = hudFont;
-	helpMessageStyle.normal.textColor = Color.blue;
+	helpMessageStyle.fontSize = 18;
+	helpMessageStyle.font = helpFont;
+	helpMessageStyle.normal.textColor = Color.yellow;
 	GUI.Label(Rect (Screen.width - 250, Screen.height - 200, 200, 200), message, helpMessageStyle);
 }
 
