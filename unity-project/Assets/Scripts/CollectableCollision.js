@@ -1,7 +1,6 @@
 #pragma strict
 
 private var gameController : GameController;
-var collectSound : AudioClip;
 
 function Start()
 {
@@ -16,10 +15,10 @@ function Start()
 }
 
 function OnCollisionEnter(collision:Collision){
-	audio.PlayOneShot(collectSound);
 	if(collision.gameObject.tag == "Player" && gameController.isBeamOn()){
-		Debug.Log("Hit by player on collision enter");
+		Debug.Log("Hit by player");
     	Destroy(this.gameObject);
+    	
     	gameController.AddScore(100);
     	gameController.CollectedIncrease(this.gameObject.tag);
     	//Destroy(this);
