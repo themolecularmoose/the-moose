@@ -4,6 +4,8 @@ var hudFont : Font;
 var helpFont : Font;
 var gameController : GameController;
 var showHelp = true;
+public var waterTex : Texture;
+public var MethaneTex : Texture;
 
 function Start () {
 	Invoke("HideHelp",5);
@@ -97,7 +99,8 @@ function DrawWater( water : String ){
 	bottomLeftStyle.font = hudFont;
 	bottomLeftStyle.normal.textColor = Color.yellow;
 	
-	GUI.Label(Rect (50, Screen.height - 200, 200, 200), water, bottomLeftStyle);
+	GUI.DrawTexture(Rect(50,Screen.height - 70,60,60), waterTex, ScaleMode.ScaleToFit, true, 1.0f);
+	GUI.Label(Rect (120, Screen.height - 200, 200, 200), water, bottomLeftStyle);
 }
 
 function DrawMethane( methane : String ){
@@ -107,5 +110,6 @@ function DrawMethane( methane : String ){
 	bottomLeftStyle.font = hudFont;
 	bottomLeftStyle.normal.textColor = Color.yellow;
 	
-	GUI.Label(Rect (50, Screen.height - 250, 200, 200), methane, bottomLeftStyle);
+	GUI.DrawTexture(Rect(50,Screen.height - 170,60,60), MethaneTex, ScaleMode.ScaleToFit, true, 1.0f);
+	GUI.Label(Rect (120, Screen.height - 300, 200, 200), methane, bottomLeftStyle);
 }
