@@ -4,21 +4,22 @@ using System.Collections;
 public class CollectableCollision : MonoBehaviour
 {
 	private GameController gameController ;
-	GameControllerObject gameObject;
+	private GameObject gameControllerObject;
 
 	// Use this for initialization
 	void Start ()
 	{
 		gameControllerObject = GameObject.FindWithTag("GameController");
 		if(gameControllerObject != null){
-			gameController = gameControllerObject.GetComponent(GameController);
+			Debug.Log("Game controller created");
+			gameController = gameControllerObject.GetComponent("GameController") as GameController;
 		}else{
 			Debug.Log("Can't find GameController script!");
 		}
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void OnCollisionEnter(Collision collision)
 	{
 		if(collision.gameObject.tag == "Player" && gameController.isBeamOn()){
 			Debug.Log("Hit by player");
