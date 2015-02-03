@@ -3,19 +3,14 @@ using System.Collections;
 
 public class CollectableCollision : MonoBehaviour
 {
-	private GameController gameController ;
+	public GameController gameController ;
 	private GameObject gameControllerObject;
 
 	// Use this for initialization
 	void Start ()
 	{
-		gameControllerObject = GameObject.FindWithTag("GameController");
-		if(gameControllerObject != null){
-			Debug.Log("Game controller created");
-			gameController = gameControllerObject.GetComponent("GameController") as GameController;
-		}else{
-			Debug.Log("Can't find GameController script!");
-		}
+		gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
 	}
 	
 	// Update is called once per frame

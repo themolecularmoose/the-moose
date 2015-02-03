@@ -232,26 +232,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27cf19552bcd0e74aaaf60db031f8440, type: 3}
+  m_Script: {fileID: 11500000, guid: 471dd404331dd41be94e0eb3f33263bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed_max: 150
-  speed_min: 5
-  speed_accel: .150000006
-  speed_brake: .0500000007
-  speed_decel: .00200000009
-  strafe_max: 30
-  strafe_accel: .0500000007
-  strafe_decel: .0500000007
-  speed_scale: .100000001
-  rotate_speed: 120
-  rotate_dim: .300000012
-  horiz_sens: .75
-  vert_sens: 1
-  spin_sens: .75
-  horiz_invert: 1
-  vert_invert: -1
-  spin_invert: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -260,7 +243,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efb9e57ae7cdd86419b1dc9368449aca, type: 3}
+  m_Script: {fileID: 11500000, guid: 35288f8182c65470db51f3f6a1a94d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
