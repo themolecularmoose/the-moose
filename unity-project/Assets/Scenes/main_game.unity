@@ -934,12 +934,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 141271534}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414e795a8c4b42c4aa96e3d276d9a707, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f77e61a023d5984080c47ba8ce44cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base: {fileID: 0}
 --- !u!4 &141271536
 Transform:
   m_ObjectHideFlags: 0
@@ -6959,7 +6958,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1537097281}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc11212d9b12ffe44985ea40c241e6bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f77e61a023d5984080c47ba8ce44cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1537097287
@@ -7158,7 +7157,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967035
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -10118,8 +10117,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudFont: {fileID: 12800000, guid: 30e14b2ce74f8a045a378f18b5d93482, type: 3}
   helpFont: {fileID: 12800000, guid: 8d95f9ea8b36a4091a7686aa00923796, type: 3}
-  gameController: {fileID: 141271535}
+  gameController: {fileID: 0}
   showHelp: 1
+  waterTex: {fileID: 0}
+  MethaneTex: {fileID: 0}
 --- !u!4 &2035065594
 Transform:
   m_ObjectHideFlags: 0
