@@ -113,9 +113,9 @@ public class GameController : MonoBehaviour {
 		return score;
 	}
 	
-	public float GetTime()
+	public int GetTime()
 	{
-		return timeLimit;
+		return (int) timeLimit;
 	}
 	
 	public int GetCollected()
