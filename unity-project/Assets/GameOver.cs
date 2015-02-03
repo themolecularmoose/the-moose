@@ -3,13 +3,11 @@ using System.Collections;
 
 public class GameOver : MonoBehaviour
 {
-
 	private int win = 0;
 	private int score = 0;
 	private string level = "";
 	// Use this for initialization
-	void Start ()
-	{
+	void Start (){
 		//get our score from playerprefs
 		level = PlayerPrefs.GetString ("Level");
 		score = PlayerPrefs.GetInt("Score");
@@ -20,7 +18,7 @@ public class GameOver : MonoBehaviour
 
 	void OnGUI () {
 		// Make a background box
-		Rect rect = Rect(0, 0, Screen.width, Screen.height);
+		Rect rect = new Rect(0, 0, Screen.width, Screen.height);
 		GUI.Box (rect, "");
 		GUIStyle centeredStyle = GUI.skin.GetStyle("Label");
 		centeredStyle.alignment = TextAnchor.UpperCenter;
@@ -28,22 +26,22 @@ public class GameOver : MonoBehaviour
 		centeredStyle.normal.textColor = Color.yellow;
 		
 		// centered and at top of screen
-		GUI.Label (Rect (rect.center[0]-100, rect.center[1]-200, 200, 100), "Final Score");
-		GUI.Label (Rect (rect.center[0]-100, rect.center[1]-80, 200, 100), score.ToString());
-		
+		GUI.Label (new Rect (rect.center[0]-100, rect.center[1]-200, 200, 100), "Final Score");
+		GUI.Label (new Rect (rect.center[0]-100, rect.center[1]-80, 200, 100), score.ToString());
+
 		string victory = "";
-		if(win) {
+		if(win == 1) {
 			victory = "Winner!";
 		} else {
 			victory = "Loser";
 		}
-		GUI.Label (Rect (rect.center[0]-100, rect.center[1]+100, 200, 100), victory);
-		if (GUI.Button (Rect (rect.center[0]-40,rect.center[1],80,20), "Retry")) {
+		GUI.Label (new Rect (rect.center[0]-100, rect.center[1]+100, 200, 100), victory);
+		if (GUI.Button (new Rect (rect.center[0]-40,rect.center[1],80,20), "Retry")) {
 			Application.LoadLevel (level);
 		}
 		
 		// Make the second button.
-		if (GUI.Button (Rect (rect.center[0] -40,rect.center[1] + 40,80,20), "Quit")) {
+		if (GUI.Button (new Rect (rect.center[0] -40,rect.center[1] + 40,80,20), "Quit")) {
 			Application.LoadLevel("start_menu");
 		} 
 	}
