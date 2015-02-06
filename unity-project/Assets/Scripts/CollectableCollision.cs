@@ -23,7 +23,6 @@ public class CollectableCollision : MonoBehaviour
 			gameController.AddScore(100);
 			gameController.CollectedIncrease(this.gameObject.tag);
 			//Destroy(this);
-			collision.gameObject.SendMessage("HitCollectable");
 		}
 	}
 }
