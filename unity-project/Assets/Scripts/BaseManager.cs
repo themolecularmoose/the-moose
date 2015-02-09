@@ -13,15 +13,6 @@ public class BaseManager : MonoBehaviour
 	{
 		items = 0;
 		gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-		/*Debug.Log (gameControllerObject.ToString());
-		if(gameControllerObject != null){
-			gameController = gameControllerObject.GetComponent("GameController") as GameController;
-
-		}
-
-		if(gameControllerObject == null){
-			Debug.Log("Can't find 'GameController' script!");
-		}*/
 		GameObject collectablesObject = GameObject.FindWithTag ("Collectables");
 		if(collectablesObject != null){
 			count = collectablesObject.transform.childCount;
