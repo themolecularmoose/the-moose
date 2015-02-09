@@ -6,7 +6,7 @@ function Start()
 {
 	var gameControllerObject : GameObject = GameObject.FindWithTag("GameController");
 	if(gameControllerObject != null){
-		gameController = gameControllerObject.GetComponent(GameController);
+		gameController = gameControllerObject.GetComponent("GameController") as GameController;
 	}
 	if(gameControllerObject == null){
 		Debug.Log("Can't fint 'GameController' script!");

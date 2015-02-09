@@ -176,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.147212, y: -1.06716371, z: 35.4346085}
+  m_LocalPosition: {x: 1.44385397, y: 3.38472533, z: -12.1636972}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 400008}
@@ -431,12 +431,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcd9eb80b533d5243a77a4a215989771, type: 3}
+  m_Script: {fileID: 11500000, guid: 729115553947bb34fa6ecd1b607740fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xRotation: 20
-  yRotation: 0
-  zRotation: 50
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -445,9 +442,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e845942a4e7e477cb31ca8035316805, type: 3}
+  m_Script: {fileID: 11500000, guid: eed92c0be778b45f69ab5483eeb70067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
