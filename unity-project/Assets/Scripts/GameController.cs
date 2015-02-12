@@ -17,11 +17,14 @@ public class GameController : MonoBehaviour {
 	private int waterCount;
 	private int methaneCount;
 
+	public GameObject checkpoint;
+	private StateObj state;
 
 	// Use this for initialization
 	void Start () {
 
 		GameObject collectablesObject = GameObject.FindWithTag ("Collectables");
+		state = new StateObj ();
 		RefillEnergy();
 		collected = 0;
 		endLevel = false;
@@ -74,6 +77,27 @@ public class GameController : MonoBehaviour {
 	public void AddScore(int scoreVal) 
 	{
 		score += scoreVal;
+	}
+
+	public void SetCheckpoint(GameObject cp){
+		Debug.Log ("Setting checkpoint");
+		//this.state.SaveState(score,count,waterCount,methaneCount,startTime);
+		this.checkpoint = cp;
+	}
+
+	public void RespawnPlayer(GameObject player){
+		if (this.checkpoint != null) {
+			Debug.Log ("Relocating player");
+			player.transform.position = this.checkpoint.transform.position;
+			//this.score = this.state.getScore();
+			//this.count = this.state.getCount();
+			//this.waterCount = this.state.getWatercount();
+			//this.methaneCount = this.state.getMethanecount();
+			//this.startTime = this.state.getStarttime();
+
+			//Debug.Log("Score " + this.score + " count " + this.count + " water " + 
+			//          this.waterCount + " meth " + this.methaneCount + " time " + this.startTime); 
+		}
 	}
 
 	public void CollectedIncrease(string type)
