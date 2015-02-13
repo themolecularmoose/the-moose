@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour {
 
 	public void SetCheckpoint(GameObject cp){
 		Debug.Log ("Setting checkpoint");
-		this.state.SaveState(collected_collectables,score,collected,waterCount,methaneCount,beamEnergy,startTime);
+		this.state.SaveState(collected_collectables,score,collected,waterCount,methaneCount,beamEnergy);
 		collected_collectables.Clear ();
 		this.checkpoint = cp;
 	}
@@ -110,8 +110,6 @@ public class GameController : MonoBehaviour {
 			this.waterCount = this.state.getWatercount();
 			this.methaneCount = this.state.getMethanecount();
 			this.beamEnergy = this.state.getBeamenergy();
-			this.startTime = this.state.getStarttime();
-
 
 			collected_collectables.Clear ();
 			foreach(GameObject molecule in this.state.getCollectables()){
