@@ -59,6 +59,17 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	}
+	
+	void FixedUpdate () {
+		if(Input.GetButton("Tractor Beam"))
+		{
+			beamState(true);
+		}
+		else
+		{
+			beamState(false);
+		}
+	}
 
 	public void AddScore(int scoreVal) 
 	{
