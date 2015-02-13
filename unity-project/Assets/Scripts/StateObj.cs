@@ -12,10 +12,12 @@ using System.Collections;
 
 	public class StateObj
 	{
+		
 		private int score;
-		private int count;
+		private int collected;
 		private int watercount;
 		private int methanecount;
+		private int beamenergy;
 		private float starttime;
 
 		private ArrayList collected_collectables;
@@ -26,24 +28,26 @@ using System.Collections;
 			collected_collectables = new ArrayList ();
 		}
 
-		public void SaveState(ArrayList collectables, int score, int count, int watercount, int methanecount, float time){
+		public void SaveState(ArrayList collectables, int score, int collected, int watercount, int methanecount, int beamEnergy, float time){
 		    
+			//Adds newly collected molecules
 			for (int i=0; i<collectables.Count; i++) {
 				this.collected_collectables.Add(collectables[i]);
 			}
 
 			this.score = score;
-			this.count = count;
+			this.collected = collected;
 			this.watercount = watercount;
 			this.methanecount = methanecount;
+			this.beamenergy = beamEnergy;
 			this.starttime = time;
 		}
 
 		public ArrayList getCollectables(){
 			return this.collected_collectables;
 		}
-		public int getCount(){
-			return this.count;
+		public int getCollected(){
+			return this.collected;
 		}
 		public int getScore(){
 			return this.score;
@@ -53,6 +57,9 @@ using System.Collections;
 		}
 		public int getMethanecount(){
 			return this.methanecount;
+		}
+		public int getBeamenergy(){
+			return this.beamenergy;
 		}
 		public float getStarttime(){
 			return this.starttime;

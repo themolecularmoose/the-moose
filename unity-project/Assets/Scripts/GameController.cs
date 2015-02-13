@@ -96,31 +96,28 @@ public class GameController : MonoBehaviour {
 
 	public void SetCheckpoint(GameObject cp){
 		Debug.Log ("Setting checkpoint");
-		this.state.SaveState(collected_collectables,score,count,waterCount,methaneCount,startTime);
+		this.state.SaveState(collected_collectables,score,collected,waterCount,methaneCount,beamEnergy,startTime);
 		collected_collectables.Clear ();
 		this.checkpoint = cp;
 	}
 
 	public void RespawnPlayer(GameObject player){
 		if (this.checkpoint != null) {
-			Debug.Log ("Relocating player");
 			player.transform.position = this.checkpoint.transform.position;
-			//this.score = this.state.getScore();
-			//this.count = this.state.getCount();
-			//this.waterCount = this.state.getWatercount();
-			//this.methaneCount = this.state.getMethanecount();
-			//this.startTime = this.state.getStarttime();
+
+			this.score = this.state.getScore();
+			this.collected = this.state.getCollected();
+			this.waterCount = this.state.getWatercount();
+			this.methaneCount = this.state.getMethanecount();
+			this.beamEnergy = this.state.getBeamenergy();
+			this.startTime = this.state.getStarttime();
 
 
 			collected_collectables.Clear ();
-			Debug.Log("All Collectables size " + all_collectables.Count);
 			foreach(GameObject molecule in this.state.getCollectables()){
-				Debug.Log("Removing the molecule");
 				all_collectables.Remove (molecule);
 			}
-			Debug.Log("All Collectables size " + all_collectables.Count);
 			foreach(GameObject obj in all_collectables){
-				Debug.Log ("Instantiating " + obj.name );
 				//Instantiate (obj);
 				obj.SetActive(true);
 			}
