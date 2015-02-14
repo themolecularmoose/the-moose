@@ -119,7 +119,6 @@ public class GameController : MonoBehaviour {
 				//Instantiate (obj);
 				obj.SetActive(true);
 			}
-
 			//Debug.Log("Score " + this.score + " count " + this.count + " water " + 
 			//          this.waterCount + " meth " + this.methaneCount + " time " + this.startTime); 
 		}

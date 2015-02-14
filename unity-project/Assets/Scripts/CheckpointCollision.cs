@@ -18,7 +18,7 @@ public class CheckpointCollision : MonoBehaviour
 	{
 		if(collision.gameObject.tag == "Player"){
 			gameController.SetCheckpoint(this.gameObject);
-			//Destroy(this);
+			Destroy(this);
 		}
 	}
 }
