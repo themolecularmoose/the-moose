@@ -7,6 +7,8 @@ TagManager:
   - Collectables
   - Water
   - Methane
+  - Obsticle
+  - Wall
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
