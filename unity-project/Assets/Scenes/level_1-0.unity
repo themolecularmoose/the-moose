@@ -1460,6 +1460,7 @@ GameObject:
   - 4: {fileID: 149500472}
   - 33: {fileID: 149500474}
   - 23: {fileID: 149500473}
+  - 64: {fileID: 149500475}
   m_Layer: 0
   m_Name: curve5_MeshPart2
   m_TagString: Untagged
@@ -1507,6 +1508,19 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 53306697}
   m_GameObject: {fileID: 149500471}
+  m_Mesh: {fileID: 4300004, guid: 5a63f8924e730884cbeaaf27c14aa0fb, type: 3}
+--- !u!64 &149500475
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149500471}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300004, guid: 5a63f8924e730884cbeaaf27c14aa0fb, type: 3}
 --- !u!1 &153136738
 GameObject:
@@ -2713,7 +2727,7 @@ Transform:
   m_LocalScale: {x: 7.85245705, y: 7.85245657, z: 7.85245657}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
 --- !u!1 &198134019
 GameObject:
   m_ObjectHideFlags: 0
@@ -4159,10 +4173,6 @@ Prefab:
       value: 'Hello can I have a word?
 
         If you met jerk star Jubilee don''t be down.
-
-        He is just a victim of this tutorial level.
-
-        Doing his best to convey patronizing information in a jubilent manner.
 
 
         My Tip: "Carry change for toll booths!"'
@@ -6314,6 +6324,7 @@ GameObject:
   - 4: {fileID: 914372638}
   - 33: {fileID: 914372640}
   - 23: {fileID: 914372639}
+  - 64: {fileID: 914372641}
   m_Layer: 0
   m_Name: curve5_MeshPart3
   m_TagString: Untagged
@@ -6361,6 +6372,19 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 53306697}
   m_GameObject: {fileID: 914372637}
+  m_Mesh: {fileID: 4300006, guid: 5a63f8924e730884cbeaaf27c14aa0fb, type: 3}
+--- !u!64 &914372641
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 914372637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300006, guid: 5a63f8924e730884cbeaaf27c14aa0fb, type: 3}
 --- !u!1 &914450399
 GameObject:
@@ -7095,7 +7119,7 @@ Transform:
   - {fileID: 1115980263}
   - {fileID: 202618503}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &1102271644
 GameObject:
   m_ObjectHideFlags: 0
@@ -7144,10 +7168,6 @@ MonoBehaviour:
 
     If you met jerk star Jubilee don''t be down.
 
-    He is just a victim of this tutorial level.
-
-    Doing his best to convey patronizing information in a jubilent manner.
-
 
     My Tip: "Carry change for toll booths!"'
 --- !u!114 &1102271647
@@ -7178,7 +7198,7 @@ Transform:
   - {fileID: 692906207}
   - {fileID: 1116101075}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1 &1106459013
 GameObject:
   m_ObjectHideFlags: 0
@@ -8480,7 +8500,7 @@ MonoBehaviour:
 
     The designers wouldn''t be prepared for it.
 
-    It would be a true diservice to them....'
+    It would be a true dis-service to them....'
 --- !u!114 &1130937269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8494,7 +8514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spinRate: 0
-  m_bobRate: 1
+  m_bobRate: .5
   m_bobPeak: .5
 --- !u!4 &1130937270
 Transform:
@@ -9339,11 +9359,15 @@ Prefab:
 
         The designers wouldn''t be prepared for it.
 
-        It would be a true diservice to them....'
+        It would be a true dis-service to them....'
       objectReference: {fileID: 0}
     - target: {fileID: 11446074, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_spinRate
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446074, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_bobRate
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
@@ -10993,7 +11017,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 13573416, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_Radius
