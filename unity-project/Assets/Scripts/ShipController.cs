@@ -16,7 +16,7 @@ public class ShipController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		Vector3 force = Vector3.zero;
 
 		if(Input.GetKey(KeyCode.W))
