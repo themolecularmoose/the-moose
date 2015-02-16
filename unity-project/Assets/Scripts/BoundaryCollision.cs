@@ -17,9 +17,7 @@ public class BoundaryCollision : MonoBehaviour
 	void OnCollisionEnter(Collision collision)
 	{
 		if(collision.gameObject.tag == "Player"){
-			Debug.Log("Collision detected");
 			gameController.RespawnPlayer(collision.gameObject);
-			//Destroy(this);
 		}
 	}
 }

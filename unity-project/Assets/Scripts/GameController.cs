@@ -34,7 +34,6 @@ public class GameController : MonoBehaviour {
 		all_collectables = new ArrayList ();
 		collected_collectables = new ArrayList();
 
-		Debug.Log ("Collectables on load: " + objs.Length);
 		for (int i=0; i<objs.Length; i++) {
 			all_collectables.Add(objs[i]);
 		}
