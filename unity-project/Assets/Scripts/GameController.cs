@@ -18,11 +18,28 @@ public class GameController : MonoBehaviour {
 	private int methaneCount;
 	private float health;
 
+	public GameObject checkpoint;
+
+	public ArrayList all_collectables;
+	public ArrayList collected_collectables;
+
+	private StateObj state;
 
 	// Use this for initialization
 	void Start () {
 
+
 		GameObject collectablesObject = GameObject.FindWithTag ("Collectables");
+
+		GameObject[] objs = GameObject.FindGameObjectsWithTag ("Water");
+		all_collectables = new ArrayList ();
+		collected_collectables = new ArrayList();
+
+		for (int i=0; i<objs.Length; i++) {
+			all_collectables.Add(objs[i]);
+		}
+
+		state = new StateObj ();
 		RefillEnergy();
 		collected = 0;
 		endLevel = false;
@@ -78,6 +95,36 @@ public class GameController : MonoBehaviour {
 		score += scoreVal;
 	}
 
+	public void SetCheckpoint(GameObject cp){
+		Debug.Log ("Setting checkpoint");
+		this.state.SaveState(collected_collectables,score,collected,waterCount,methaneCount,beamEnergy);
+		collected_collectables.Clear ();
+		this.checkpoint = cp;
+	}
+
+	public void RespawnPlayer(GameObject player){
+		if (this.checkpoint != null) {
+			player.transform.position = this.checkpoint.transform.position;
+
+			this.score = this.state.getScore();
+			this.collected = this.state.getCollected();
+			this.waterCount = this.state.getWatercount();
+			this.methaneCount = this.state.getMethanecount();
+			this.beamEnergy = this.state.getBeamenergy();
+
+			collected_collectables.Clear ();
+			foreach(GameObject molecule in this.state.getCollectables()){
+				all_collectables.Remove (molecule);
+			}
+			foreach(GameObject obj in all_collectables){
+				//Instantiate (obj);
+				obj.SetActive(true);
+			}
+			//Debug.Log("Score " + this.score + " count " + this.count + " water " + 
+			//          this.waterCount + " meth " + this.methaneCount + " time " + this.startTime); 
+		}
+	}
+
 	public void CollectedIncrease(string type)
 	{
 		collected++;
@@ -120,7 +167,11 @@ public class GameController : MonoBehaviour {
 		}
 		
 	}
-	
+
+	public void CollectCollectable(GameObject collectable){
+		this.collected_collectables.Add(collectable);
+	}
+
 	public int GetScore()
 	{
 		return score;

@@ -18,10 +18,12 @@ public class CollectableCollision : MonoBehaviour
 	{
 		if(collision.gameObject.tag == "Player" && gameController.isBeamOn()){
 			Debug.Log("Hit by player");
-			Destroy(this.gameObject);
-			
+			gameController.CollectCollectable(this.gameObject);
+			//Destroy(this.gameObject);
+			this.gameObject.SetActive(false);
 			gameController.AddScore(100);
 			gameController.CollectedIncrease(this.gameObject.tag);
+
 			//Destroy(this);
 		}
 	}
