@@ -6804,6 +6804,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11413712, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: sensitivityX
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
   m_RootGameObject: {fileID: 563899129}
@@ -7113,7 +7117,7 @@ Transform:
   m_PrefabInternal: {fileID: 1792309275}
   m_GameObject: {fileID: 1100840617}
   m_LocalRotation: {x: 0, y: -.999990582, z: 0, w: .00434995303}
-  m_LocalPosition: {x: -93.3310013, y: -79.4199982, z: -34.026001}
+  m_LocalPosition: {x: -91.8799973, y: -79.4199982, z: -36.6300011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1115980263}
@@ -8523,13 +8527,13 @@ Transform:
   m_PrefabInternal: {fileID: 1418607513}
   m_GameObject: {fileID: 1130937266}
   m_LocalRotation: {x: 0, y: -.462573886, z: 0, w: .886580765}
-  m_LocalPosition: {x: -165.729996, y: -89, z: -55.7999992}
+  m_LocalPosition: {x: -183.649994, y: -89, z: -62.9599991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 506527775}
   - {fileID: 1582827750}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &1135856236
 GameObject:
   m_ObjectHideFlags: 0
@@ -9073,6 +9077,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 7.25908852
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: af13ac6582c10624587ea136424f14f7, type: 2}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1666884709}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af13ac6582c10624587ea136424f14f7, type: 2}
   m_RootGameObject: {fileID: 2004386505}
@@ -9194,7 +9202,7 @@ MonoBehaviour:
   m_text: 'Good day m''lady.
 
 
-    My Tip: "Use the MOUSE to TURN your ship."
+    My Tip: "Gently use the MOUSE to TURN your ship."
 
 
     Chivalry is not dead!'
@@ -9311,7 +9319,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -165.729996
+      value: -183.649994
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -9319,7 +9327,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -55.7999992
+      value: -62.9599991
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -9327,7 +9335,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -.462573856
+      value: -.462573886
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalRotation.z
@@ -9335,7 +9343,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .886580706
+      value: .886580765
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
@@ -10870,7 +10878,7 @@ Transform:
   - {fileID: 90887517}
   - {fileID: 1919105093}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1 &1612704748
 GameObject:
   m_ObjectHideFlags: 0
@@ -10925,6 +10933,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1521439088}
   m_RootOrder: 0
+--- !u!1 &1666884708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1666884710}
+  - 114: {fileID: 1666884709}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1666884709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1666884708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a846e61d26a12694f9096a7b7fc3312e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homebase: {fileID: 0}
+--- !u!4 &1666884710
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1666884708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -173.281555, y: -86.7005463, z: -44.5717087}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
 --- !u!1 &1717251625
 GameObject:
   m_ObjectHideFlags: 0
@@ -11053,7 +11101,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -93.3310013
+      value: -91.8799973
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -11061,7 +11109,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -34.026001
+      value: -36.6300011
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -14671,7 +14719,7 @@ Prefab:
       value: 'Good day m''lady.
 
 
-        My Tip: "Use the MOUSE to TURN your ship."
+        My Tip: "Gently use the MOUSE to TURN your ship."
 
 
         Chivalry is not dead!'
@@ -14724,7 +14772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed92c0be778b45f69ab5483eeb70067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
+  gameController: {fileID: 1666884709}
 --- !u!65 &2004386508
 BoxCollider:
   m_ObjectHideFlags: 0
