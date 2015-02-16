@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
 	private bool tractorBeam;
 	private int waterCount;
 	private int methaneCount;
+	private float health;
 
 	public GameObject checkpoint;
 
@@ -47,7 +48,8 @@ public class GameController : MonoBehaviour {
 		timeLimit = 60 * 3;
 		waterCount = 0;
 		methaneCount = 0;
-		
+		health = 100;
+
 		//hide cursor
 		Screen.lockCursor = true;
 		Screen.showCursor = false;
@@ -229,5 +231,21 @@ public class GameController : MonoBehaviour {
 		beamEnergy = 100;
 		waterCount = 0;
 		methaneCount = 0;
+	}
+
+	public void DecreaseHealth(float damage) {
+		health -= damage;
+	}
+
+	public float GetHealth() {
+		return health;
+	}
+
+	public void OnDeath() {
+		EndLevel (); // TODO: replace with checkpoint loading
+	}
+
+	public void OnDamage(float damage) {
+		DecreaseHealth(damage);
 	}
 }

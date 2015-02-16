@@ -10,11 +10,6 @@ public class PlayerCollison : MonoBehaviour
 	{
 		rigidbody.freezeRotation = true;
 		gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-		//if(gameControllerObject != null){
-		//	gameController = gameControllerObject.GetComponent(GameController) as GameController;
-		//}else{
-		//	Debug.Log("Can't find 'GameController' script!");
-		//}
 	}
 	
 	// Update is called once per frame
