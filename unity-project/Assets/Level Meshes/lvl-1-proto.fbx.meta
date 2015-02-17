@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 34aa5b4762f7c2246b93f32234427037
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: bevelPolygon1
+    100002: bevelPolygon10
+    100004: bevelPolygon11
+    100006: bevelPolygon12
+    100008: bevelPolygon13
+    100010: bevelPolygon2
+    100012: bevelPolygon3
+    100014: bevelPolygon4
+    100016: bevelPolygon6
+    100018: bevelPolygon7
+    100020: bevelPolygon8
+    100022: bevelPolygon9
+    100024: curve3
+    100026: curve4
+    100028: curve4_MeshPart0
+    100030: curve4_MeshPart1
+    100032: curve4_MeshPart2
+    100034: //RootNode
+    100036: transform1
+    100038: transform10
+    100040: transform2
+    100042: transform3
+    100044: transform4
+    100046: transform5
+    100048: transform6
+    100050: transform7
+    100052: transform8
+    100054: transform9
+    400000: bevelPolygon1
+    400002: bevelPolygon10
+    400004: bevelPolygon11
+    400006: bevelPolygon12
+    400008: bevelPolygon13
+    400010: bevelPolygon2
+    400012: bevelPolygon3
+    400014: bevelPolygon4
+    400016: bevelPolygon6
+    400018: bevelPolygon7
+    400020: bevelPolygon8
+    400022: bevelPolygon9
+    400024: curve3
+    400026: curve4
+    400028: curve4_MeshPart0
+    400030: curve4_MeshPart1
+    400032: curve4_MeshPart2
+    400034: //RootNode
+    400036: transform1
+    400038: transform10
+    400040: transform2
+    400042: transform3
+    400044: transform4
+    400046: transform5
+    400048: transform6
+    400050: transform7
+    400052: transform8
+    400054: transform9
+    2300000: bevelPolygon11
+    2300002: bevelPolygon12
+    2300004: bevelPolygon13
+    2300006: curve4_MeshPart0
+    2300008: curve4_MeshPart1
+    2300010: curve4_MeshPart2
+    3300000: bevelPolygon11
+    3300002: bevelPolygon12
+    3300004: bevelPolygon13
+    3300006: curve4_MeshPart0
+    3300008: curve4_MeshPart1
+    3300010: curve4_MeshPart2
+    4300000: curve4_MeshPart0
+    4300002: curve4_MeshPart1
+    4300004: curve4_MeshPart2
+    4300006: bevelPolygon11
+    4300008: bevelPolygon12
+    4300010: bevelPolygon13
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
