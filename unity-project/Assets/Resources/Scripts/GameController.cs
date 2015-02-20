@@ -5,23 +5,23 @@ public class GameController : MonoBehaviour {
 
 	private int score;
 	private int count;
-	private int collected;
-	private int beamEnergy;
 	private float startTime;
 	private float levelTime;
 	public GameObject homebase;
 	private float timeLimit;
 	private bool endLevel;
 	private bool winState; //true is win false is lose
-	private bool tractorBeam;
+	private int beamEnergy;
+	private int collected;
 	private int waterCount;
 	private int methaneCount;
+	public ArrayList collected_collectables;
 	private float health;
+	private bool tractorBeam;
 
 	public GameObject checkpoint;
 
 	public ArrayList all_collectables;
-	public ArrayList collected_collectables;
 
 	private StateObj state;
 
@@ -33,22 +33,15 @@ public class GameController : MonoBehaviour {
 
 		GameObject[] objs = GameObject.FindGameObjectsWithTag ("Water");
 		all_collectables = new ArrayList ();
-		collected_collectables = new ArrayList();
 
 		for (int i=0; i<objs.Length; i++) {
 			all_collectables.Add(objs[i]);
 		}
 
 		state = new StateObj ();
-		RefillEnergy();
-		collected = 0;
 		endLevel = false;
 		winState = false;
-		tractorBeam = false;
 		timeLimit = 60 * 3;
-		waterCount = 0;
-		methaneCount = 0;
-		health = 100;
 
 		//hide cursor
 		Screen.lockCursor = true;
@@ -61,6 +54,15 @@ public class GameController : MonoBehaviour {
 		startTime = Time.time;
 		
 		score = 0;
+		collected_collectables = new ArrayList();
+		beamEnergy = 100;
+		waterCount = 0;
+		methaneCount = 0;
+		collected = 0;
+		tractorBeam = false;
+		waterCount = 0;
+		methaneCount = 0;
+		health = 100;
 	}
 	
 	// Update is called once per frame
@@ -78,17 +80,6 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	}
-	
-	void FixedUpdate () {
-		if(Input.GetButton("Tractor Beam"))
-		{
-			beamState(true);
-		}
-		else
-		{
-			beamState(false);
-		}
-	}
 
 	public void AddScore(int scoreVal) 
 	{
@@ -97,6 +88,9 @@ public class GameController : MonoBehaviour {
 
 	public void SetCheckpoint(GameObject cp){
 		Debug.Log ("Setting checkpoint");
+		/*
+		 * NEED TO ADAPT TO NEW ShipBehaviour, LevelManager, GameManager structure.
+		 */
 		this.state.SaveState(collected_collectables,score,collected,waterCount,methaneCount,beamEnergy);
 		collected_collectables.Clear ();
 		this.checkpoint = cp;
@@ -202,18 +196,6 @@ public class GameController : MonoBehaviour {
 		return tractorBeam;
 	}
 	
-	public void beamState(bool state)
-	{
-		if(beamEnergy <= 0)
-		{
-			tractorBeam = false;
-		}
-		else
-		{
-			tractorBeam = state;
-		}
-	}
-	
 	public void ChangeWinState()
 	{
 		if(winState)
@@ -224,13 +206,6 @@ public class GameController : MonoBehaviour {
 		{
 			winState = true;
 		}
-	}
-	
-	public void RefillEnergy()
-	{
-		beamEnergy = 100;
-		waterCount = 0;
-		methaneCount = 0;
 	}
 
 	public void DecreaseHealth(float damage) {

@@ -18,7 +18,7 @@ public class PlayerCollison : MonoBehaviour
 	
 	}
 
-	void FixedUpdate () {
+	/*void FixedUpdate () {
 		if(Input.GetButton("Tractor Beam"))
 		{
 			gameController.beamState(true);
@@ -43,6 +43,6 @@ public class PlayerCollison : MonoBehaviour
 	IEnumerator wait()
 	{	
 		yield return new WaitForSeconds (1);
-	}
+	}*/
 }
 
