@@ -17,13 +17,13 @@ using System.Runtime.Serialization.Json; // for DataContractJsonSerializer
 public class ServerResponse
 {
 	[DataMember]
-	internal Boolean success;
+	public Boolean success;
 
 	[DataMember]
-	internal String message;
+	public String message;
 
 	[DataMember(Name="result")]
-	internal ServerUser[] userList;
+	public ServerUser[] userList;
 
 }
 
@@ -31,15 +31,15 @@ public class ServerResponse
 public class ServerUser
 {
 	[DataMember]
-	internal String username;
+	public String username;
 
 	[DataMember(Name="first_name")]
-	internal String firstName;
+	public String firstName;
 
 	[DataMember(Name="last_name")]
-	internal String lastName;
+	public String lastName;
 
 	[DataMember]
-	internal String email;
+	public String email;
 	
 }

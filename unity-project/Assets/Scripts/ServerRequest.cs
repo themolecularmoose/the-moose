@@ -17,17 +17,17 @@ using System.Runtime.Serialization.Json; // for DataContractJsonSerializer
 public class ServerRequest
 {
 	[DataMember]
-	internal string access = "unity";
+	public string access = "unity";
 	
 	[DataMember(EmitDefaultValue=false)]
-	internal string expires;
+	public string expires;
 
 	public ServerRequest(){
 		expires = "" + (int)((System.DateTime.UtcNow - 
 		                     new System.DateTime(1970, 1, 1)).TotalSeconds);
 	}
 
-	public String ToString()
+	public String stringify()
 	{
 		MemoryStream stream1 = new MemoryStream ();
 		DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(ServerRequest));
