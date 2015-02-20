@@ -14,7 +14,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json; // for DataContractJsonSerializer
 
-namespace AssemblyCSharp
+namespace AssemblyCSharpEditor
 {
 	[TestFixture()]
 	public class ConnectionUtilityTest
