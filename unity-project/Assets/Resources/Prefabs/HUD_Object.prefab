@@ -41,10 +41,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudFont: {fileID: 12800000, guid: 30e14b2ce74f8a045a378f18b5d93482, type: 3}
   helpFont: {fileID: 12800000, guid: 30e14b2ce74f8a045a378f18b5d93482, type: 3}
-  gameController: {fileID: 0}
   showHelp: 1
-  waterTex: {fileID: 2800000, guid: e12ee4b3a30c77041b6798668e971040, type: 3}
+  WaterTex: {fileID: 2800000, guid: e12ee4b3a30c77041b6798668e971040, type: 3}
   MethaneTex: {fileID: 2800000, guid: 7bbb52b7249150f47bde27bcd3cb164b, type: 3}
+  level: {fileID: 0}
+  collectableMolecules:
+  - Water
+  - Methane
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

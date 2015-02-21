@@ -14,7 +14,6 @@ public class CollectableCollision : MonoBehaviour
 	void OnCollisionEnter(Collision collision)
 	{
 		if(collision.gameObject.tag == "Player"){
-			Debug.Log("Hit by player");
 			/*gameController.CollectCollectable(this.gameObject);
 			//Destroy(this.gameObject);
 			this.gameObject.SetActive(false);

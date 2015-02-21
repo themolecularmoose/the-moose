@@ -1,17 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameHUD : MonoBehaviour {
 
 	public Font hudFont;
 	public Font helpFont;
-	public GameController gameController;
 	public bool showHelp = true;
-	public Texture waterTex;
+	public Texture WaterTex;
 	public Texture MethaneTex;
-	
+	public LevelManager level;
+
+	public string[] collectableMolecules = {"Water", "Methane"};
+	public Dictionary<string, Texture> moleculeTextures;
+	public Dictionary<string, Rect> moleculeTextureRects;
+	public Dictionary<string, Rect> moleculeLabelRects;
+
 	void Start () {
 		Invoke("HideHelp",5);
+		moleculeLabelRects = new Dictionary<string, Rect> {
+			{"Water", new Rect (120, Screen.height - 200, 200, 200)},
+		    {"Methane", new Rect (120, Screen.height - 300, 200, 200)}
+		};
+		moleculeTextureRects = new Dictionary<string, Rect> {
+			{"Water", new Rect(50,Screen.height - 70,60,60)},
+			{"Methane", 
+				new Rect(50,Screen.height - 170,60,60)}
+		};
+		moleculeTextures = new Dictionary<string, Texture> {
+			{"Water", WaterTex},
+			{"Methane", MethaneTex}
+		};
+
 	}
 	
 	void Update () {
@@ -24,16 +44,19 @@ public class GameHUD : MonoBehaviour {
 	}
 	
 	void OnGUI () {
-		DrawTimer(getTimeRemainingStr(gameController.GetTime()));
+		DrawTimer(getTimeRemainingStr(level.TimeLimit));
 		DrawCollectablesCounter(
-			getCollectProgressStr(gameController.GetCollected(),gameController.GetCount()));
-		DrawScore( gameController.GetScore().ToString() );
-		
-		if(gameController.GetWater() != 0)
-			DrawWater( "x " + gameController.GetWater().ToString() );
-		
-		if(gameController.GetMethane() != 0)
-			DrawMethane("x " + gameController.GetMethane().ToString() );
+			getCollectProgressStr(level.Collected.Count, level.Collectables.Count));
+		DrawScore( level.Score.ToString() );
+
+		foreach (string molecule in collectableMolecules) 
+		{
+			ArrayList molecules = level.GetCollectedByTag (molecule);
+			if (molecules.Count != 0) 
+			{
+				DrawMolecule (molecule, molecules.Count);
+			}
+		}
 		
 		if(showHelp){
 			DrawHelpMessage();
@@ -94,26 +117,15 @@ public class GameHUD : MonoBehaviour {
 		//top right
 		GUI.Label (new Rect (Screen.width - 250, 25, 200, 100), score, topRightStyle);
 	}
-	
-	void DrawWater( string water ){
-		GUIStyle bottomLeftStyle = GUI.skin.GetStyle("Label");
-		bottomLeftStyle.alignment = TextAnchor.LowerLeft;
-		bottomLeftStyle.fontSize = 32;
-		bottomLeftStyle.font = hudFont;
-		bottomLeftStyle.normal.textColor = Color.yellow;
 
-		GUI.DrawTexture(new Rect(50,Screen.height - 70,60,60), waterTex, ScaleMode.ScaleToFit, true, 1.0f);
-		GUI.Label(new Rect (120, Screen.height - 200, 200, 200), water, bottomLeftStyle);
-	}
-	
-	void DrawMethane( string methane ){
+	void DrawMolecule(string molecule, int count){
+		string message = "x " + count.ToString ();
 		GUIStyle bottomLeftStyle = GUI.skin.GetStyle("Label");
 		bottomLeftStyle.alignment = TextAnchor.LowerLeft;
 		bottomLeftStyle.fontSize = 32;
 		bottomLeftStyle.font = hudFont;
 		bottomLeftStyle.normal.textColor = Color.yellow;
-		
-		GUI.DrawTexture(new Rect(50,Screen.height - 170,60,60), MethaneTex, ScaleMode.ScaleToFit, true, 1.0f);
-		GUI.Label(new Rect (120, Screen.height - 300, 200, 200), methane, bottomLeftStyle);
+		GUI.DrawTexture(moleculeTextureRects[molecule], moleculeTextures[molecule], ScaleMode.ScaleToFit, true, 1.0f);
+		GUI.Label(moleculeLabelRects[molecule], message, bottomLeftStyle);
 	}
 }

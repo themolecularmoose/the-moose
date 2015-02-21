@@ -3,13 +3,12 @@ using System.Collections;
 
 public class CheckpointCollision : MonoBehaviour
 {
-	public GameController gameController ;
-	private GameObject gameControllerObject;
+	public LevelManager level;
 	
 	// Use this for initialization
 	void Start ()
 	{
-		gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+		level = GameObject.Find("Level").GetComponent<LevelManager>();
 		
 	}
 	
@@ -17,8 +16,8 @@ public class CheckpointCollision : MonoBehaviour
 	void OnCollisionEnter(Collision collision)
 	{
 		if(collision.gameObject.tag == "Player"){
-			gameController.SetCheckpoint(this.gameObject);
-			Destroy(this);
+			level.SetCheckpoint(this.gameObject.transform.position);
+			Destroy (this.gameObject);
 		}
 	}
 }
