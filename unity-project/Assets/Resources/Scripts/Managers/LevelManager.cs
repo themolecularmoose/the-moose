@@ -9,7 +9,6 @@ public class LevelManager : MonoBehaviour {
 
 	private Dictionary<string, List<GameObject>> collected;
 	private Dictionary<string, List<GameObject>> collectables;
-	private float startTime; 
 	private bool endLevel;
 	private bool winState; //true is win false is lose
 
@@ -19,38 +18,42 @@ public class LevelManager : MonoBehaviour {
 
 	private ShipBehaviour ship;
 
-	// Use this for initialization
-	void Start () {
-		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
-		collectables = GetCollectables ();
+
+	void OnEnable () 
+	{
+		// Setup level vars
+		collectables = TagLookupTable (GetCollectables ());
 		collected = new Dictionary<string, List<GameObject>>();
-		state = new StateObj ();
 		endLevel = false;
 		winState = false;
-		startTime = Time.deltaTime;
+		score = 0;
+		state = new StateObj ();
+	}
 
+	// Use this for initialization
+	void Start () 
+	{
 		//hide cursor
 		Screen.lockCursor = true;
 		Screen.showCursor = false;
-		score = 0;
+
+		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
+		SetCheckpoint(ship.transform.position);
 	}
 
-	private Dictionary<string, List<GameObject>> GetCollectables()
+	private ArrayList GetCollectables()
 	{
-		Dictionary<string, List<GameObject>> tmpDic = new Dictionary<string, List<GameObject>>();
 		GameObject collectablesObject = GameObject.Find ("Collectables");
+		ArrayList tmpList = new ArrayList (); 
 		foreach (Transform child in collectablesObject.transform) 
 		{
-			GameObject tmpChild = child.gameObject;
-			if(!tmpDic.ContainsKey(tmpChild.tag)){
-				tmpDic.Add (child.tag, new List<GameObject>());
-			}
-			tmpDic[tmpChild.tag].Add(tmpChild);
+			tmpList.Add(child.gameObject);
 		}
-		return tmpDic;
+		return tmpList;
 	}
 
-	private Dictionary<string, List<GameObject>> TagLookupTable(ArrayList list) {
+	private Dictionary<string, List<GameObject>> TagLookupTable(ArrayList list) 
+	{
 		Dictionary<string, List<GameObject>> tmpDic = new Dictionary<string, List<GameObject>>();
 		foreach (GameObject tmpObj in list) 
 		{
@@ -62,7 +65,8 @@ public class LevelManager : MonoBehaviour {
 		return tmpDic;
 	}
 
-	private ArrayList Flatten(Dictionary<string, List<GameObject>> table) {
+	private ArrayList Flatten(Dictionary<string, List<GameObject>> table) 
+	{
 		ArrayList tmp = new ArrayList();
 		foreach(KeyValuePair<string, List<GameObject>> entry in table) {
 			tmp.AddRange(entry.Value);
@@ -70,12 +74,13 @@ public class LevelManager : MonoBehaviour {
 		return tmp;
 	}
 
-	public void OnDeath() {
-		if(!RespawnPlayer (ship.gameObject)) 
-			EndLevel();
+	public void OnDeath() 
+	{
+		RespawnPlayer (ship.gameObject);
 	}
 
-	public void OnDamage(float damage) {
+	public void OnDamage(float damage) 
+	{
 		// NOOP
 	}
 
@@ -89,7 +94,8 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		if(endLevel == false)
 		{
 			if(timeLimit <= 0)
@@ -104,31 +110,28 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
-	public bool RespawnPlayer(GameObject player){
-		if (this.checkpoint != null) {
-			this.score = this.state.getScore();
-			ArrayList collectedList = this.state.getCollected();
-			this.collected = TagLookupTable(collectedList);
-			ship.Health = this.state.getHealth();
-			ship.BeamEnergy = this.state.getBeamenergy();
-
-			foreach(GameObject obj in collectedList){
-				obj.SetActive(true);
-			}
-			player.transform.position = this.checkpoint;
-			return true;
+	public void RespawnPlayer(GameObject player)
+	{
+		this.score = this.state.getScore();
+		ArrayList collectedList = this.state.getCollected();
+		this.collected = TagLookupTable(collectedList);
+		Debug.Log (this.state.getHealth());
+		ship.Health = this.state.getHealth();
+		ship.BeamEnergy = this.state.getBeamenergy();
+		foreach(GameObject obj in collectedList){
+			obj.SetActive(true);
 		}
-		return false;
+		player.transform.position = this.checkpoint;
 	}
 
-	public void SetCheckpoint(Vector3 checkpoint){
+	public void SetCheckpoint(Vector3 checkpoint)
+	{
 		this.state.SaveState(score,Flatten(collected),ship.BeamEnergy, ship.Health);
 		this.checkpoint = checkpoint;
 	}
 
 	public void EndLevel()
 	{
-		float levelTime = Time.time - startTime;
 		endLevel = true;
 		PlayerPrefs.SetInt ("Score", score);
 		PlayerPrefs.SetString ("Level" ,Application.loadedLevelName);

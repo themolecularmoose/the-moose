@@ -15,8 +15,8 @@ public class ShipBehaviour : MonoBehaviour {
 	// Ensures order of damage taken
 	private static Mutex _m;
 
-	// Use this for initialization
-	void Start () {
+	void OnEnable() 
+	{
 		_m = new Mutex ();
 		beamEnergy = 100;
 		tractorBeam = false;
@@ -42,7 +42,8 @@ public class ShipBehaviour : MonoBehaviour {
 		
 	}
 
-	float CalcDamage(Collision hit) {
+	float CalcDamage(Collision hit) 
+	{
 		float hitMagnitude = hit.relativeVelocity.magnitude;
 		float pointsOfContact = hit.contacts.Length;
 		float mass = 0;
@@ -60,20 +61,23 @@ public class ShipBehaviour : MonoBehaviour {
 		return forceSpread * damageScalar;
 	}
 	
-	void CheckDeath(){
+	void CheckDeath()
+	{
 		if(health <= 0) {
 			gameObject.SendMessageUpwards("OnDeath");
 		}
 	}
 	
-	public void DecreaseHealth(float damage) {
+	public void DecreaseHealth(float damage) 
+	{
 		health -= damage;
 	}
 
 	/// <summary>
 	/// Move to controller
 	/// </summary>
-	void FixedUpdate () {
+	void FixedUpdate () 
+	{
 		CheckDeath ();
 		if(Input.GetButton("Tractor Beam"))
 		{
@@ -100,7 +104,6 @@ public class ShipBehaviour : MonoBehaviour {
 		if (!damagers.Contains (collidedWithTag)) {
 			return;
 		}
-		Debug.Log ("Damamge");
 		_m.WaitOne();
 		float damage = CalcDamage (collision);
 		DecreaseHealth (damage);
