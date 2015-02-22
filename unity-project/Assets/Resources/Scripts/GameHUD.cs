@@ -24,8 +24,7 @@ public class GameHUD : MonoBehaviour {
 		};
 		moleculeTextureRects = new Dictionary<string, Rect> {
 			{"Water", new Rect(50,Screen.height - 70,60,60)},
-			{"Methane", 
-				new Rect(50,Screen.height - 170,60,60)}
+			{"Methane", new Rect(50,Screen.height - 170,60,60)}
 		};
 		moleculeTextures = new Dictionary<string, Texture> {
 			{"Water", WaterTex},

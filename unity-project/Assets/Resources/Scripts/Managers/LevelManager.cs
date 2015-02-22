@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 
 public class LevelManager : MonoBehaviour {
 	// Vars set from unity editor
@@ -114,13 +115,15 @@ public class LevelManager : MonoBehaviour {
 	{
 		this.score = this.state.getScore();
 		ArrayList collectedList = this.state.getCollected();
-		this.collected = TagLookupTable(collectedList);
-		Debug.Log (this.state.getHealth());
+		List<GameObject> saveCollected = collectedList.Cast<GameObject>().ToList();
+		List<GameObject> curCollected = Flatten(this.collected).Cast<GameObject>().ToList();
+		IEnumerable<GameObject> enables = curCollected.Except (saveCollected);
 		ship.Health = this.state.getHealth();
 		ship.BeamEnergy = this.state.getBeamenergy();
-		foreach(GameObject obj in collectedList){
+		foreach(GameObject obj in enables){
 			obj.SetActive(true);
 		}
+		this.collected = TagLookupTable(collectedList);
 		player.transform.position = this.checkpoint;
 	}
 
