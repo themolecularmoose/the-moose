@@ -14,6 +14,7 @@ public class ClusterBhv : MonoBehaviour {
 			MonoBehaviour[] scripts = child.GetComponents<MonoBehaviour>();
 			for(int s = 0; s <scripts.Length; ++s)
 			{
+				Debug.Log(scripts[s]);
 				scripts[s].enabled = false;
 			}
 		}
@@ -56,7 +57,6 @@ public class ClusterBhv : MonoBehaviour {
 	{
 		if(!m_broken)
 		{
-			Debug.Log("Cluster Compromised");
 			BusterBhv buster = (BusterBhv)a_sender;
 			Explode(buster.m_power, buster.m_lift, buster.gameObject.transform.position);
 			Destroy(buster.gameObject);

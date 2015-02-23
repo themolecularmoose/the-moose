@@ -34,21 +34,17 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		//hide cursor
-		Screen.lockCursor = true;
-		Screen.showCursor = false;
-
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
 	}
 
 	private ArrayList GetCollectables()
 	{
-		GameObject collectablesObject = GameObject.Find ("Collectables");
+		GameObject[] collectablesObject = GameObject.FindGameObjectsWithTag("Collectable");
 		ArrayList tmpList = new ArrayList (); 
-		foreach (Transform child in collectablesObject.transform) 
+		foreach (GameObject child in collectablesObject) 
 		{
-			tmpList.Add(child.gameObject);
+			tmpList.Add(child);
 		}
 		return tmpList;
 	}

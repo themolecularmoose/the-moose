@@ -1724,7 +1724,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: af13ac6582c10624587ea136424f14f7, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: af13ac6582c10624587ea136424f14f7, type: 2}
+      propertyPath: m_TagString
+      value: Collectable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af13ac6582c10624587ea136424f14f7, type: 2}
@@ -2243,7 +2247,7 @@ GameObject:
   - 54: {fileID: 488505267}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Water
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2305,7 +2309,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 488505265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed92c0be778b45f69ab5483eeb70067, type: 3}
+  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &492856665
@@ -2613,7 +2617,7 @@ GameObject:
   - 54: {fileID: 537939997}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Water
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2675,7 +2679,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 537939995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed92c0be778b45f69ab5483eeb70067, type: 3}
+  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &538972576
@@ -2910,7 +2914,7 @@ GameObject:
   - 54: {fileID: 649405699}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Water
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2955,7 +2959,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 649405698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed92c0be778b45f69ab5483eeb70067, type: 3}
+  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &649405702
@@ -2988,7 +2992,7 @@ GameObject:
   - 54: {fileID: 653801540}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Water
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4234,7 +4238,7 @@ GameObject:
   - 54: {fileID: 956217649}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Water
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4296,7 +4300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 956217647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed92c0be778b45f69ab5483eeb70067, type: 3}
+  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &957211255
@@ -4383,7 +4387,7 @@ GameObject:
   - 114: {fileID: 969418639}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Methane
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4418,7 +4422,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 969418637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed92c0be778b45f69ab5483eeb70067, type: 3}
+  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &969418640
@@ -4695,7 +4699,7 @@ GameObject:
   - 114: {fileID: 1095671233}
   m_Layer: 0
   m_Name: methane_collectable
-  m_TagString: Methane
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4730,7 +4734,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1095671231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed92c0be778b45f69ab5483eeb70067, type: 3}
+  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &1095671234
@@ -4986,7 +4990,7 @@ GameObject:
   - 54: {fileID: 1153565738}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Water
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5048,7 +5052,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1153565736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed92c0be778b45f69ab5483eeb70067, type: 3}
+  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1169020258
@@ -5776,6 +5780,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1395862312}
+  - 114: {fileID: 1395862313}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -5802,6 +5807,19 @@ Transform:
   - {fileID: 679378674}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1395862313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1395862311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0700b0c6a7966b644852bee689d4cbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLimit: 100
+  checkpoint: {x: 0, y: 0, z: 0}
 --- !u!1 &1438916974
 GameObject:
   m_ObjectHideFlags: 0
@@ -8561,7 +8579,7 @@ GameObject:
   - 54: {fileID: 1784505542}
   m_Layer: 0
   m_Name: water_collectable
-  m_TagString: Water
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8623,7 +8641,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1784505540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed92c0be778b45f69ab5483eeb70067, type: 3}
+  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1787765032
