@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
 	private float health;
 
 	public GameObject checkpoint;
-
+	public AudioClip damageAud;
 	public ArrayList all_collectables;
 	public ArrayList collected_collectables;
 
@@ -246,6 +246,14 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void OnDamage(float damage) {
+		if(damage != 0)
+			audio.PlayOneShot (damageAud);
+
 		DecreaseHealth(damage);
+
+	}
+
+	public void PlaySound(AudioClip aud) {
+		audio.PlayOneShot (aud);
 	}
 }
