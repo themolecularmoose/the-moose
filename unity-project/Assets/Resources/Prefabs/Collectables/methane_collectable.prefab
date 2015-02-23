@@ -186,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -4.3297803e-17, y: .707106769, z: .707106888, w: -4.32978096e-17}
-  m_LocalPosition: {x: .293500006, y: .943500042, z: .512499988}
+  m_LocalPosition: {x: -.0270000007, y: .808000028, z: -.00499999989}
   m_LocalScale: {x: 2.49999976, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 400018}
@@ -198,7 +198,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: -4.3297803e-17, y: .707106769, z: .707106888, w: -4.32978096e-17}
-  m_LocalPosition: {x: .293500006, y: .293500006, z: .512499988}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 400018}
@@ -210,7 +210,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: -4.3297803e-17, y: .707106769, z: .707106888, w: -4.32978096e-17}
-  m_LocalPosition: {x: .887499988, y: 0, z: .512499988}
+  m_LocalPosition: {x: .565999985, y: -.136000007, z: -.00499999989}
   m_LocalScale: {x: 2.49999976, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 400018}
@@ -222,7 +222,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: -4.3297803e-17, y: .707106769, z: .707106888, w: -4.32978096e-17}
-  m_LocalPosition: {x: 0, y: 0, z: 1.02499998}
+  m_LocalPosition: {x: -.32100001, y: -.136000007, z: .507000029}
   m_LocalScale: {x: 2.49999976, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 400018}
@@ -234,7 +234,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: -4.3297803e-17, y: .707106769, z: .707106888, w: -4.32978096e-17}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -.32100001, y: -.136000007, z: -.518000007}
   m_LocalScale: {x: 2.49999976, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 400018}
@@ -246,7 +246,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: -4.3297803e-17, y: .707106769, z: .707106888, w: -4.32978096e-17}
-  m_LocalPosition: {x: .293500006, y: .622800052, z: .512499988}
+  m_LocalPosition: {x: -.0270000007, y: .486999989, z: -.00499999989}
   m_LocalScale: {x: 1, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 400018}
@@ -258,7 +258,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: .612372458, y: .353553355, z: .353553385, w: .612372458}
-  m_LocalPosition: {x: .590500057, y: .146750003, z: .512499988}
+  m_LocalPosition: {x: .270000011, y: .0109999999, z: -.00499999989}
   m_LocalScale: {x: .99999994, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 400018}
@@ -270,7 +270,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: .359604836, y: .868162811, z: -.315985441, w: -.130885482}
-  m_LocalPosition: {x: .146750003, y: .146750003, z: .256249994}
+  m_LocalPosition: {x: -.173999995, y: .0109999999, z: -.261000007}
   m_LocalScale: {x: .99999994, y: 1, z: 5.00000048}
   m_Children: []
   m_Father: {fileID: 400018}
@@ -282,7 +282,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: .359604806, y: .868162751, z: .315985441, w: .130885452}
-  m_LocalPosition: {x: .146750003, y: .146750003, z: .768750012}
+  m_LocalPosition: {x: -.173999995, y: .0109999999, z: .250999987}
   m_LocalScale: {x: .999999881, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 400018}
@@ -294,8 +294,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.17871332, y: -1.49012995, z: -3.5389626}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.39999998, y: 1.39999986, z: 1.39999986}
   m_Children:
   - {fileID: 400016}
   - {fileID: 400014}
@@ -561,10 +561,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!64 &6412374
 MeshCollider:
