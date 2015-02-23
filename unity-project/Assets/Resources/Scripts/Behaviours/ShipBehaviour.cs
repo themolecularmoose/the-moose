@@ -11,7 +11,7 @@ public class ShipBehaviour : MonoBehaviour {
 	// Convience var for modifing damage upwards
 	private float damageScalar = 1;
 	// List of object tags that can cause damage
-	private string[] damagers = {"Wall", "Obsticle"};
+	private string[] damagers = {"Wall", "Obstacle"};
 	// Ensures order of damage taken
 	private static Mutex _m;
 

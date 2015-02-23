@@ -125,6 +125,8 @@ public class LevelManager : MonoBehaviour {
 		}
 		this.collected = TagLookupTable(collectedList);
 		player.transform.position = this.checkpoint;
+		player.rigidbody.velocity = Vector3.zero;
+		player.rigidbody.angularVelocity = Vector3.zero;
 	}
 
 	public void SetCheckpoint(Vector3 checkpoint)
