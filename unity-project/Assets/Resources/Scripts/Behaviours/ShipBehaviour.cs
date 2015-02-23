@@ -14,6 +14,9 @@ public class ShipBehaviour : MonoBehaviour {
 	private string[] damagers = {"Wall", "Obstacle"};
 	// Ensures order of damage taken
 	private static Mutex _m;
+	
+	//store so we can shoot these later
+	GameObject m_buster;
 
 	void OnEnable() 
 	{
@@ -73,20 +76,17 @@ public class ShipBehaviour : MonoBehaviour {
 		health -= damage;
 	}
 
+	public void FireBuster()
+	{
+		Instantiate(m_buster, transform.position + transform.forward * 2, transform.rotation);
+	}
+
 	/// <summary>
 	/// Move to controller
 	/// </summary>
 	void FixedUpdate () 
 	{
 		CheckDeath ();
-		if(Input.GetButton("Tractor Beam"))
-		{
-			beamState(true);
-		}
-		else
-		{
-			beamState(false);
-		}
 	}
 
 	public float Health
@@ -109,6 +109,11 @@ public class ShipBehaviour : MonoBehaviour {
 		DecreaseHealth (damage);
 		gameObject.SendMessageUpwards ("OnDamage", damage);
 		_m.ReleaseMutex ();
+	}
+
+	// Use this for initialization
+	void Start () {
+		m_buster = (GameObject)Resources.Load("Prefabs/Buster");
 	}
 
 	public bool TractorBeam

@@ -9,16 +9,44 @@ public class ShipController : MonoBehaviour {
 	public float m_riseStrength = 10;
 	public float m_fallStrength = 10;
 	public float m_boostStrength = 100;
+	ShipBehaviour m_shipBhv;
 
 	// Use this for initialization
 	void Start () {
-		
+		m_shipBhv = gameObject.GetComponent<ShipBehaviour>();
 	}
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		Vector3 force = Vector3.zero;
+		pollInputClusterBuster();
+		pollInputTractorBeam();
+		pollInputFlying();
+	}
 
+	void pollInputClusterBuster()
+	{
+		if(Input.GetMouseButtonDown(0))
+		{
+			m_shipBhv.FireBuster();
+		}
+	}
+
+	void pollInputTractorBeam()
+	{
+		if(Input.GetButton("Tractor Beam"))
+		{
+			m_shipBhv.beamState(true);
+		}
+		else
+		{
+			m_shipBhv.beamState(false);
+		}
+	}
+
+	void pollInputFlying()
+	{
+		Vector3 force = Vector3.zero;
+		
 		if(Input.GetKey(KeyCode.W))
 		{
 			force += transform.forward * m_thrustStrength;
@@ -41,12 +69,12 @@ public class ShipController : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Q)) {
 			force -= transform.up * m_fallStrength;
 		}
-
+		
 		force *= m_motionScale;
-
+		
 		rigidbody.AddForce(force);
 		rigidbody.velocity *= 0.95f;
-
+		
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			rigidbody.velocity += transform.forward * m_boostStrength;
 		}
