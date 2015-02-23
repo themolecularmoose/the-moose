@@ -7,13 +7,21 @@ public class ShipBehaviour : MonoBehaviour {
 	private bool tractorBeam;
 	private int beamEnergy;
 	private float health;
+
 	// Convience var for modifing damage upwards
 	private float damageScalar = 1;
-	// List of objects that can cause damage
-	private string[] damagers = {"Wall", "Obsticle"};
+	// List of object tags that can cause damage
+	private string[] damagers = {"Wall", "Obstacle"};
 	// Ensures order of damage taken
 	private static Mutex _m;
-	private GameController gameController;
+
+	void OnEnable() 
+	{
+		_m = new Mutex ();
+		beamEnergy = 100;
+		tractorBeam = false;
+		health = 100;
+	}
 
 	public int BeamEnergy
 	{
@@ -33,8 +41,9 @@ public class ShipBehaviour : MonoBehaviour {
 		}
 		
 	}
-	
-	float CalcDamage(Collision hit) {
+
+	float CalcDamage(Collision hit) 
+	{
 		float hitMagnitude = hit.relativeVelocity.magnitude;
 		float pointsOfContact = hit.contacts.Length;
 		float mass = 0;
@@ -52,20 +61,24 @@ public class ShipBehaviour : MonoBehaviour {
 		return forceSpread * damageScalar;
 	}
 	
-	void CheckDeath(){
-		if(gameController.GetHealth() <= 0) {
-			gameObject.SendMessage("OnDeath");
+	void CheckDeath()
+	{
+		if(health <= 0) {
+			gameObject.SendMessageUpwards("OnDeath");
 		}
 	}
 	
-	public void DecreaseHealth(float damage) {
+	public void DecreaseHealth(float damage) 
+	{
 		health -= damage;
 	}
 
 	/// <summary>
 	/// Move to controller
 	/// </summary>
-	void FixedUpdate () {
+	void FixedUpdate () 
+	{
+		CheckDeath ();
 		if(Input.GetButton("Tractor Beam"))
 		{
 			beamState(true);
@@ -74,7 +87,6 @@ public class ShipBehaviour : MonoBehaviour {
 		{
 			beamState(false);
 		}
-		CheckDeath ();
 	}
 
 	public float Health
@@ -92,18 +104,11 @@ public class ShipBehaviour : MonoBehaviour {
 		if (!damagers.Contains (collidedWithTag)) {
 			return;
 		}
-
 		_m.WaitOne();
 		float damage = CalcDamage (collision);
-		gameObject.SendMessage ("OnDamage", damage);
+		DecreaseHealth (damage);
+		gameObject.SendMessageUpwards ("OnDamage", damage);
 		_m.ReleaseMutex ();
-	}
-	
-	// Use this for initialization
-	void Start () {
-		beamEnergy = 100;
-		tractorBeam = false;
-		health = 100;
 	}
 
 	public bool TractorBeam
