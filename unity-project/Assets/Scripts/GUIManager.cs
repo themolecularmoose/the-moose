@@ -20,10 +20,8 @@ public class GUIManager : MonoBehaviour {
 
 		// Get the width of the bars - should be the same for both. 
 		barWidth = (float)healthBar.renderer.bounds.size.x;
-		barWidth *= 10;
-		//barWidth *=.8f; // For clarity purposes.
+		barWidth *= 10; // Scaling. I'm not sure how to do this better at this time. 
 
-		Debug.Log ("Bar width: " +barWidth);
 	}
 
 
@@ -61,15 +59,6 @@ public class GUIManager : MonoBehaviour {
 
 		healthBar.transform.position = healthPos; 
 		energyBar.transform.position = energyPos; 
-
-		Debug.Log ("Health Lost: " + healthPercLost);
-		Debug.Log ("Initial health pos: " + healthInitialXPos); 
-		Debug.Log ("health pos: " + healthX); 
-
 	}
 
-	public void UpdateGUI()
-	{
-		Debug.Log("UPdated GUI");
-	}
 }

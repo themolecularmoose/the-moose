@@ -93,8 +93,8 @@ public class LevelManager : MonoBehaviour {
 
 	public void UpdateGUIBars(Vector4 res)
 	{
+        // Pass the GUI call to the GUI Manager
 		GUIMan.UpdateGUI(res);
-		Debug.Log ("Passing it along");
 	}
 
 	public void OnCollect(GameObject collectable) {
