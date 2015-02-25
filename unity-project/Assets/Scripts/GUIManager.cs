@@ -20,7 +20,8 @@ public class GUIManager : MonoBehaviour {
 
 		// Get the width of the bars - should be the same for both. 
 		barWidth = (float)healthBar.renderer.bounds.size.x;
-		barWidth *=.8f; // For clarity purposes.
+		barWidth *= 10;
+		//barWidth *=.8f; // For clarity purposes.
 
 		Debug.Log ("Bar width: " +barWidth);
 	}
@@ -36,7 +37,7 @@ public class GUIManager : MonoBehaviour {
 		// float maxHealth: Maximum value of player's health. 
 		// float energy: Value of player's energy. 
 		// float maxEnergy: Maximum of player's energy. 
-	public void UpdateGUIBars(Vector4 info)
+	public void UpdateGUI(Vector4 info)
 	{
 		float health = info.x; float maxHealth = info.y; 
 		float energy = info.z; float maxEnergy = info.w;
@@ -61,7 +62,7 @@ public class GUIManager : MonoBehaviour {
 		healthBar.transform.position = healthPos; 
 		energyBar.transform.position = energyPos; 
 
-		Debug.Log ("Health: " + health);
+		Debug.Log ("Health Lost: " + healthPercLost);
 		Debug.Log ("Initial health pos: " + healthInitialXPos); 
 		Debug.Log ("health pos: " + healthX); 
 

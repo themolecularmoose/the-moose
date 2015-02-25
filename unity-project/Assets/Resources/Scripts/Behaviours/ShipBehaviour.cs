@@ -67,6 +67,9 @@ public class ShipBehaviour : MonoBehaviour {
 	{
 		if(health <= 0) {
 			gameObject.SendMessageUpwards("OnDeath");
+			Vector4 vec = new Vector4(health, MAX_HEALTH, beamEnergy, MAX_BEAM_ENERGY);
+			gameObject.SendMessageUpwards("UpdateGUIBars", vec);
+
 		}
 	}
 	
@@ -76,7 +79,7 @@ public class ShipBehaviour : MonoBehaviour {
 
 		// Update GUI Manager
 		Vector4 vec = new Vector4(health, MAX_HEALTH, beamEnergy, MAX_BEAM_ENERGY);
-		gameObject.BroadcastMessage("UpdateGUIBars", vec);
+		gameObject.SendMessageUpwards("UpdateGUIBars", vec);
 	}
 
 	/// <summary>

@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour {
 
 	private ShipBehaviour ship;
 
+	public GameObject guiGets; 
 	public GUIManager GUIMan; // Gui manager script.
 
 
@@ -42,6 +43,8 @@ public class LevelManager : MonoBehaviour {
 
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
+
+		GUIMan = guiGets.GetComponent<GUIManager>();
 	
 	}
 
@@ -86,6 +89,12 @@ public class LevelManager : MonoBehaviour {
 	public void OnDamage(float damage) 
 	{
 		// NOOP
+	}
+
+	public void UpdateGUIBars(Vector4 res)
+	{
+		GUIMan.UpdateGUI(res);
+		Debug.Log ("Passing it along");
 	}
 
 	public void OnCollect(GameObject collectable) {

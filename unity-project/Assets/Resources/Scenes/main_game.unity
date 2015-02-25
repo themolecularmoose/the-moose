@@ -421,6 +421,7 @@ Transform:
   - {fileID: 662451212}
   - {fileID: 284671866}
   - {fileID: 25237456}
+  - {fileID: 782825164}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &27167365
@@ -436,6 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLimit: 180
   checkpoint: {x: 0, y: 0, z: 0}
+  guiGets: {fileID: 782825163}
   GUIMan: {fileID: 0}
 --- !u!1 &73846694
 GameObject:
@@ -1049,7 +1051,6 @@ Transform:
   - {fileID: 1100022872}
   - {fileID: 1598592240}
   - {fileID: 1565141914}
-  - {fileID: 782825164}
   m_Father: {fileID: 2094114617}
   m_RootOrder: 1
 --- !u!54 &380801263
@@ -2028,12 +2029,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 782825163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.01452637, y: .121391296, z: .546470642}
+  m_LocalPosition: {x: 288.447235, y: 113.652504, z: 57.1079597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1731692833}
-  m_Father: {fileID: 380801262}
-  m_RootOrder: 4
+  m_Father: {fileID: 27167364}
+  m_RootOrder: 7
 --- !u!114 &782825165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2046,8 +2047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081c26025f92b804b9ac22f3d2a7ef8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 667662646}
-  energyBar: {fileID: 1401122356}
+  healthBar: {fileID: 1543610981}
+  energyBar: {fileID: 136800824}
 --- !u!1001 &783164351
 Prefab:
   m_ObjectHideFlags: 0
@@ -4625,6 +4626,7 @@ GameObject:
   - 224: {fileID: 1543610982}
   - 222: {fileID: 1543610984}
   - 114: {fileID: 1543610983}
+  - 212: {fileID: 1543610985}
   m_Layer: 5
   m_Name: Visual Health
   m_TagString: Untagged
@@ -4679,6 +4681,28 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1543610981}
+--- !u!212 &1543610985
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1543610981}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 48acc47e2524d4e428eeca5a3a65e1dd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1565141913
 GameObject:
   m_ObjectHideFlags: 0
