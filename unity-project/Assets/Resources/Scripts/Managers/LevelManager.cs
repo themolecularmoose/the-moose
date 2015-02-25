@@ -19,6 +19,8 @@ public class LevelManager : MonoBehaviour {
 
 	private ShipBehaviour ship;
 
+	public GUIManager GUIMan; // Gui manager script.
+
 
 	void OnEnable () 
 	{
@@ -40,6 +42,7 @@ public class LevelManager : MonoBehaviour {
 
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
+	
 	}
 
 	private ArrayList GetCollectables()
