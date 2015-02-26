@@ -3,8 +3,14 @@ using System.Collections;
 
 public class CollectableBehaviour : MonoBehaviour {
 
+	//need to have Start() so we can disable this.
+	void Start()
+	{
+	}
+
 	void OnCollisionEnter(Collision collision) {
-		if(collision.gameObject.tag == "Player") {
+		//we HAVE to check if enabled, I think enabled controls updating alone
+		if(enabled && collision.gameObject.tag == "Player") {
 			Debug.Log("Hit Collectable");
 			gameObject.SendMessageUpwards("OnCollect", this.gameObject);
 			gameObject.SetActive(false);

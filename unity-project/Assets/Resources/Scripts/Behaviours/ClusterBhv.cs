@@ -2,11 +2,14 @@
 using System.Collections;
 
 public class ClusterBhv : MonoBehaviour {
+	GameObject m_level;
 	bool m_broken;
 
 	// Use this for initialization
 	void Start () {
+		m_level = GameObject.Find("Level");
 		Transform child;
+		Debug.Log("New Cluster...");
 		//disable all colectable scripts
 		for(int i = 0; i < transform.childCount; ++i)
 		{
@@ -42,7 +45,7 @@ public class ClusterBhv : MonoBehaviour {
 				scripts[s].enabled = true;
 			}
 			//break child off
-			child.SetParent(null);
+			child.SetParent(m_level.transform);
 			i--;
 			//add explosive force
 			if(child.rigidbody != null)

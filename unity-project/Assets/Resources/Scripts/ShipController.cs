@@ -15,17 +15,18 @@ public class ShipController : MonoBehaviour {
 	void Start () {
 		m_shipBhv = gameObject.GetComponent<ShipBehaviour>();
 		setupMouse();
+		lockMouse();
 	}
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		lockMouse();
+		checkCenterMouse();
 		pollInputClusterBuster();
 		pollInputTractorBeam();
 		pollInputFlying();
 	}
 
-	void centerMouse()
+	void checkCenterMouse()
 	{
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
@@ -44,8 +45,8 @@ public class ShipController : MonoBehaviour {
 	}
 	void setupMouse()
 	{
-		Screen.lockCursor = true;
-		Screen.lockCursor = false;
+		lockMouse();
+		unlockMouse();
 	}
 	void lockMouse()
 	{

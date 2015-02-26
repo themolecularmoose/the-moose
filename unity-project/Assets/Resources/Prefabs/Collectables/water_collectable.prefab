@@ -98,9 +98,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400012}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11471406}
   - 54: {fileID: 5471406}
+  - 114: {fileID: 11488582}
   m_Layer: 0
   m_Name: water_collectable
   m_TagString: Water
@@ -400,17 +400,6 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 4a74f01835e019a47b886f84c5698ec2, type: 3}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11471406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -425,6 +414,17 @@ MonoBehaviour:
   m_modificationType: 1
   m_rateOfSpin: {x: 20, y: 0, z: 50}
   m_world: 0
+--- !u!114 &11488582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
