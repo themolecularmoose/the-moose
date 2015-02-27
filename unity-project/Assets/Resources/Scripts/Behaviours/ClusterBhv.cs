@@ -14,6 +14,7 @@ public class ClusterBhv : MonoBehaviour {
 		for(int i = 0; i < transform.childCount; ++i)
 		{
 			child = transform.GetChild(i);
+			child.rigidbody.isKinematic = true;
 			MonoBehaviour[] scripts = child.GetComponents<MonoBehaviour>();
 			for(int s = 0; s <scripts.Length; ++s)
 			{
@@ -50,6 +51,7 @@ public class ClusterBhv : MonoBehaviour {
 			//add explosive force
 			if(child.rigidbody != null)
 			{
+				child.rigidbody.isKinematic = false;
 				child.rigidbody.constraints = RigidbodyConstraints.None;
 				child.rigidbody.AddExplosionForce(a_power, a_center, 0, a_lift);
 			}
