@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FacingCameraScript : MonoBehaviour {
+public class FacingCameraBehaviour : MonoBehaviour {
 	GameObject m_player;
 	public GameObject m_hook;
 	public float m_repositionRate = 0.1f;

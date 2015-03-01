@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CheckpointCollision : MonoBehaviour
+public class CheckpointBehaviour : MonoBehaviour
 {
 	public LevelManager level;
 	
