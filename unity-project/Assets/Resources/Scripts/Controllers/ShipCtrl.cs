@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShipController : MonoBehaviour {
+public class ShipCtrl : MonoBehaviour {
 	public float m_motionScale = 5;
 	public float m_thrustStrength = 10;
 	public float m_strafeStrength = 10;
