@@ -7,6 +7,10 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+
+/*
+
 using System;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
@@ -14,6 +18,8 @@ using System.Text;
 using System.Net;
 using System.IO;
 using System.Security.Cryptography;
+
+
 
 public class ConnectionUtility
 {
@@ -116,3 +122,4 @@ public class ConnectionUtility
 }
 
 
+*/

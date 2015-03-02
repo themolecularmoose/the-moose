@@ -45,6 +45,6 @@ public class ComputerCollision : MonoBehaviour {
 		levelMessageStyle.fontSize = 30;
 
 		levelMessageStyle.normal.textColor = Color.blue;
-		GUI.Label(new Rect (Screen.width/2, Screen.height/2, 300,200), message, levelMessageStyle);
+		GUI.Label(new Rect (Screen.width/2, Screen.height/2, 200,200), message, levelMessageStyle);
 	}
 }
