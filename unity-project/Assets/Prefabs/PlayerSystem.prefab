@@ -769,7 +769,6 @@ MonoBehaviour:
   m_riseStrength: 10
   m_fallStrength: 10
   m_boostStrength: 100
-  beam: {fileID: 0}
 --- !u!114 &11413712
 MonoBehaviour:
   m_ObjectHideFlags: 1
