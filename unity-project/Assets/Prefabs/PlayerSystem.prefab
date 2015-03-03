@@ -650,7 +650,7 @@ AudioSource:
   m_GameObject: {fileID: 113704}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 872dc7fda75ddb44f951bdc303f06830, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6ce10f9ed5af65b4e960592a97cd4963, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .280000001
   m_Pitch: .939999998
@@ -769,6 +769,7 @@ MonoBehaviour:
   m_riseStrength: 10
   m_fallStrength: 10
   m_boostStrength: 100
+  beam: {fileID: 0}
 --- !u!114 &11413712
 MonoBehaviour:
   m_ObjectHideFlags: 1
