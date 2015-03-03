@@ -755,7 +755,6 @@ MonoBehaviour:
   m_riseStrength: 10
   m_fallStrength: 10
   m_boostStrength: 100
-  beam: {fileID: 0}
 --- !u!114 &11413712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -804,7 +803,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 113704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 615db3a6c46da15449b427028cc26b7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 44615f3f7d8bded49a711accbe943697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!124 &12413712
