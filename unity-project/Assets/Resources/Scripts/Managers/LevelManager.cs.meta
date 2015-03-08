@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 0700b0c6a7966b644852bee689d4cbc5
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - guiGets: {fileID: 191020, guid: 461be4d3676a1474e9d90e31a04654cc, type: 2}
+  - GUIMan: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
