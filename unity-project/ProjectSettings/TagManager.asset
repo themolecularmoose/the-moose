@@ -7,8 +7,12 @@ TagManager:
   - Collectables
   - Water
   - Methane
-  - Obsticle
+  - Obstacle
   - Wall
+  - Hud
+  - Computer
+  - 
+  - 
   - 
   - Obstacle
   - Beam
