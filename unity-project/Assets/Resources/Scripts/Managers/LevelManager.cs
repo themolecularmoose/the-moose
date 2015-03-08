@@ -19,10 +19,6 @@ public class LevelManager : MonoBehaviour {
 
 	private ShipBehaviour ship;
 
-	public GameObject guiGets; 
-	public GUIManager GUIMan; // Gui manager script.
-
-
 	void OnEnable () 
 	{
 		// Setup level vars
@@ -37,24 +33,17 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		//hide cursor
-		Screen.lockCursor = true;
-		Screen.showCursor = false;
-
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
-
-		GUIMan = guiGets.GetComponent<GUIManager>();
-	
 	}
 
 	private ArrayList GetCollectables()
 	{
-		GameObject collectablesObject = GameObject.Find ("Collectables");
+		GameObject[] collectablesObject = GameObject.FindGameObjectsWithTag("Collectable");
 		ArrayList tmpList = new ArrayList (); 
-		foreach (Transform child in collectablesObject.transform) 
+		foreach (GameObject child in collectablesObject) 
 		{
-			tmpList.Add(child.gameObject);
+			tmpList.Add(child);
 		}
 		return tmpList;
 	}
@@ -86,17 +75,11 @@ public class LevelManager : MonoBehaviour {
 		RespawnPlayer (ship.gameObject);
 	}
 
-	public void OnDamage(float damage) 
+	public void OnDamage(DamageEvent damage) 
 	{
 		// NOOP
 	}
-
-	public void UpdateGUIBars(Vector4 res)
-	{
-        // Pass the GUI call to the GUI Manager
-		GUIMan.UpdateGUI(res);
-	}
-
+	
 	public void OnCollect(GameObject collectable) {
 		CollectCollectable (collectable);
 	}
