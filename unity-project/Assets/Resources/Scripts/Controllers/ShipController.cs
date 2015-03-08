@@ -30,7 +30,6 @@ public class ShipController : MonoBehaviour {
 	{
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
-			Debug.Log("center");
 			toggleMouse();
 		}
 	}

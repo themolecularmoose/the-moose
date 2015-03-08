@@ -6,9 +6,9 @@ using System.Threading;
 public class ShipBehaviour : MonoBehaviour {
 	private bool tractorBeam;
 	private int beamEnergy;
-	private int MAX_BEAM_ENERGY = 100; // "Constant" - not sure if this should be upgradeable.
+	private const int MAX_BEAM_ENERGY = 100; // "Constant" - not sure if this should be upgradeable.
 	private float health;
-	private float MAX_HEALTH = 100.0f; // "Constant" - not sure if this should be upgradeable?
+	private const float MAX_HEALTH = 100.0f; // "Constant" - not sure if this should be upgradeable?
 
 	// Convience var for modifing damage upwards
 	private float damageScalar = 1;
@@ -16,6 +16,8 @@ public class ShipBehaviour : MonoBehaviour {
 	private string[] damagers = {"Wall", "Obstacle"};
 	// Ensures order of damage taken
 	private static Mutex _m;
+
+	private EventPublisher eventPublisher;
 	
 	//store so we can shoot these later
 	GameObject m_buster;
@@ -70,8 +72,6 @@ public class ShipBehaviour : MonoBehaviour {
 	{
 		if(health <= 0) {
 			gameObject.SendMessageUpwards("OnDeath");
-			Vector4 vec = new Vector4(health, MAX_HEALTH, beamEnergy, MAX_BEAM_ENERGY);
-			gameObject.SendMessageUpwards("UpdateGUIBars", vec);
 
 		}
 	}
@@ -79,10 +79,6 @@ public class ShipBehaviour : MonoBehaviour {
 	public void DecreaseHealth(float damage) 
 	{
 		health -= damage;
-
-		// Update GUI Manager
-		Vector4 vec = new Vector4(health, MAX_HEALTH, beamEnergy, MAX_BEAM_ENERGY);
-		gameObject.SendMessageUpwards("UpdateGUIBars", vec);
 	}
 
 	public void FireBuster()
@@ -115,14 +111,15 @@ public class ShipBehaviour : MonoBehaviour {
 		}
 		_m.WaitOne();
 		float damage = CalcDamage (collision);
+		eventPublisher.publish (new DamageEvent("OnDamage", damage, health, MAX_HEALTH));
 		DecreaseHealth (damage);
-		gameObject.SendMessageUpwards ("OnDamage", damage);
 		_m.ReleaseMutex ();
 	}
 
 	// Use this for initialization
 	void Start () {
 		m_buster = (GameObject)Resources.Load("Prefabs/Buster");
+		eventPublisher = GameObject.Find("Level").GetComponent<EventPublisher>();
 	}
 
 	public bool TractorBeam

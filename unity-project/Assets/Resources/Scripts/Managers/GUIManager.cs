@@ -11,6 +11,8 @@ public class GUIManager : MonoBehaviour {
 	float energyInitialXPos;
 
 	float barWidth;
+	Vector3 healthPos;
+
 
 	// Use this for initialization
 	void Start () {
@@ -18,23 +20,36 @@ public class GUIManager : MonoBehaviour {
 		healthInitialXPos = healthBar.transform.position.x; 
 		energyInitialXPos = energyBar.transform.position.x;
 
+		healthPos = healthBar.transform.position; 
 		// Get the width of the bars - should be the same for both. 
 		barWidth = (float)healthBar.renderer.bounds.size.x;
 		barWidth *= 10; // Scaling. I'm not sure how to do this better at this time. 
 
 	}
-
-
+	
 	// Update is called once per frame
 	void Update () {
-
+		healthBar.transform.position = healthPos;
 	}
 
+	public void OnDamage(DamageEvent damage) {
+		UpdateHealthBar (damage);
+	}
+
+	public void UpdateHealthBar(DamageEvent damageEvent) 
+	{
+		float healthPercLost = (1 - damageEvent.postHealth / damageEvent.maxHealth);
+		// Set the position of each to the initial minus the percentage of the width lost
+		float healthX = healthInitialXPos - (healthPercLost* barWidth);
+		healthPos.x = healthX;
+	}
+
+	// TODO: refactor out beam energy and remove function
 	// Update position of energy and health bars. 
-		// float health: Value of player's health. 
-		// float maxHealth: Maximum value of player's health. 
-		// float energy: Value of player's energy. 
-		// float maxEnergy: Maximum of player's energy. 
+	// float health: Value of player's health. 
+	// float maxHealth: Maximum value of player's health. 
+	// float energy: Value of player's energy. 
+	// float maxEnergy: Maximum of player's energy. 
 	public void UpdateGUI(Vector4 info)
 	{
 		float health = info.x; float maxHealth = info.y; 

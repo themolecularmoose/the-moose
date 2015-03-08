@@ -9,7 +9,6 @@ public class ClusterBhv : MonoBehaviour {
 	void Start () {
 		m_level = GameObject.Find("Level");
 		Transform child;
-		Debug.Log("New Cluster...");
 		//disable all colectable scripts
 		for(int i = 0; i < transform.childCount; ++i)
 		{
@@ -18,7 +17,6 @@ public class ClusterBhv : MonoBehaviour {
 			MonoBehaviour[] scripts = child.GetComponents<MonoBehaviour>();
 			for(int s = 0; s <scripts.Length; ++s)
 			{
-				Debug.Log(scripts[s]);
 				scripts[s].enabled = false;
 			}
 		}
