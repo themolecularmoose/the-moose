@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-/*
+
 
 using System;
 using System.Runtime.Serialization;
@@ -56,7 +56,7 @@ public class ConnectionUtility
 	//This does all the work
 	private HttpWebResponse webRequest( RequestType rt, String path, ServerRequest sjc )
 	{
-		Byte[] jsonString = utf8encode.GetBytes ( sjc.ToString ());
+		Byte[] jsonString = utf8encode.GetBytes ( sjc.Stringify ());
 		String url = serverUrl + path;
 		//Put required parameters in URL for GET requests
 		if (rt == RequestType.GET) 
@@ -122,4 +122,3 @@ public class ConnectionUtility
 }
 
 
-*/
