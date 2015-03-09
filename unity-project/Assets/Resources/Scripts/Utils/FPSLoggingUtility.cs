@@ -17,6 +17,8 @@ public class FPSLoggingUtility : MonoBehaviour
 	// correct overall FPS even if the interval renders something like
 	// 5.5 frames.
 
+	private static FPSLoggingUtility instance; 
+
 	//Interval for each fps reading
 	public float fpsCalcInterval = 1.0F; 
 	//Interval for max/min/avg fps dumped to log
@@ -34,12 +36,30 @@ public class FPSLoggingUtility : MonoBehaviour
 	private float logAverage; //average fps recording in log interval
 	private int	logRecordings; //number of log recordings in log iterval
 	
+	//for singleton
+	public static FPSLoggingUtility GetInstance() {
+		return instance;
+	}
+
+	//for singleton
+	void Awake() {
+		if (instance != null && instance != this) {
+			Destroy(this.gameObject);
+			return;
+		} else {
+			instance = this;
+		}
+		DontDestroyOnLoad(this.gameObject);
+	}
+
+	//sets up initial variables
 	void Start()
 	{
 		calcTimeLeft = fpsCalcInterval;  
 		ResetLogVariables ();
 	}
-	
+
+	//performs fps calculations
 	void Update()
 	{
 		calcTimeLeft -= Time.deltaTime;
