@@ -12,7 +12,6 @@ using System;
 using System.Net;
 using System.IO;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json; // for DataContractJsonSerializer
 
 namespace AssemblyCSharp
 {
@@ -37,6 +36,7 @@ namespace AssemblyCSharp
 			HttpWebResponse resp = cu.Get (path, jc);
 			StreamReader sr = new StreamReader (resp.GetResponseStream ());
 			String stringResp = sr.ReadToEnd ();
+			Console.WriteLine (stringResp);
 		}
 
 		//[Test()]

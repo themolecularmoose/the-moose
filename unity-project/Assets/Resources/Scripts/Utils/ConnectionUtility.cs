@@ -19,14 +19,11 @@ using System.Net;
 using System.IO;
 using System.Security.Cryptography;
 
-
-
 public class ConnectionUtility
 {
 	enum RequestType {POST, GET};
 	
 	private static String DEFAULT_URL = "http://obscure-temple-1449.herokuapp.com";
-
 	private static UTF8Encoding utf8encode = new UTF8Encoding();
 	private static HMACSHA256 hmac;
 	private static Boolean hmacInit = false;
@@ -41,27 +38,27 @@ public class ConnectionUtility
 		this.serverUrl = serverUrl;
 	}
 	
-	public HttpWebResponse Get( String path, ServerRequest sjc )
+	public HttpWebResponse Get<T>( String path, T reqObj ) where T : ServerRequest
 	{
-		return webRequest (RequestType.GET, path, sjc);
+		return webRequest<T> (RequestType.GET, path, reqObj);
 	}
 
-	public HttpWebResponse Post( String path, ServerRequest sjc )
+	public HttpWebResponse Post<T>( String path, T reqObj ) where T : ServerRequest
 	{
-		return webRequest (RequestType.POST, path, sjc);
+		return webRequest<T> (RequestType.POST, path, reqObj);
 	}
 
 
 
 	//This does all the work
-	private HttpWebResponse webRequest( RequestType rt, String path, ServerRequest sjc )
+	private HttpWebResponse webRequest<T>( RequestType rt, String path, T reqObj ) where T : ServerRequest
 	{
-		Byte[] jsonString = utf8encode.GetBytes ( sjc.Stringify ());
+		Byte[] jsonString = utf8encode.GetBytes ( JsonSerialize<T>(reqObj) );
 		String url = serverUrl + path;
 		//Put required parameters in URL for GET requests
 		if (rt == RequestType.GET) 
 		{
-			url += "?access=" + sjc.access + "&expires=" + sjc.expires;
+			url += "?access=" + reqObj.access + "&expires=" + reqObj.expires;
 		}
 		WebRequest req = WebRequest.Create (url);
 		req.Method = (rt == RequestType.POST) ? "POST" : "GET"; 
@@ -101,6 +98,19 @@ public class ConnectionUtility
 		stream.Position = 0;
 		T deserialized = (T)ser.ReadObject (stream);
 		return deserialized;
+	}
+
+	public static T JsonDeserialize<T> ( HttpWebResponse resp ){
+		return JsonDeserialize<T>( ResponseToString (resp));
+	}
+
+	public static string JsonSerialize<T>( T obj ){
+		MemoryStream stream1 = new MemoryStream ();
+		DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
+		ser.WriteObject (stream1, obj);
+		stream1.Position = 0;
+		StreamReader sr = new StreamReader (stream1);
+		return sr.ReadToEnd();
 	}
 
 	private static void initHmac()

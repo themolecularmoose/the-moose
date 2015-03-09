@@ -22,21 +22,19 @@ public class ServerRequest
 	[DataMember(EmitDefaultValue=false)]
 	public string expires;
 
+	[DataMember(EmitDefaultValue=false)]
+	public string cookie;
+
 	public ServerRequest(){
 		expires = "" + (int)((System.DateTime.UtcNow - 
 		                     new System.DateTime(1970, 1, 1)).TotalSeconds);
 	}
 
-	public String Stringify()
-	{
-		MemoryStream stream1 = new MemoryStream ();
-		DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(ServerRequest));
-		ser.WriteObject (stream1, this);
-		stream1.Position = 0;
-		StreamReader sr = new StreamReader (stream1);
-		return sr.ReadToEnd();
+	public ServerRequest( string cookie ) : base() {
+		if (cookie != null) {
+			this.cookie = cookie;
+		}
 	}
-	
 }
 
 
