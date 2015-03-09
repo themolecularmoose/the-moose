@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DialogueMarkerScript : MonoBehaviour {
+public class DialogueMarkerBehaviour : MonoBehaviour {
 	public Font m_font;
 	[Multiline]
 		public string m_text = "Default Text.\nShould make room for new text.\nLiteral Room.\nLike 4 lines.";
