@@ -120,7 +120,7 @@ public class FPSLoggingUtility : MonoBehaviour
 #if UNITY_EDITOR
 		Debug.Log ( message, context);
 #else
-		Application.ExternalCall ("conosle.log", message);
+		Application.ExternalCall ("console.log", message);
 #endif 
 	}
 }
