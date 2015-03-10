@@ -13,13 +13,12 @@ using UnityEngine;
 public class CookieUtility
 {
 	public static string cookie { get; set; }
+	public static string domain { get; set; }
 
 	public static void RequestCookie()
 	{
 		Application.ExternalCall ("unityUtil.fetchCookie", "");
 	}
-
-
 }
 
 
