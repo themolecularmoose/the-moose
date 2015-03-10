@@ -43,6 +43,7 @@ public class PersistenceUtility : MonoBehaviour
 	}
 
 	bool LoadGame() {
+		//TODO try GET
 		ServerRequest sq = new ServerRequest ();
 		HttpWebResponse webResp = cxnUtility.Post<ServerRequest> (LOAD_URL, sq);
 		ServerResponse resp = ConnectionUtility.JsonDeserialize<ServerResponse> (webResp);
@@ -53,8 +54,8 @@ public class PersistenceUtility : MonoBehaviour
 		SaveGameRequest sgr = new SaveGameRequest (gs);
 		HttpWebResponse webResp = cxnUtility.Post<SaveGameRequest> (SAVE_URL, sgr);
 		ServerResponse resp = ConnectionUtility.JsonDeserialize<ServerResponse> (webResp);
+		//TODO Log save result
 		return (resp != null) ? resp.success : false;
-
 	}
 
 }
