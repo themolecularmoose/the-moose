@@ -12,7 +12,7 @@ public class ComputerBehaviour : MonoBehaviour {
 	void Update(){
 		if (showLevelMessage) {
 			if (Input.GetKeyDown ("space")) {
-					Application.LoadLevel ("main_game");
+				Application.LoadLevel ("level_1-0");
 			}
 		}
 	}
