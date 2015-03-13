@@ -8,7 +8,7 @@ public class DamageEvent : GameEvent{
 	public float postHealth;
 	public float maxHealth;
 
-	public DamageEvent(string name, float damage, float preHealth, float maxHealth) : base(name) 
+	public DamageEvent(float damage, float preHealth, float maxHealth) : base("OnDamage") 
 	{
 		this.damage = damage;
 		this.preHealth = preHealth;
