@@ -60,7 +60,7 @@ public class ShipBehaviour : MonoBehaviour {
 			mass = 1; // TODO: Brian S -> Add custom variables to game objects to avoid use of rigidbody on static objects
 		}
 		float force = mass * hitMagnitude;
-		float forceSpread = 1; // Default to one damamge for any collision
+		float forceSpread = 0; // Default to one damamge for any collision
 		if (force > pointsOfContact && pointsOfContact != 0) {
 			// Naively spread damamge over points of collision
 			forceSpread = Mathf.FloorToInt (force) / pointsOfContact;
