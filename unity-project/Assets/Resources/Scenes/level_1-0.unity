@@ -5823,7 +5823,7 @@ GameObject:
   - 23: {fileID: 246627697}
   m_Layer: 2
   m_Name: Win_Left
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6915,7 +6915,7 @@ GameObject:
   - 4: {fileID: 442105377}
   - 33: {fileID: 442105376}
   - 23: {fileID: 442105375}
-  - 64: {fileID: 442105374}
+  - 135: {fileID: 442105374}
   m_Layer: 0
   m_Name: Sphere.001
   m_TagString: Untagged
@@ -6923,10 +6923,10 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &442105374
-MeshCollider:
+--- !u!135 &442105374
+SphereCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6445396, guid: 114ded7373778b8459b15460f828933f,
+  m_PrefabParentObject: {fileID: 13507958, guid: 114ded7373778b8459b15460f828933f,
     type: 2}
   m_PrefabInternal: {fileID: 726238627}
   m_GameObject: {fileID: 442105373}
@@ -6934,9 +6934,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 4300002, guid: 171f587c528bd6443985a22092ef35e2, type: 3}
+  m_Radius: .0500000417
+  m_Center: {x: -9.31323108e-09, y: 9.31322752e-09, z: -2.7755582e-15}
 --- !u!23 &442105375
 Renderer:
   m_ObjectHideFlags: 0
@@ -9898,7 +9897,7 @@ GameObject:
   - 23: {fileID: 909815982}
   m_Layer: 2
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10599,6 +10598,26 @@ Prefab:
       propertyPath: sensitivityX
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 113702, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 113696, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 113688, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 113698, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 113700, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
   m_RootGameObject: {fileID: 563899129}
@@ -10682,7 +10701,7 @@ GameObject:
   - 23: {fileID: 1017091595}
   m_Layer: 2
   m_Name: Nose
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10861,7 +10880,7 @@ GameObject:
   - 23: {fileID: 1081736839}
   m_Layer: 2
   m_Name: Tail
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12709,7 +12728,7 @@ GameObject:
   - 23: {fileID: 1176584638}
   m_Layer: 2
   m_Name: Wing_Right
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18584,7 +18603,7 @@ GameObject:
   - 4: {fileID: 1593262095}
   - 33: {fileID: 1593262098}
   - 23: {fileID: 1593262097}
-  - 64: {fileID: 1593262096}
+  - 135: {fileID: 1593262096}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -18604,10 +18623,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 807367876}
   m_RootOrder: 1
---- !u!64 &1593262096
-MeshCollider:
+--- !u!135 &1593262096
+SphereCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6445398, guid: 114ded7373778b8459b15460f828933f,
+  m_PrefabParentObject: {fileID: 13507956, guid: 114ded7373778b8459b15460f828933f,
     type: 2}
   m_PrefabInternal: {fileID: 726238627}
   m_GameObject: {fileID: 1593262094}
@@ -18615,9 +18634,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 4300004, guid: 171f587c528bd6443985a22092ef35e2, type: 3}
+  m_Radius: .0500000417
+  m_Center: {x: -9.31323108e-09, y: 9.31322752e-09, z: -2.7755582e-15}
 --- !u!23 &1593262097
 Renderer:
   m_ObjectHideFlags: 0
