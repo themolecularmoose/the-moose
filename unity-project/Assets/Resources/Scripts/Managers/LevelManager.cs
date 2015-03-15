@@ -41,11 +41,13 @@ public class LevelManager : MonoBehaviour {
 
 	private ArrayList GetCollectables()
 	{
-		GameObject[] collectablesObject = GameObject.FindGameObjectsWithTag("Collectable");
-		ArrayList tmpList = new ArrayList (); 
-		foreach (GameObject child in collectablesObject) 
-		{
-			tmpList.Add(child);
+		GameObject[] collectableContainers = GameObject.FindGameObjectsWithTag("Collectables");
+		ArrayList tmpList = new ArrayList ();
+		foreach(GameObject stack in collectableContainers) {
+			foreach (Transform child in stack.transform) 
+			{
+				tmpList.Add(child.gameObject);
+			}
 		}
 		return tmpList;
 	}
