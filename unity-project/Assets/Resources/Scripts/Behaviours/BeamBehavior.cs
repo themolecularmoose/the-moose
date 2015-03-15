@@ -14,6 +14,7 @@ public class BeamBehavior : MonoBehaviour {
 	void Update () {
 		if(Input.GetButton("Tractor Beam"))
 		{
+			Debug.Log("ON");
 			stick = true;
 		}
 		else
