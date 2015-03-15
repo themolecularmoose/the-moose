@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc3df2137b8070848a921fa13d409068
+guid: ccc22f8334f60314fa84cb0179a81350
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,8 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Star
-    7400000: Default Take
+    4300000: shipwithnewuvs:polySurface3
     9500000: //RootNode
   materials:
     importMaterials: 1
