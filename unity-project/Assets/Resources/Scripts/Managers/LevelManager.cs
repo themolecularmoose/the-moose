@@ -79,6 +79,10 @@ public class LevelManager : MonoBehaviour {
 
 	public void OnCollect(GameObject collectable) {
 		CollectCollectable (collectable);
+		if (collected.Count == collectables.Count) {
+			ChangeWinState();
+			EndLevel ();
+		}
 	}
 
 	public void TimerCountDown()
