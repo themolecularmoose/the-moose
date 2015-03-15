@@ -33,7 +33,7 @@ public class DialogueMarkerBehaviour : MonoBehaviour {
 	void drawDialogue()
 	{
 		float paddingX = 100;
-		float paddingY = 50;
+		float paddingY = 100;
 		float x = paddingX;
 		float width = Screen.width - paddingX * 2;
 
