@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ComputerCollision : MonoBehaviour {
+public class ComputerBehaviour : MonoBehaviour {
 
 	bool showLevelMessage = false;
 
@@ -12,7 +12,7 @@ public class ComputerCollision : MonoBehaviour {
 	void Update(){
 		if (showLevelMessage) {
 			if (Input.GetKeyDown ("space")) {
-					Application.LoadLevel ("main_game");
+					Application.LoadLevel ("level_1-0");
 			}
 		}
 	}
@@ -36,7 +36,7 @@ public class ComputerCollision : MonoBehaviour {
 	}
 
 	void DrawLevelMessage(){
-		string message = "Press SPACE to start Level 1";		
+		string message = "Hi Max. Press SPACE to start your first training mission.";		
 
 		GUIStyle levelMessageStyle = GUI.skin.GetStyle("Box");
 		levelMessageStyle.wordWrap = true; 
