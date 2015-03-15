@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &85606
 GameObject:
@@ -1543,19 +1542,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 897981577}
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -85.0999985
+      value: 4.1118927
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -83.1299973
+      value: 6.13800049
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -35.9300003
+      value: -48.7134628
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1575,13 +1574,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11427650, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_text
       value: "The purple box ahead is a checkpoint. \nCollect it and you will respawn
         here instead of\nat the begining of the level when you die. \nCollect it then
         try out the spinning death rod!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 104032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_Name
+      value: Checkpoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
@@ -3980,7 +3983,7 @@ Transform:
   m_LocalScale: {x: 7.85245705, y: 7.85245657, z: 7.85245657}
   m_Children: []
   m_Father: {fileID: 1011555604}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &198134019
 GameObject:
   m_ObjectHideFlags: 0
@@ -5367,7 +5370,7 @@ Transform:
   m_LocalScale: {x: 207.402679, y: 1, z: 184.777466}
   m_Children: []
   m_Father: {fileID: 1011555604}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &261891688
 GameObject:
   m_ObjectHideFlags: 0
@@ -5604,7 +5607,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1011555604}
+    m_TransformParent: {fileID: 897981577}
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5636,7 +5639,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 13573416, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_Radius
@@ -5651,6 +5654,10 @@ Prefab:
 
         My Tip: "Carry change for toll booths!"'
       objectReference: {fileID: 0}
+    - target: {fileID: 104032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_Name
+      value: Advice
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
   m_RootGameObject: {fileID: 1102271644}
@@ -5661,7 +5668,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1011555604}
+    m_TransformParent: {fileID: 897981577}
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5693,7 +5700,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 13573416, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_Radius
@@ -5707,6 +5714,10 @@ Prefab:
 
 
         My Tip: "Press W to move forward"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 104032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_Name
+      value: Forward
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
@@ -5825,7 +5836,7 @@ GameObject:
   - 114: {fileID: 414200291}
   - 135: {fileID: 414200290}
   m_Layer: 0
-  m_Name: DialogueMarker
+  m_Name: Forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5890,8 +5901,8 @@ Transform:
   m_Children:
   - {fileID: 1135856237}
   - {fileID: 790950586}
-  m_Father: {fileID: 1011555604}
-  m_RootOrder: 2
+  m_Father: {fileID: 897981577}
+  m_RootOrder: 0
 --- !u!1 &431687736
 GameObject:
   m_ObjectHideFlags: 0
@@ -5940,7 +5951,7 @@ Transform:
   - {fileID: 962040511}
   - {fileID: 229938751}
   m_Father: {fileID: 1011555604}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!95 &431687738
 Animator:
   serializedVersion: 3
@@ -6035,7 +6046,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1011555604}
+    m_TransformParent: {fileID: 897981577}
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -6067,7 +6078,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11427650, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_text
@@ -6078,6 +6089,10 @@ Prefab:
 
         All you have to do is hold in the right mouse button to lock it onto you tractor
         beam, right?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 104032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_Name
+      value: TractorBeam
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
@@ -6300,8 +6315,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  ignoreReversedGraphics: 1
+  blockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -6434,7 +6449,7 @@ GameObject:
   - 114: {fileID: 607980344}
   - 135: {fileID: 607980343}
   m_Layer: 0
-  m_Name: DialogueMarker
+  m_Name: Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6491,13 +6506,13 @@ Transform:
   m_PrefabInternal: {fileID: 127642193}
   m_GameObject: {fileID: 607980342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -85.0999985, y: -83.1299973, z: -35.9300003}
+  m_LocalPosition: {x: 4.1118927, y: 6.13800049, z: -48.7134628}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 724392701}
   - {fileID: 1263187554}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 897981577}
+  m_RootOrder: 4
 --- !u!1 &658755703
 GameObject:
   m_ObjectHideFlags: 0
@@ -8236,7 +8251,7 @@ Transform:
   - {fileID: 1593262095}
   - {fileID: 442105377}
   m_Father: {fileID: 1011555604}
-  m_RootOrder: 18
+  m_RootOrder: 10
 --- !u!114 &807367877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8471,6 +8486,42 @@ MeshFilter:
   m_PrefabInternal: {fileID: 982118875}
   m_GameObject: {fileID: 879711958}
   m_Mesh: {fileID: 4300002, guid: dc3df2137b8070848a921fa13d409068, type: 3}
+--- !u!1 &897981576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 897981577}
+  m_Layer: 0
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &897981577
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 897981576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 414200293}
+  - {fileID: 1377931022}
+  - {fileID: 942560279}
+  - {fileID: 1100840621}
+  - {fileID: 607980346}
+  - {fileID: 1102271648}
+  - {fileID: 1603471112}
+  - {fileID: 1060632269}
+  - {fileID: 1130937270}
+  m_Father: {fileID: 1011555604}
+  m_RootOrder: 11
 --- !u!1 &909815980
 GameObject:
   m_ObjectHideFlags: 0
@@ -8700,7 +8751,7 @@ GameObject:
   - 114: {fileID: 942560277}
   - 135: {fileID: 942560276}
   m_Layer: 0
-  m_Name: DialogueMarker
+  m_Name: Rise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8768,8 +8819,8 @@ Transform:
   m_Children:
   - {fileID: 879711959}
   - {fileID: 146854434}
-  m_Father: {fileID: 1011555604}
-  m_RootOrder: 10
+  m_Father: {fileID: 897981577}
+  m_RootOrder: 2
 --- !u!1 &962040510
 GameObject:
   m_ObjectHideFlags: 0
@@ -8830,7 +8881,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1011555604}
+    m_TransformParent: {fileID: 897981577}
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -8862,7 +8913,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 13573416, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_Radius
@@ -8879,6 +8930,10 @@ Prefab:
 
 
         I didn''t mean to bring you down...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 104032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_Name
+      value: Rise
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
@@ -9069,25 +9124,18 @@ Transform:
   m_Children:
   - {fileID: 563899130}
   - {fileID: 2034115126}
-  - {fileID: 414200293}
   - {fileID: 431687737}
   - {fileID: 1882862231}
   - {fileID: 2068210654}
   - {fileID: 251099836}
   - {fileID: 1369983249}
   - {fileID: 180766540}
-  - {fileID: 1377931022}
-  - {fileID: 942560279}
-  - {fileID: 1100840621}
-  - {fileID: 1102271648}
-  - {fileID: 1130937270}
-  - {fileID: 1603471112}
-  - {fileID: 1060632269}
   - {fileID: 2010926243}
   - {fileID: 1990139667}
   - {fileID: 807367876}
+  - {fileID: 897981577}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1011555605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9223,7 +9271,7 @@ GameObject:
   - 114: {fileID: 1060632271}
   - 135: {fileID: 1060632270}
   m_Layer: 0
-  m_Name: DialogueMarker
+  m_Name: TractorBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9241,8 +9289,8 @@ Transform:
   m_Children:
   - {fileID: 807298459}
   - {fileID: 1469941336}
-  m_Father: {fileID: 1011555604}
-  m_RootOrder: 15
+  m_Father: {fileID: 897981577}
+  m_RootOrder: 7
 --- !u!135 &1060632270
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9431,7 +9479,7 @@ GameObject:
   - 114: {fileID: 1100840619}
   - 135: {fileID: 1100840618}
   m_Layer: 0
-  m_Name: DialogueMarker
+  m_Name: Fall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9501,8 +9549,8 @@ Transform:
   m_Children:
   - {fileID: 1115980263}
   - {fileID: 202618503}
-  m_Father: {fileID: 1011555604}
-  m_RootOrder: 11
+  m_Father: {fileID: 897981577}
+  m_RootOrder: 3
 --- !u!1 &1102271644
 GameObject:
   m_ObjectHideFlags: 0
@@ -9515,7 +9563,7 @@ GameObject:
   - 114: {fileID: 1102271646}
   - 135: {fileID: 1102271645}
   m_Layer: 0
-  m_Name: DialogueMarker
+  m_Name: Advice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9580,8 +9628,8 @@ Transform:
   m_Children:
   - {fileID: 692906207}
   - {fileID: 1116101075}
-  m_Father: {fileID: 1011555604}
-  m_RootOrder: 12
+  m_Father: {fileID: 897981577}
+  m_RootOrder: 5
 --- !u!1 &1106459013
 GameObject:
   m_ObjectHideFlags: 0
@@ -10839,7 +10887,7 @@ GameObject:
   - 114: {fileID: 1130937268}
   - 135: {fileID: 1130937267}
   m_Layer: 0
-  m_Name: DialogueMarker
+  m_Name: Jumpdrive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10907,12 +10955,12 @@ Transform:
   m_GameObject: {fileID: 1130937266}
   m_LocalRotation: {x: 0, y: -.462573886, z: 0, w: .886580765}
   m_LocalPosition: {x: -94.4381027, y: .267997742, z: -75.7434616}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: .99999994}
   m_Children:
   - {fileID: 506527775}
   - {fileID: 1582827750}
-  m_Father: {fileID: 1011555604}
-  m_RootOrder: 13
+  m_Father: {fileID: 897981577}
+  m_RootOrder: 8
 --- !u!1 &1135856236
 GameObject:
   m_ObjectHideFlags: 0
@@ -12588,7 +12636,7 @@ Transform:
   m_LocalScale: {x: 210.043076, y: 1, z: 170.24501}
   m_Children: []
   m_Father: {fileID: 1011555604}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &1377931018
 GameObject:
   m_ObjectHideFlags: 0
@@ -12601,7 +12649,7 @@ GameObject:
   - 114: {fileID: 1377931020}
   - 135: {fileID: 1377931019}
   m_Layer: 0
-  m_Name: DialogueMarker
+  m_Name: Turn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12667,8 +12715,8 @@ Transform:
   m_Children:
   - {fileID: 1000972177}
   - {fileID: 153136739}
-  m_Father: {fileID: 1011555604}
-  m_RootOrder: 9
+  m_Father: {fileID: 897981577}
+  m_RootOrder: 1
 --- !u!1 &1402921897
 GameObject:
   m_ObjectHideFlags: 0
@@ -12747,7 +12795,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1011555604}
+    m_TransformParent: {fileID: 897981577}
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -12779,7 +12827,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 13573416, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_Radius
@@ -12808,6 +12856,14 @@ Prefab:
     - target: {fileID: 11446074, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_bobRate
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 104032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_Name
+      value: Jumpdrive
+      objectReference: {fileID: 0}
+    - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .99999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
@@ -16617,7 +16673,7 @@ GameObject:
   - 114: {fileID: 1603471110}
   - 135: {fileID: 1603471109}
   m_Layer: 0
-  m_Name: DialogueMarker
+  m_Name: Strafe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16689,8 +16745,8 @@ Transform:
   m_Children:
   - {fileID: 90887517}
   - {fileID: 1919105093}
-  m_Father: {fileID: 1011555604}
-  m_RootOrder: 14
+  m_Father: {fileID: 897981577}
+  m_RootOrder: 6
 --- !u!1 &1612704748
 GameObject:
   m_ObjectHideFlags: 0
@@ -16863,7 +16919,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1011555604}
+    m_TransformParent: {fileID: 897981577}
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -16895,7 +16951,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 13573416, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_Radius
@@ -16917,6 +16973,10 @@ Prefab:
 
         Got all that? No? Oh well can''t get ''em all.'
       objectReference: {fileID: 0}
+    - target: {fileID: 104032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_Name
+      value: Strafe
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
   m_RootGameObject: {fileID: 1603471108}
@@ -16927,7 +16987,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1011555604}
+    m_TransformParent: {fileID: 897981577}
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -16959,7 +17019,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 13573416, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_Radius
@@ -16978,6 +17038,10 @@ Prefab:
 
 
         Down where you belong, filthy casual!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 104032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_Name
+      value: Fall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
@@ -17128,7 +17192,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1011555604}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &1890295046
 Prefab:
   m_ObjectHideFlags: 0
@@ -18504,7 +18568,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1011555604}
+    m_TransformParent: {fileID: 897981577}
     m_Modifications:
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -18536,7 +18600,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 13573416, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
       propertyPath: m_Radius
@@ -18551,6 +18615,10 @@ Prefab:
 
 
         Chivalry is not dead!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 104032, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
+      propertyPath: m_Name
+      value: Turn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44218cf6a27513943bef262a926d6d2c, type: 2}
@@ -18642,7 +18710,7 @@ Transform:
   m_LocalScale: {x: .75, y: .75, z: .75}
   m_Children: []
   m_Father: {fileID: 1011555604}
-  m_RootOrder: 17
+  m_RootOrder: 9
 --- !u!1 &2004386505
 GameObject:
   m_ObjectHideFlags: 0
@@ -18749,7 +18817,7 @@ Transform:
   m_Children:
   - {fileID: 516149241}
   m_Father: {fileID: 1011555604}
-  m_RootOrder: 16
+  m_RootOrder: 8
 --- !u!114 &2010926244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18847,7 +18915,7 @@ Transform:
   m_Children:
   - {fileID: 864812389}
   m_Father: {fileID: 1011555604}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &2080719404
 GameObject:
   m_ObjectHideFlags: 0
