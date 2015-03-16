@@ -4,7 +4,7 @@ using System.Collections;
 public class MainMenu : MonoBehaviour {
 
 	private Color original_color;
-	Color highlight_color;
+	public Color highlight_color = Color.yellow;
 
 	
 	void OnMouseEnter() {
