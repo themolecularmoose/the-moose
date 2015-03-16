@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json; // for DataContractJsonSerializer
 
 //This is mostly proof of concept since server data will be different
 

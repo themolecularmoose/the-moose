@@ -18,6 +18,7 @@ using System.Text;
 using System.Net;
 using System.IO;
 using System.Security.Cryptography;
+using System.ServiceModel.Web;
 
 public class ConnectionUtility
 {
