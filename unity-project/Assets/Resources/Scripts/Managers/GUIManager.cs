@@ -32,13 +32,19 @@ public class GUIManager : MonoBehaviour {
 		healthBar.transform.position = healthPos;
 	}
 
-	public void OnDamage(DamageEvent damage) {
-		UpdateHealthBar (damage);
+	public void OnDamage(DamageEvent damage) 
+	{
+		UpdateHealthBar (damage.postHealth, damage.maxHealth);
 	}
 
-	public void UpdateHealthBar(DamageEvent damageEvent) 
+	public void OnRespawn(RespawnEvent respawnEvent) 
 	{
-		float healthPercLost = (1 - damageEvent.postHealth / damageEvent.maxHealth);
+		UpdateHealthBar (respawnEvent.checkpoint.getHealth (), respawnEvent.maxHealth);
+	}
+
+	public void UpdateHealthBar(float health, float maxHealth)
+	{
+		float healthPercLost = (1 - health / maxHealth);
 		// Set the position of each to the initial minus the percentage of the width lost
 		float healthX = healthInitialXPos - (healthPercLost* barWidth);
 		healthPos.x = healthX;

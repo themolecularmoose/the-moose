@@ -60,25 +60,23 @@ public class ShipBehaviour : MonoBehaviour {
 			mass = 1; // TODO: Brian S -> Add custom variables to game objects to avoid use of rigidbody on static objects
 		}
 		float force = mass * hitMagnitude;
-		float forceSpread = 1; // Default to one damamge for any collision
+		float forceSpread = 0; // Default to one damamge for any collision
 		if (force > pointsOfContact && pointsOfContact != 0) {
 			// Naively spread damamge over points of collision
 			forceSpread = Mathf.FloorToInt (force) / pointsOfContact;
 		}
 		return forceSpread * damageScalar;
 	}
-	
-	void CheckDeath()
-	{
-		if(health <= 0) {
-			gameObject.SendMessageUpwards("OnDeath");
 
-		}
-	}
 	
 	public void DecreaseHealth(float damage) 
 	{
-		health -= damage;
+		if(health > 0) {
+			health -= damage;
+			if(health <= 0) {
+				eventPublisher.publish (new DeathEvent());
+			}
+		}
 	}
 
 	public void FireBuster()
@@ -91,13 +89,18 @@ public class ShipBehaviour : MonoBehaviour {
 	/// </summary>
 	void FixedUpdate () 
 	{
-		CheckDeath ();
+
 	}
 
 	public float Health
 	{
 		get{ return health;}
 		set{ health = value;}
+	}
+
+	public float MaxHealth
+	{
+		get{ return MaxHealth;}
 	}
 	
 	// Update is called once per frame
@@ -111,7 +114,7 @@ public class ShipBehaviour : MonoBehaviour {
 		}
 		_m.WaitOne();
 		float damage = CalcDamage (collision);
-		eventPublisher.publish (new DamageEvent("OnDamage", damage, health, MAX_HEALTH));
+		eventPublisher.publish (new DamageEvent(damage, health, MAX_HEALTH));
 		DecreaseHealth (damage);
 		_m.ReleaseMutex ();
 	}

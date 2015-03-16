@@ -13,7 +13,10 @@ public class ClusterBhv : MonoBehaviour {
 		for(int i = 0; i < transform.childCount; ++i)
 		{
 			child = transform.GetChild(i);
-			child.rigidbody.isKinematic = true;
+			//If the collectable has a rigidBody, disable it
+			if(child.rigidbody != null)
+				child.rigidbody.isKinematic = true;
+			//disable scripts
 			MonoBehaviour[] scripts = child.GetComponents<MonoBehaviour>();
 			for(int s = 0; s <scripts.Length; ++s)
 			{
@@ -37,8 +40,8 @@ public class ClusterBhv : MonoBehaviour {
 		for(int i = 0; i < transform.childCount; ++i)
 		{
 			child = transform.GetChild(i);
-			MonoBehaviour[] scripts = child.GetComponents<MonoBehaviour>();
 			//enable scripts
+			MonoBehaviour[] scripts = child.GetComponents<MonoBehaviour>();
 			for(int s = 0; s <scripts.Length; ++s)
 			{
 				scripts[s].enabled = true;

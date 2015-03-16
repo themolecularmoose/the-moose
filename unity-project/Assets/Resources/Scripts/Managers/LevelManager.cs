@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour {
 	private int score;
 
 	private ShipBehaviour ship;
+	private EventPublisher ep;
 
 	void OnEnable () 
 	{
@@ -35,15 +36,18 @@ public class LevelManager : MonoBehaviour {
 	{
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
+		ep = GameObject.Find("Level").GetComponent<EventPublisher>();
 	}
 
 	private ArrayList GetCollectables()
 	{
-		GameObject[] collectablesObject = GameObject.FindGameObjectsWithTag("Collectable");
-		ArrayList tmpList = new ArrayList (); 
-		foreach (GameObject child in collectablesObject) 
-		{
-			tmpList.Add(child);
+		GameObject[] collectableContainers = GameObject.FindGameObjectsWithTag("Collectables");
+		ArrayList tmpList = new ArrayList ();
+		foreach(GameObject stack in collectableContainers) {
+			foreach (Transform child in stack.transform) 
+			{
+				tmpList.Add(child.gameObject);
+			}
 		}
 		return tmpList;
 	}
@@ -75,13 +79,12 @@ public class LevelManager : MonoBehaviour {
 		RespawnPlayer (ship.gameObject);
 	}
 
-	public void OnDamage(DamageEvent damage) 
-	{
-		// NOOP
-	}
-	
 	public void OnCollect(GameObject collectable) {
 		CollectCollectable (collectable);
+		if (collected.Count == collectables.Count) {
+			ChangeWinState();
+			EndLevel ();
+		}
 	}
 
 	public void TimerCountDown()
@@ -122,6 +125,7 @@ public class LevelManager : MonoBehaviour {
 		player.transform.position = this.checkpoint;
 		player.rigidbody.velocity = Vector3.zero;
 		player.rigidbody.angularVelocity = Vector3.zero;
+		ep.publish (new RespawnEvent (this.state, 100));
 	}
 
 	public void SetCheckpoint(Vector3 checkpoint)
