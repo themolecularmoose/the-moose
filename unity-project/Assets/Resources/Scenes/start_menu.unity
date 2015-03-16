@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &29275836
 GameObject:
@@ -337,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a16fae94d0947fd8be3361ae431d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlight_color: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &1751702530
 GameObject:
   m_ObjectHideFlags: 0
