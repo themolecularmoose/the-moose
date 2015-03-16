@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GUIManager : MonoBehaviour {
 
 	// Attributes
 	public GameObject healthBar; 
 	public GameObject energyBar; 
+	public GameObject collectionText;
 	// Initial x positions for the bars so it is known what the "full" position is. 
 	float healthInitialXPos;
 	float energyInitialXPos;
@@ -35,6 +37,20 @@ public class GUIManager : MonoBehaviour {
 	public void OnDamage(DamageEvent damage) 
 	{
 		UpdateHealthBar (damage.postHealth, damage.maxHealth);
+	}
+
+	public void OnCollect(CollectableEvent coll)
+	{
+		Debug.Log ("Collecting");
+		AddCollectedMolecule (coll.number);
+	}
+
+	public void AddCollectedMolecule(int num)
+	{
+		Text t = collectionText.GetComponent<Text> ();
+
+		t.text = num.ToString ();
+		Debug.Log (t.text);
 	}
 
 	public void OnRespawn(RespawnEvent respawnEvent) 
