@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 462830}
   - 54: {fileID: 5462848}
-  - 114: {fileID: 11462840}
+  - 114: {fileID: 11496786}
   m_Layer: 0
   m_Name: methane_collectable
   m_TagString: Methane
@@ -191,7 +191,7 @@ GameObject:
   - 114: {fileID: 11462852}
   m_Layer: 0
   m_Name: MethaneCluster
-  m_TagString: Untagged
+  m_TagString: Collectables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -659,7 +659,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.958107, y: 1.3279953, z: -82.0834656}
+  m_LocalPosition: {x: -20.7399998, y: 1.33000004, z: -82.2600021}
   m_LocalScale: {x: 2.38150549, y: 2.38150549, z: 2.38150549}
   m_Children:
   - {fileID: 462830}
@@ -1763,17 +1763,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .100000121, y: .100000001, z: .0580084361}
   m_Center: {x: 3.81196151e-06, y: -1.90734863e-06, z: -.00957354996}
---- !u!114 &11462840
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 245ee3f4a4bec854f88c5aefdfcdc95a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11462850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1874,6 +1863,17 @@ MonoBehaviour:
   m_modificationType: 1
   m_rateOfSpin: {x: 20, y: 0, z: 50}
   m_world: 0
+--- !u!114 &11496786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70db06dad5a25734e99f41ba073e6605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &13566184
 SphereCollider:
   m_ObjectHideFlags: 1
