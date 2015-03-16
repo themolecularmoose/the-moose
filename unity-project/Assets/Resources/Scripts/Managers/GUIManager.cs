@@ -8,6 +8,7 @@ public class GUIManager : MonoBehaviour {
 	public GameObject healthBar; 
 	public GameObject energyBar; 
 	public GameObject collectionText;
+
 	// Initial x positions for the bars so it is known what the "full" position is. 
 	float healthInitialXPos;
 	float energyInitialXPos;
@@ -26,7 +27,6 @@ public class GUIManager : MonoBehaviour {
 		// Get the width of the bars - should be the same for both. 
 		barWidth = (float)healthBar.renderer.bounds.size.x;
 		barWidth *= 10; // Scaling. I'm not sure how to do this better at this time. 
-
 	}
 	
 	// Update is called once per frame
@@ -34,28 +34,11 @@ public class GUIManager : MonoBehaviour {
 		healthBar.transform.position = healthPos;
 	}
 
-	public void OnDamage(DamageEvent damage) 
-	{
-		UpdateHealthBar (damage.postHealth, damage.maxHealth);
-	}
-
-	public void OnCollect(CollectableEvent coll)
-	{
-		Debug.Log ("Collecting");
-		AddCollectedMolecule (coll.number);
-	}
-
-	public void AddCollectedMolecule(int num)
+	public void UpdateCollectedMolecules(ArrayList collected)
 	{
 		Text t = collectionText.GetComponent<Text> ();
-
-		t.text = num.ToString ();
-		Debug.Log (t.text);
-	}
-
-	public void OnRespawn(RespawnEvent respawnEvent) 
-	{
-		UpdateHealthBar (respawnEvent.checkpoint.getHealth (), respawnEvent.maxHealth);
+	
+		t.text = collected.Count.ToString ();
 	}
 
 	public void UpdateHealthBar(float health, float maxHealth)

@@ -3,9 +3,9 @@ using System.Collections;
 
 public class CollectableEvent : GameEvent{
 
-	public int number; 
-	public CollectableEvent(int num) : base("OnDamage") 
+	public GameObject collectable; 
+	public CollectableEvent(GameObject collectable) : base("OnCollect") 
 	{
-		this.number = num;
+		this.collectable = collectable;
 	}
 }

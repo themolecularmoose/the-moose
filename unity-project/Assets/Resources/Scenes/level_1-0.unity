@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &85606
 GameObject:
@@ -5972,6 +5973,10 @@ Prefab:
       propertyPath: m_ScreenMatchMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11491014, guid: 461be4d3676a1474e9d90e31a04654cc, type: 2}
+      propertyPath: collectionText
+      value: 
+      objectReference: {fileID: 115328283}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 461be4d3676a1474e9d90e31a04654cc, type: 2}
   m_RootGameObject: {fileID: 2010926242}
@@ -7230,8 +7235,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -7618,6 +7623,18 @@ Prefab:
     - target: {fileID: 400012, guid: af13ac6582c10624587ea136424f14f7, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: af13ac6582c10624587ea136424f14f7, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: af13ac6582c10624587ea136424f14f7, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: af13ac6582c10624587ea136424f14f7, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af13ac6582c10624587ea136424f14f7, type: 2}
@@ -10482,7 +10499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0700b0c6a7966b644852bee689d4cbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 180
   checkpoint: {x: 0, y: 0, z: 0}
 --- !u!114 &1011555606
 MonoBehaviour:
@@ -22604,7 +22620,7 @@ Transform:
   m_GameObject: {fileID: 2004386505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -203.77478, y: -86.2851944, z: -36.5264816}
-  m_LocalScale: {x: 7.25909042, y: 7.25908852, z: 7.25908852}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2080719405}
   - {fileID: 1545511891}
@@ -22656,7 +22672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 289651231}
   energyBar: {fileID: 497657129}
-  collectionText: {fileID: 0}
+  collectionText: {fileID: 115328283}
 --- !u!1 &2012929993
 GameObject:
   m_ObjectHideFlags: 0
@@ -22695,7 +22711,7 @@ GameObject:
   - 4: {fileID: 2034115126}
   m_Layer: 0
   m_Name: Collectables
-  m_TagString: Untagged
+  m_TagString: Collectables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

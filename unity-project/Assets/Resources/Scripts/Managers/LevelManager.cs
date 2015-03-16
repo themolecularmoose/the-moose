@@ -5,12 +5,10 @@ using System.Linq;
 
 public class LevelManager : MonoBehaviour {
 	// Vars set from unity editor
-	public float timeLimit;
 	public Vector3 checkpoint;
 
 	private Dictionary<string, List<GameObject>> collected;
 	private Dictionary<string, List<GameObject>> collectables;
-	private bool endLevel;
 	private bool winState; //true is win false is lose
 
 	private StateObj state;
@@ -19,13 +17,13 @@ public class LevelManager : MonoBehaviour {
 
 	private ShipBehaviour ship;
 	private EventPublisher ep;
+	private GUIManager GUIMan;
 
 	void OnEnable () 
 	{
 		// Setup level vars
 		collectables = TagLookupTable (GetCollectables ());
 		collected = new Dictionary<string, List<GameObject>>();
-		endLevel = false;
 		winState = false;
 		score = 0;
 		state = new StateObj ();
@@ -34,11 +32,46 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		GUIMan = GameObject.Find("HUD Prefab").GetComponent<GUIManager>();
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
 		ep = GameObject.Find("Level").GetComponent<EventPublisher>();
 	}
 
+	// Update is called once per frame
+	void Update () 
+	{
+
+	}
+
+	/**
+	 * Event Listener methods 
+	 *
+	 */
+	public void OnDeath() 
+	{
+		RespawnPlayer (ship.gameObject);
+	}
+	
+	public void OnCollect(CollectableEvent colEvent) {
+		GameObject collectable = colEvent.collectable;
+		CollectCollectable (collectable);
+		if (Flatten(collected).Count == Flatten(collectables).Count) {
+			ChangeWinState();
+			EndLevel ();
+		}
+		GUIMan.UpdateCollectedMolecules (Flatten(collected));
+	}
+	
+	public void OnDamage(DamageEvent damage) 
+	{
+		GUIMan.UpdateHealthBar (damage.postHealth, damage.maxHealth);
+	}
+
+	/**
+	 * Collectable management methods
+	 * 
+	 */
 	private ArrayList GetCollectables()
 	{
 		GameObject[] collectableContainers = GameObject.FindGameObjectsWithTag("Collectables");
@@ -73,43 +106,10 @@ public class LevelManager : MonoBehaviour {
 		}
 		return tmp;
 	}
-
-	public void OnDeath() 
-	{
-		RespawnPlayer (ship.gameObject);
-	}
-
-	public void OnCollect(GameObject collectable) {
-		CollectCollectable (collectable);
 	
-		if (collected.Count == collectables.Count) {
-			ChangeWinState();
-			EndLevel ();
-		}
-	}
-
-	public void TimerCountDown()
-	{
-		timeLimit -= (Time.deltaTime);
-	}
-
-	// Update is called once per frame
-	void Update () 
-	{
-		if(endLevel == false)
-		{
-			if(timeLimit <= 0)
-			{
-				//Lose state
-				EndLevel();
-			}
-			else
-			{
-				TimerCountDown();
-			}
-		}
-	}
-
+	/**
+	 * Game Logic Methods
+	 */
 	public void RespawnPlayer(GameObject player)
 	{
 		this.score = this.state.getScore();
@@ -126,7 +126,8 @@ public class LevelManager : MonoBehaviour {
 		player.transform.position = this.checkpoint;
 		player.rigidbody.velocity = Vector3.zero;
 		player.rigidbody.angularVelocity = Vector3.zero;
-		ep.publish (new RespawnEvent (this.state, 100));
+		GUIMan.UpdateHealthBar (ship.Health, ship.MaxHealth);
+		GUIMan.UpdateCollectedMolecules (Flatten(collected));
 	}
 
 	public void SetCheckpoint(Vector3 checkpoint)
@@ -137,7 +138,6 @@ public class LevelManager : MonoBehaviour {
 
 	public void EndLevel()
 	{
-		endLevel = true;
 		PlayerPrefs.SetInt ("Score", score);
 		PlayerPrefs.SetString ("Level" ,Application.loadedLevelName);
 		if(winState)
@@ -166,7 +166,6 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void CollectCollectable(GameObject collectable){
-		ep.publish (new CollectableEvent (1));
 		if(!this.collected.ContainsKey(collectable.tag)) {
 			this.collected.Add(collectable.tag, new List<GameObject>());
 		}
@@ -182,14 +181,12 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
+	/**
+	 * public properties of the level manager
+	 */
 	public int Score
 	{
 		get{ return score;}
-	}
-	
-	public int TimeLimit
-	{
-		get{ return (int)timeLimit;}
 	}
 	
 	public ArrayList Collected
