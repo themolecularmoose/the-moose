@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour {
 	
 	void OnMouseUp() {
 		//switch to main_game scene
-		Application.LoadLevel("main_game");
+		Application.LoadLevel("level_select");
 	}
 	
 	
