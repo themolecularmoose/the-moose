@@ -100,7 +100,7 @@ public class ShipBehaviour : MonoBehaviour {
 
 	public float MaxHealth
 	{
-		get{ return MaxHealth;}
+		get{ return MAX_HEALTH;}
 	}
 	
 	// Update is called once per frame
