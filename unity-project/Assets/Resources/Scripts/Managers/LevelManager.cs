@@ -81,6 +81,7 @@ public class LevelManager : MonoBehaviour {
 
 	public void OnCollect(GameObject collectable) {
 		CollectCollectable (collectable);
+	
 		if (collected.Count == collectables.Count) {
 			ChangeWinState();
 			EndLevel ();
@@ -165,6 +166,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void CollectCollectable(GameObject collectable){
+		ep.publish (new CollectableEvent (1));
 		if(!this.collected.ContainsKey(collectable.tag)) {
 			this.collected.Add(collectable.tag, new List<GameObject>());
 		}

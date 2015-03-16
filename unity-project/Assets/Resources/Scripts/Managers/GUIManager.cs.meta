@@ -5,6 +5,7 @@ MonoImporter:
   defaultReferences:
   - healthBar: {fileID: 106062, guid: 5c973ef3a3d10ec45ae7fa5d9106a1da, type: 2}
   - energyBar: {fileID: 194292, guid: 982335e20ab2f0d4ba44b08591cb90cb, type: 2}
+  - collectionText: {fileID: 183460, guid: 903b3e7e6c21ce64c9401da3ff45ed52, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
