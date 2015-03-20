@@ -36,18 +36,29 @@ public class LevelManager : MonoBehaviour {
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
 		ep = GameObject.Find("Level").GetComponent<EventPublisher>();
+
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-
+		setupHierarchy ();
 	}
 
 	/**
 	 * Event Listener methods 
 	 *
 	 */
+
+	public void setupHierarchy() {
+		GameObject[] z = FindObjectsOfType(typeof(GameObject)) as GameObject[];
+		foreach(GameObject woot in z) {
+			if(woot.transform.parent == null && !woot.gameObject.Equals(gameObject)) {
+				woot.transform.parent = gameObject.transform;
+			}
+		}
+	}
+
 	public void OnDeath() 
 	{
 		RespawnPlayer (ship.gameObject);
