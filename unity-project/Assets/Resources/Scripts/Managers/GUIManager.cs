@@ -7,7 +7,7 @@ public class GUIManager : MonoBehaviour {
 	// Attributes
 	public GameObject healthBar; 
 	public GameObject energyBar; 
-	public GameObject collectionText;
+	GameObject collectionText;
 
 	// Initial x positions for the bars so it is known what the "full" position is. 
 	float healthInitialXPos;
@@ -27,6 +27,7 @@ public class GUIManager : MonoBehaviour {
 		// Get the width of the bars - should be the same for both. 
 		barWidth = (float)healthBar.renderer.bounds.size.x;
 		barWidth *= 10; // Scaling. I'm not sure how to do this better at this time. 
+		collectionText = transform.FindChild("Canvas/MoleculeCount/Image/Text").gameObject;
 	}
 	
 	// Update is called once per frame

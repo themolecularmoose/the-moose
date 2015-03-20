@@ -32,7 +32,7 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		GUIMan = GameObject.Find("HUD Prefab").GetComponent<GUIManager>();
+		GUIMan = transform.Find("HUD Prefab").gameObject.GetComponent<GUIManager>();
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
 		ep = GameObject.Find("Level").GetComponent<EventPublisher>();
