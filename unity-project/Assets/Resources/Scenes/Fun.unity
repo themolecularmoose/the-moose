@@ -18,7 +18,7 @@ RenderSettings:
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientLight: {r: .0313725509, g: .0313725509, b: .0274509806, a: 1}
+  m_AmbientLight: {r: .160784319, g: .149019614, b: .141176477, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -5745,7 +5745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1525742418
 Transform:
   m_ObjectHideFlags: 0
@@ -6494,9 +6494,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 2
-  m_Color: {r: .988235295, g: .988235295, b: .988235295, a: 1}
-  m_Intensity: 4.32999992
-  m_Range: 5
+  m_Color: {r: .847058833, g: .709803939, b: .564705908, a: 1}
+  m_Intensity: 2.21000004
+  m_Range: 50
   m_SpotAngle: 15
   m_CookieSize: 10
   m_Shadows:
@@ -7266,6 +7266,14 @@ Prefab:
     - target: {fileID: 413712, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10801046, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: m_Intensity
+      value: 2.21000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 10801046, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: m_Range
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
