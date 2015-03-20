@@ -10,10 +10,12 @@ public class ShipController : MonoBehaviour {
 	public float m_fallStrength = 10;
 	public float m_boostStrength = 100;
 	ShipBehaviour m_shipBhv;
+	Transform m_cameraTransform;
 
 	// Use this for initialization
 	void Start () {
 		m_shipBhv = gameObject.GetComponent<ShipBehaviour>();
+		m_cameraTransform = transform.Find("CameraTransform");
 		setupMouse();
 		lockMouse();
 	}
@@ -81,22 +83,24 @@ public class ShipController : MonoBehaviour {
 	void pollInputFlying()
 	{
 		Vector3 force = Vector3.zero;
+		//base movement off of the model transform
+		Transform model = m_cameraTransform;
 		
 		if(Input.GetKey(KeyCode.W))
 		{
-			force += transform.forward * m_thrustStrength;
+			force += model.forward * m_thrustStrength;
 		}
 		if(Input.GetKey(KeyCode.S))
 		{
-			force -= transform.forward * m_brakeStrength;
+			force -= model.forward * m_brakeStrength;
 		}
 		if(Input.GetKey(KeyCode.D))
 		{
-			force += transform.right * m_strafeStrength;
+			force += model.right * m_strafeStrength;
 		}
 		if(Input.GetKey(KeyCode.A))
 		{
-			force -= transform.right * m_strafeStrength;
+			force -= model.right * m_strafeStrength;
 		}
 		if (Input.GetKey (KeyCode.E)) {
 			force += transform.up * m_riseStrength;
@@ -111,7 +115,7 @@ public class ShipController : MonoBehaviour {
 		rigidbody.velocity *= 0.95f;
 		
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			rigidbody.velocity += transform.forward * m_boostStrength;
+			rigidbody.velocity += model.forward * m_boostStrength;
 		}
 	}
 }
