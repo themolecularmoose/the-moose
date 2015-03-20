@@ -51,10 +51,10 @@ public class LevelManager : MonoBehaviour {
 	 */
 
 	public void setupHierarchy() {
-		GameObject[] z = FindObjectsOfType(typeof(GameObject)) as GameObject[];
-		foreach(GameObject woot in z) {
-			if(woot.transform.parent == null && !woot.gameObject.Equals(gameObject)) {
-				woot.transform.parent = gameObject.transform;
+		GameObject[] levelObjects = FindObjectsOfType(typeof(GameObject)) as GameObject[];
+		foreach(GameObject orphan in levelObjects) {
+			if(orphan.transform.parent == null && !orphan.gameObject.Equals(gameObject)) {
+				orphan.transform.parent = gameObject.transform;
 			}
 		}
 	}
