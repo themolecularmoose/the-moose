@@ -29,6 +29,10 @@ public class ShipController : MonoBehaviour {
 			m_shipBhv.Strafe (m_strafeStrength * m_motionScale);
 		if (Input.GetKey (KeyCode.A))
 			m_shipBhv.Strafe (-m_strafeStrength * m_motionScale);
+		if (Input.GetKey (KeyCode.E))
+			m_shipBhv.Climb (m_riseStrength * m_motionScale);
+		if (Input.GetKey (KeyCode.Q))
+			m_shipBhv.Climb (-m_riseStrength * m_motionScale);
 		if (Input.GetKeyDown (KeyCode.Space))
 			m_shipBhv.JumpDrive (m_boostStrength);
 		if (Input.GetMouseButtonDown (0))

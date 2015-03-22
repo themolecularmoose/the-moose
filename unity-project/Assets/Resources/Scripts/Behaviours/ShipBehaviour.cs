@@ -68,7 +68,11 @@ public class ShipBehaviour : MonoBehaviour {
 		}
 		return forceSpread * damageScalar;
 	}
-
+	
+	public void Climb(float a_speed)
+	{
+		rigidbody.AddForce(Vector3.up * a_speed);
+	}
 	
 	public void DecreaseHealth(float damage) 
 	{
@@ -82,7 +86,7 @@ public class ShipBehaviour : MonoBehaviour {
 
 	public void FireBuster()
 	{
-		Instantiate(m_buster, transform.position + transform.forward * 2, transform.rotation);
+		Instantiate(m_buster, m_attachments.transform.position + m_attachments.transform.forward * 2, m_attachments.transform.rotation);
 	}
 
 	public float Health
