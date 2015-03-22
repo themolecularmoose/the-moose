@@ -10,7 +10,6 @@ public class ShipController : MonoBehaviour {
 	public float m_fallStrength = 10;
 	public float m_boostStrength = 100;
 	ShipBehaviour m_shipBhv;
-	Transform m_cameraTransform;
 
 	void checkCenterMouse()
 	{
@@ -22,75 +21,27 @@ public class ShipController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		checkCenterMouse();
-		pollInputClusterBuster();
-		pollInputTractorBeam();
-		pollInputFlying();
+		if (Input.GetKey (KeyCode.W))
+			m_shipBhv.Thrust (m_thrustStrength * m_motionScale);
+		if (Input.GetKey (KeyCode.S))
+			m_shipBhv.Thrust (-m_thrustStrength * m_motionScale);
+		if (Input.GetKey (KeyCode.D))
+			m_shipBhv.Strafe (m_strafeStrength * m_motionScale);
+		if (Input.GetKey (KeyCode.A))
+			m_shipBhv.Strafe (-m_strafeStrength * m_motionScale);
+		if (Input.GetKeyDown (KeyCode.Space))
+			m_shipBhv.JumpDrive (m_boostStrength);
+		if (Input.GetMouseButtonDown (0))
+			m_shipBhv.FireBuster ();
+		if(Input.GetMouseButtonDown(0))
+			m_shipBhv.FireBuster();
+		m_shipBhv.beamState(Input.GetButton("Tractor Beam"));
 	}
 
 	void lockMouse()
 	{
 		Screen.lockCursor = true;
 		Screen.showCursor = false;
-	}
-
-	void pollInputClusterBuster()
-	{
-		if(Input.GetMouseButtonDown(0))
-		{
-			m_shipBhv.FireBuster();
-		}
-	}
-
-	void pollInputFlying()
-	{
-		Vector3 force = Vector3.zero;
-		//base movement off of the model transform
-		Transform model = m_cameraTransform;
-		
-		if(Input.GetKey(KeyCode.W))
-		{
-			force += model.forward * m_thrustStrength;
-		}
-		if(Input.GetKey(KeyCode.S))
-		{
-			force -= model.forward * m_brakeStrength;
-		}
-		if(Input.GetKey(KeyCode.D))
-		{
-			force += model.right * m_strafeStrength;
-		}
-		if(Input.GetKey(KeyCode.A))
-		{
-			force -= model.right * m_strafeStrength;
-		}
-		if (Input.GetKey (KeyCode.E)) {
-			force += transform.up * m_riseStrength;
-		}
-		if (Input.GetKey (KeyCode.Q)) {
-			force -= transform.up * m_fallStrength;
-		}
-		
-		force *= m_motionScale;
-		
-		rigidbody.AddForce(force);
-		rigidbody.velocity *= 0.95f;
-		
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			rigidbody.velocity += model.forward * m_boostStrength;
-		}
-	}
-	
-	void pollInputTractorBeam()
-	{
-		if(Input.GetButton("Tractor Beam"))
-		{
-			m_shipBhv.beamState(true);
-		}
-		else
-		{
-			m_shipBhv.beamState(false);
-		}
 	}
 
 	void setupMouse()
@@ -102,7 +53,6 @@ public class ShipController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		m_shipBhv = gameObject.GetComponent<ShipBehaviour>();
-		m_cameraTransform = transform.Find("Attachments");
 		setupMouse();
 		lockMouse();
 	}

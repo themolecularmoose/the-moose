@@ -18,6 +18,7 @@ public class ShipBehaviour : MonoBehaviour {
 	private static Mutex _m;
 
 	private EventPublisher eventPublisher;
+	private GameObject m_attachments;
 	
 	//store so we can shoot these later
 	GameObject m_buster;
@@ -84,18 +85,15 @@ public class ShipBehaviour : MonoBehaviour {
 		Instantiate(m_buster, transform.position + transform.forward * 2, transform.rotation);
 	}
 
-	/// <summary>
-	/// Move to controller
-	/// </summary>
-	void FixedUpdate () 
-	{
-
-	}
-
 	public float Health
 	{
 		get{ return health;}
 		set{ health = value;}
+	}
+
+	public void JumpDrive(float a_strength)
+	{
+		rigidbody.velocity += m_attachments.transform.forward * a_strength;
 	}
 
 	public float MaxHealth
@@ -123,11 +121,27 @@ public class ShipBehaviour : MonoBehaviour {
 	void Start () {
 		m_buster = (GameObject)Resources.Load("Prefabs/Buster");
 		eventPublisher = GameObject.Find("Level").GetComponent<EventPublisher>();
+		m_attachments = transform.Find("Attachments").gameObject;
+	}
+	
+	public void Strafe(float a_speed)
+	{
+		rigidbody.AddForce(m_attachments.transform.right * a_speed);
+	}
+
+	public void Thrust(float a_speed)
+	{
+		rigidbody.AddForce(m_attachments.transform.forward * a_speed);
 	}
 
 	public bool TractorBeam
 	{
 		get{ return tractorBeam;}
 		set{ tractorBeam = value;}
+	}
+
+	void Update()
+	{
+		rigidbody.velocity *= 0.95f;
 	}
 }
