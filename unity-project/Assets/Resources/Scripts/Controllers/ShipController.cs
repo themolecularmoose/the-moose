@@ -12,12 +12,12 @@ public class ShipController : MonoBehaviour {
 	ShipBehaviour m_shipBhv;
 	Transform m_cameraTransform;
 
-	// Use this for initialization
-	void Start () {
-		m_shipBhv = gameObject.GetComponent<ShipBehaviour>();
-		m_cameraTransform = transform.Find("CameraTransform");
-		setupMouse();
-		lockMouse();
+	void checkCenterMouse()
+	{
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			toggleMouse();
+		}
 	}
 	
 	// Update is called once per frame
@@ -28,36 +28,10 @@ public class ShipController : MonoBehaviour {
 		pollInputFlying();
 	}
 
-	void checkCenterMouse()
-	{
-		if(Input.GetKeyDown(KeyCode.Escape))
-		{
-			toggleMouse();
-		}
-	}
-	void toggleMouse()
-	{
-		if(Screen.lockCursor)
-		{
-			unlockMouse();
-		}else{
-			lockMouse();
-		}
-	}
-	void setupMouse()
-	{
-		lockMouse();
-		unlockMouse();
-	}
 	void lockMouse()
 	{
 		Screen.lockCursor = true;
 		Screen.showCursor = false;
-	}
-	void unlockMouse()
-	{
-		Screen.lockCursor = false;
-		Screen.showCursor = true;
 	}
 
 	void pollInputClusterBuster()
@@ -65,18 +39,6 @@ public class ShipController : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0))
 		{
 			m_shipBhv.FireBuster();
-		}
-	}
-
-	void pollInputTractorBeam()
-	{
-		if(Input.GetButton("Tractor Beam"))
-		{
-			m_shipBhv.beamState(true);
-		}
-		else
-		{
-			m_shipBhv.beamState(false);
 		}
 	}
 
@@ -117,5 +79,47 @@ public class ShipController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			rigidbody.velocity += model.forward * m_boostStrength;
 		}
+	}
+	
+	void pollInputTractorBeam()
+	{
+		if(Input.GetButton("Tractor Beam"))
+		{
+			m_shipBhv.beamState(true);
+		}
+		else
+		{
+			m_shipBhv.beamState(false);
+		}
+	}
+
+	void setupMouse()
+	{
+		lockMouse();
+		unlockMouse();
+	}
+	
+	// Use this for initialization
+	void Start () {
+		m_shipBhv = gameObject.GetComponent<ShipBehaviour>();
+		m_cameraTransform = transform.Find("Attachments");
+		setupMouse();
+		lockMouse();
+	}
+	
+	void toggleMouse()
+	{
+		if(Screen.lockCursor)
+		{
+			unlockMouse();
+		}else{
+			lockMouse();
+		}
+	}
+
+	void unlockMouse()
+	{
+		Screen.lockCursor = false;
+		Screen.showCursor = true;
 	}
 }
