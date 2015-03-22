@@ -35,9 +35,7 @@ public class ShipController : MonoBehaviour {
 			m_shipBhv.Climb (-m_riseStrength * m_motionScale);
 		if (Input.GetKeyDown (KeyCode.Space))
 			m_shipBhv.JumpDrive (m_boostStrength);
-		if (Input.GetMouseButtonDown (0))
-			m_shipBhv.FireBuster ();
-		if(Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.F))
 			m_shipBhv.FireBuster();
 		m_shipBhv.beamState(Input.GetButton("Tractor Beam"));
 	}

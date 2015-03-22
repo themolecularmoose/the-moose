@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour {
 	private EventPublisher ep;
 	private GUIManager GUIMan;
 
+	//Call before Start()
 	void OnEnable () 
 	{
 		// Setup level vars
@@ -33,6 +34,7 @@ public class LevelManager : MonoBehaviour {
 	void Start () 
 	{
 		GUIMan = transform.Find("HUD Prefab").gameObject.GetComponent<GUIManager>();
+		GUIMan.UpdateCollectedMolecules (Flatten (collected));
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
 		ep = GameObject.Find("Level").GetComponent<EventPublisher>();
@@ -67,10 +69,16 @@ public class LevelManager : MonoBehaviour {
 	public void OnCollect(CollectableEvent colEvent) {
 		GameObject collectable = colEvent.collectable;
 		CollectCollectable (collectable);
-		if (Flatten(collected).Count == Flatten(collectables).Count) {
+		ArrayList flatCollected = Flatten (collected);
+		if (flatCollected.Count == Flatten(collectables).Count) {
 			ChangeWinState();
 			EndLevel ();
 		}
+		GUIMan.UpdateCollectedMolecules (flatCollected);
+	}
+	public void OnDecollect(CollectableEvent colEvent){
+		GameObject collectable = colEvent.collectable;
+		DecollectCollectable (collectable);
 		GUIMan.UpdateCollectedMolecules (Flatten(collected));
 	}
 	
@@ -85,13 +93,10 @@ public class LevelManager : MonoBehaviour {
 	 */
 	private ArrayList GetCollectables()
 	{
-		GameObject[] collectableContainers = GameObject.FindGameObjectsWithTag("Collectables");
+		CollectableBehaviour[] collectableContainers = GameObject.FindObjectsOfType<CollectableBehaviour> ();
 		ArrayList tmpList = new ArrayList ();
-		foreach(GameObject stack in collectableContainers) {
-			foreach (Transform child in stack.transform) 
-			{
-				tmpList.Add(child.gameObject);
-			}
+		foreach(CollectableBehaviour bhv in collectableContainers) {
+				tmpList.Add(bhv.gameObject);
 		}
 		return tmpList;
 	}
@@ -181,6 +186,15 @@ public class LevelManager : MonoBehaviour {
 			this.collected.Add(collectable.tag, new List<GameObject>());
 		}
 		this.collected[collectable.tag].Add (collectable);
+	}
+
+	public void DecollectCollectable(GameObject collectable)
+	{
+		//check if this type of collectable has been collected
+		if(this.collected.ContainsKey(collectable.tag)) {
+			//remove this specific collectable from its group of collected brethren
+			this.collected[collectable.tag].Remove(collectable);
+		}
 	}
 
 	public ArrayList GetCollectedByTag(string tag) 

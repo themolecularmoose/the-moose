@@ -19,11 +19,13 @@ public class BusterBhv : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Invoke("Die", m_lifeSpan);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		m_lifeSpan -= Time.deltaTime;
+		if (m_lifeSpan <= 0)
+			Die ();
 		transform.position += transform.forward * Time.deltaTime * m_speed;
 	}
 }

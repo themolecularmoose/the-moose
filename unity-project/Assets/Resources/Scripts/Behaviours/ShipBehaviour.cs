@@ -13,7 +13,7 @@ public class ShipBehaviour : MonoBehaviour {
 	// Convience var for modifing damage upwards
 	private float damageScalar = 1;
 	// List of object tags that can cause damage
-	private string[] damagers = {"Wall", "Obstacle"};
+	private string[] damagers = {"Wall", "Obstacle", "Collectables"};
 	// Ensures order of damage taken
 	private static Mutex _m;
 
@@ -80,6 +80,7 @@ public class ShipBehaviour : MonoBehaviour {
 			health -= damage;
 			if(health <= 0) {
 				eventPublisher.publish (new DeathEvent());
+				health = 0;
 			}
 		}
 	}

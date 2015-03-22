@@ -4,15 +4,19 @@ using System.Collections;
 public class ClusterBhv : MonoBehaviour {
 	GameObject m_level;
 	bool m_broken;
+	public bool m_respawn;
+	GameObject[] m_children;
 
 	// Use this for initialization
 	void Start () {
 		m_level = GameObject.Find("Level");
 		Transform child;
 		//disable all colectable scripts
+		m_children = new GameObject[transform.childCount];
 		for(int i = 0; i < transform.childCount; ++i)
 		{
 			child = transform.GetChild(i);
+			m_children[i] = child.gameObject;
 			//If the collectable has a rigidBody, disable it
 			if(child.rigidbody != null)
 				child.rigidbody.isKinematic = true;
@@ -53,10 +57,14 @@ public class ClusterBhv : MonoBehaviour {
 			if(child.rigidbody != null)
 			{
 				child.rigidbody.isKinematic = false;
-				child.rigidbody.constraints = RigidbodyConstraints.None;
+				//child.rigidbody.constraints = RigidbodyConstraints.None;
 				child.rigidbody.AddExplosionForce(a_power, a_center, 0, a_lift);
 			}
 		}
+		if (m_respawn) {
+			Invoke("respawn", 4);
+		}
+
 	}
 
 	void onBusterHit(object a_sender)
@@ -65,7 +73,22 @@ public class ClusterBhv : MonoBehaviour {
 		{
 			BusterBhv buster = (BusterBhv)a_sender;
 			Explode(buster.m_power, buster.m_lift, buster.gameObject.transform.position);
-			Destroy(buster.gameObject);
+			buster.SendMessage("Die");
 		}
+	}
+
+	void respawn()
+	{
+		for (int i = 0; i < m_children.Length; ++i) {
+			m_children[i].transform.SetParent(gameObject.transform);
+			if(!m_children[i].activeSelf)
+			{
+				//set to active to recieve messages
+				m_children[i].SetActive(true);
+				m_children[i].SendMessageUpwards("Reactivate");
+			}
+		}
+		m_broken = false;
+		Start ();
 	}
 }
