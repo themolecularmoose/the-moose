@@ -213,7 +213,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -89.2118912, y: -89.2679977, z: 12.7834606}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 485174}
@@ -465,6 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 185168}
   energyBar: {fileID: 185162}
+  collectionText: {fileID: 185158}
 --- !u!114 &11485172
 MonoBehaviour:
   m_ObjectHideFlags: 1
