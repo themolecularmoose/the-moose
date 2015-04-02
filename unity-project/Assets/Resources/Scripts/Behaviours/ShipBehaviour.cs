@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 
 public class ShipBehaviour : MonoBehaviour {
+	private ShipAudio sa;
 	private bool tractorBeam;
 	private int beamEnergy;
 	private const int MAX_BEAM_ENERGY = 100; // "Constant" - not sure if this should be upgradeable.
@@ -28,6 +29,7 @@ public class ShipBehaviour : MonoBehaviour {
 		beamEnergy = MAX_BEAM_ENERGY;
 		tractorBeam = false;
 		health = MAX_HEALTH;
+		sa = gameObject.GetComponent<ShipAudio> ();
 	}
 
 	public int BeamEnergy
@@ -73,6 +75,7 @@ public class ShipBehaviour : MonoBehaviour {
 	{
 		if(health > 0) {
 			health -= damage;
+			sa.PlayDamage();
 			if(health <= 0) {
 				eventPublisher.publish (new DeathEvent());
 			}
@@ -129,5 +132,10 @@ public class ShipBehaviour : MonoBehaviour {
 	{
 		get{ return tractorBeam;}
 		set{ tractorBeam = value;}
+	}
+
+	public void PlayBoost()
+	{
+		sa.PlayBoost ();
 	}
 }

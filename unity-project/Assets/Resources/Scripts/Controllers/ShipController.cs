@@ -112,6 +112,7 @@ public class ShipController : MonoBehaviour {
 		
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			rigidbody.velocity += transform.forward * m_boostStrength;
+			m_shipBhv.PlayBoost();
 		}
 	}
 }
