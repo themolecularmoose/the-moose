@@ -314,6 +314,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413692}
+  - 65: {fileID: 6537774}
   m_Layer: 2
   m_Name: Avatar
   m_TagString: Player
@@ -707,7 +708,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113692}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: .296329916, y: 0, z: 0, w: -.955085635}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -765,8 +766,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113712}
-  m_LocalRotation: {x: 0, y: -.184020266, z: 0, w: .982922494}
-  m_LocalPosition: {x: 8.77999973, y: -1.87, z: -1.02999997}
+  m_LocalRotation: {x: 0, y: .950191319, z: 0, w: -.311667323}
+  m_LocalPosition: {x: -89.3099976, y: -89.3199997, z: 12.6499996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 413690}
@@ -827,7 +828,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182462}
-  m_LocalRotation: {x: -.296330303, y: -8.28501978e-09, z: -1.51835877e-08, w: .955085516}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .255837888, y: .255837888, z: .255837888}
   m_Children: []
@@ -1307,6 +1308,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6537774
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.5}
+  m_Center: {x: 0, y: 0, z: -.100000001}
 --- !u!81 &8113712
 AudioListener:
   m_ObjectHideFlags: 1
