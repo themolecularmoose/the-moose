@@ -20,6 +20,7 @@ public class LevelLoader : MonoBehaviour {
 	}
 
 	public void LoadLevel( string level ) { 
+		// use loading screen for level_1-0, 1-1 only
 		if (level.Contains ("-")) {
 			LoadWithLoadingScreen (level);
 		} else {
