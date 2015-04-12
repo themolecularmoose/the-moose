@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour {
 	private ShipBehaviour ship;
 	private EventPublisher ep;
 	private GUIManager GUIMan;
+	private LevelLoader loader;
 
 	//Call before Start()
 	void OnEnable () 
@@ -33,6 +34,7 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		loader = GameObject.Find ("LevelLoader").GetComponent<LevelLoader> ();
 		GUIMan = transform.Find("HUD Prefab").gameObject.GetComponent<GUIManager>();
 		GUIMan.UpdateCollectedMolecules (Flatten (collected));
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
@@ -159,12 +161,12 @@ public class LevelManager : MonoBehaviour {
 		if(winState)
 		{
 			PlayerPrefs.SetInt ("Win", 1);
-			Application.LoadLevel("game_over");
+			loader.LoadLevel("game_over");
 		}
 		else
 		{
 			PlayerPrefs.SetInt ("Win", 0);
-			Application.LoadLevel("game_over");
+			loader.LoadLevel("game_over");
 		}
 		
 	}
