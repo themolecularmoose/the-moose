@@ -15,18 +15,22 @@ public class LevelLoader : MonoBehaviour {
 	void Update () {
 		if (levelToLoad) {
 			levelToLoad = false;
-			StartCoroutine( DelayedLevelLoad ( 2 , levelName ));
+			Application.LoadLevel(levelName);
 		}
 	}
 
 	public void LoadLevel( string level ) { 
+		if (level.Contains ("-")) {
+			LoadWithLoadingScreen (level);
+		} else {
+			Application.LoadLevel (level);
+		}
+
+	}
+
+	private void LoadWithLoadingScreen( string level ){
 		this.levelName = level;
 		this.levelToLoad = true;
 		Application.LoadLevel ("loading_screen");
-	}
-
-	IEnumerator DelayedLevelLoad( int num, string level ){
-		yield return new WaitForSeconds (num);
-		Application.LoadLevel (level);
 	}
 }
