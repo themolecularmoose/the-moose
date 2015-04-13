@@ -6,8 +6,11 @@ public class GameOver : MonoBehaviour
 	private int win = 0;
 	private int score = 0;
 	private string level = "";
+	private LevelLoader loader;
+
 	// Use this for initialization
 	void Start (){
+		loader =  GameObject.Find ("LevelLoader").GetComponent<LevelLoader> ();
 		//get our score from playerprefs
 		level = PlayerPrefs.GetString ("Level");
 		score = PlayerPrefs.GetInt("Score");
@@ -37,12 +40,12 @@ public class GameOver : MonoBehaviour
 		}
 		GUI.Label (new Rect (rect.center[0]-100, rect.center[1]+100, 200, 100), victory);
 		if (GUI.Button (new Rect (rect.center[0]-40,rect.center[1],80,20), "Retry")) {
-			Application.LoadLevel (level);
+			loader.LoadLevel (level);
 		}
 		
 		// Make the second button.
 		if (GUI.Button (new Rect (rect.center[0] -40,rect.center[1] + 40,80,20), "Quit")) {
-			Application.LoadLevel("start_menu");
+			loader.LoadLevel("start_menu");
 		} 
 	}
 }

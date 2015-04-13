@@ -23,7 +23,8 @@ public class MainMenu : MonoBehaviour {
 	
 	void OnMouseUp() {
 		//switch to main_game scene
-		Application.LoadLevel("level_select");
+		LevelLoader loader = GameObject.Find ("LevelLoader").GetComponent<LevelLoader> ();
+		loader.LoadLevel ("level_select");
 	}
 	
 	
