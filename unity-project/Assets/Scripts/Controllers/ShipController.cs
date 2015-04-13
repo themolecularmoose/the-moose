@@ -27,9 +27,9 @@ public class ShipController : MonoBehaviour {
 	void LateUpdate () {
 		updateMouse ();
 		rotateShip ();
-		if (Input.GetKey (KeyCode.Space)) {
-			//m_shipBhv.JumpDrive (m_boostStrength);
-			m_shipBhv.Thrust(m_thrustStrength * m_motionScale);
+		moveShip ();
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			m_shipBhv.JumpDrive (m_boostStrength);
 		}
 		if (Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.F))
 			m_shipBhv.FireBuster();
@@ -39,13 +39,27 @@ public class ShipController : MonoBehaviour {
 	void lockMouse()
 	{
 		Screen.lockCursor = true;
-		Screen.showCursor = false;
+	}
+
+	void moveShip()
+	{
+		if (Input.GetButton ("Forward")) {
+			m_shipBhv.Thrust(m_thrustStrength * m_motionScale);
+		}
+		if (Input.GetButton ("Back")) {
+			m_shipBhv.Thrust(-m_thrustStrength * m_motionScale);
+		}
+		if (Input.GetButton ("Left")) {
+			m_shipBhv.Strafe(-m_thrustStrength * m_motionScale);
+		}
+		if (Input.GetButton ("Right")) {
+			m_shipBhv.Strafe(m_thrustStrength * m_motionScale);
+		}
 	}
 
 	void setupMouse()
 	{
-		lockMouse();
-		unlockMouse();
+		Screen.showCursor = false;
 	}
 	
 	// Use this for initialization
@@ -68,7 +82,6 @@ public class ShipController : MonoBehaviour {
 	void unlockMouse()
 	{
 		Screen.lockCursor = false;
-		Screen.showCursor = true;
 	}
 
 	void updateMouse()
@@ -87,22 +100,11 @@ public class ShipController : MonoBehaviour {
 
 	void rotateShip()
 	{
-		/*float max = 10;
-		float turnSide = Mathf.Clamp(m_mouseDifference.x / 10, -max, max);
-		float turnVertical = Mathf.Clamp(-m_mouseDifference.y / 10, -max, max);
+		float max = 10;
+		float shrink = 5;
+		float turnSide = Mathf.Clamp(m_mouseDifference.x / shrink, -max, max);
+		float turnVertical = Mathf.Clamp(-m_mouseDifference.y / shrink, -max, max);
 		transform.Rotate(turnVertical, 0, 0, Space.Self);
-		transform.Rotate(0, turnSide, 0, Space.World);*/
-		if (Input.GetButton ("Forward")) {
-			m_shipBhv.Thrust(m_thrustStrength * m_motionScale);
-		}
-		if (Input.GetButton ("Back")) {
-			m_shipBhv.Thrust(-m_thrustStrength * m_motionScale);
-		}
-		if (Input.GetButton ("Left")) {
-			m_shipBhv.Lean (-m_leanStrength, m_leanMax);
-		}
-		if (Input.GetButton ("Right")) {
-			m_shipBhv.Lean (m_leanStrength, m_leanMax);
-		}
+		transform.Rotate(0, turnSide, 0, Space.World);
 	}
 }

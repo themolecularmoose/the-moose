@@ -16,12 +16,12 @@ public class SparkBehaviour : MonoBehaviour {
 		
 	}
 
-	void OnCollisionEnter(Collision collision)
+	void OnDamage(GameEvent a_event)
 	{
-		Debug.Log ("Got a collision here!");
-		ContactPoint c = collision.contacts [0];
-		m_spark.transform.position = c.point;
-		//m_spark.transform.forward = c.normal;
-		m_spark.particleSystem.Play ();
+		//attempt conversion to dmgEvent
+		DamageEvent dmg = a_event as DamageEvent;
+		if (dmg != null) {
+			particleSystem.Play();
+		}
 	}
 }

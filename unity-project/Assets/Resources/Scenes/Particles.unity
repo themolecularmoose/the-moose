@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_hook: {fileID: 830867146}
   m_repositionRate: .100000001
-  m_lookAtRate: .100000001
+  m_lookAtRate: .300000012
   m_wallPadding: .100000001
 --- !u!81 &113316439
 AudioListener:
@@ -1682,7 +1682,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &418820860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2893,6 +2893,22 @@ Prefab:
     - target: {fileID: 19895324, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
       propertyPath: ClampVelocityModule.inWorldSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19895320, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19895324, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19895322, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11413706, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
+      propertyPath: m_lookAtRate
+      value: .300000012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8bf1acf7f71d8749bd4f19b3bb830eb, type: 2}
@@ -6386,7 +6402,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  moveWithTransform: 1
+  moveWithTransform: 0
   InitialModule:
     enabled: 1
     startLifetime:
@@ -7534,7 +7550,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  moveWithTransform: 1
+  moveWithTransform: 0
   InitialModule:
     enabled: 1
     startLifetime:
@@ -8802,7 +8818,7 @@ ParticleSystem:
         rgba: 4290904062
       minMaxState: 0
     startSize:
-      scalar: .5
+      scalar: .150000006
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -8874,8 +8890,8 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .300000012
-    angle: 30
+    radius: .100000001
+    angle: 20
     length: 5
     boxX: 1
     boxY: 1
@@ -9688,12 +9704,12 @@ Transform:
   m_PrefabParentObject: {fileID: 443862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
   m_PrefabInternal: {fileID: 1674734892}
   m_GameObject: {fileID: 987134968}
-  m_LocalRotation: {x: -.230999455, y: .745462, z: .176333144, w: .599860251}
-  m_LocalPosition: {x: -1.13999999, y: .764999986, z: -2.34200001}
+  m_LocalRotation: {x: -.194605678, y: .843117774, z: .215830386, w: .452436}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1428958873}
+  m_RootOrder: 3
 --- !u!114 &987134972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11261,6 +11277,7 @@ Transform:
   - {fileID: 2087177560}
   - {fileID: 1583956457}
   - {fileID: 2048687908}
+  - {fileID: 987134971}
   m_Father: {fileID: 418820861}
   m_RootOrder: 1
 --- !u!1 &1432546682
@@ -11564,43 +11581,55 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1428958873}
     m_Modifications:
     - target: {fileID: 443862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.13999999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 443862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .764999986
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 443862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.34200001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 443862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -.230999455
+      value: -.194605678
       objectReference: {fileID: 0}
     - target: {fileID: 443862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
       propertyPath: m_LocalRotation.y
-      value: .745462
+      value: .843117774
       objectReference: {fileID: 0}
     - target: {fileID: 443862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
       propertyPath: m_LocalRotation.z
-      value: .176333144
+      value: .215830386
       objectReference: {fileID: 0}
     - target: {fileID: 443862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .599860251
+      value: .452436
       objectReference: {fileID: 0}
     - target: {fileID: 443862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 19843862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19843862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 19843862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
+      propertyPath: ShapeModule.radius
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 19843862, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
+      propertyPath: ShapeModule.angle
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27721c6488928304f8ae1856aeb973a5, type: 2}
@@ -16408,7 +16437,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &2048687905
 GameObject:
   m_ObjectHideFlags: 0
@@ -16474,7 +16503,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  moveWithTransform: 1
+  moveWithTransform: 0
   InitialModule:
     enabled: 1
     startLifetime:
