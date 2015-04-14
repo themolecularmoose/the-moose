@@ -22,6 +22,14 @@ public class KillSwitchBehaviour : MonoBehaviour {
 		}
 	}
 
+	void OnDeath(GameEvent a_event)
+	{
+		DeathEvent dth = a_event as DeathEvent;
+		if (dth != null) {
+			particleSystem.Play();
+		}
+	}
+
 	void Respawn()
 	{
 		m_shipAvatar.SetActive (true);

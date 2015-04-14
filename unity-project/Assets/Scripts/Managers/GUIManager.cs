@@ -25,10 +25,8 @@ public class GUIManager : MonoBehaviour {
 		energyInitialXPos = rectTransform.position.x;
 
 		healthPos = rectTransform.position;
-		Debug.Log (healthPos);
 		// Get the width of the bars - should be the same for both. 
 		barWidth = rectTransform.rect.size.x;
-		Debug.Log (barWidth);
 		//barWidth *= 10; // Scaling. I'm not sure how to do this better at this time.
 	}
 	

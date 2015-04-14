@@ -25,6 +25,9 @@ public class ShipBehaviour : MonoBehaviour {
 	//store so we can shoot these later
 	GameObject m_buster;
 
+	public delegate void PlayerContactEvent(Collision collision);
+	public event PlayerContactEvent OnContact;
+
 	void OnEnable() 
 	{
 		_m = new Mutex ();
@@ -79,14 +82,33 @@ public class ShipBehaviour : MonoBehaviour {
 	
 	public void DecreaseHealth(float damage) 
 	{
-		Debug.Log("ShipBehaviours.DecreaseHealth(float damage = " + damage + ")");
-		Debug.Log ("\tHealth: " + health);
 		if(health > 0) {
 			health -= damage;
 			if(health <= 0) {
-				health = 0;
-				eventPublisher.publish (new DeathEvent());
+				Debug.Log("Death Health: " + health);
+				Die();
 			}
+		}
+	}
+
+	public void Die()
+	{
+		//confirm death
+		health = 0;
+		gameObject.rigidbody.velocity = Vector3.zero;
+		//disable the visualization
+		setVisibility(false);
+		//inform first of kin
+		eventPublisher.publish (new DeathEvent());
+		//disable this behaviour
+		enabled = false;
+	}
+
+	void setVisibility(bool isVisible)
+	{
+		for (int i = 0; i < m_avatar.transform.childCount; ++i) {
+			var child = m_avatar.transform.GetChild(i);
+			child.gameObject.SetActive(isVisible);
 		}
 	}
 
@@ -127,6 +149,16 @@ public class ShipBehaviour : MonoBehaviour {
 		eventPublisher.publish (new DamageEvent(damage, health, MAX_HEALTH));
 		DecreaseHealth (damage);
 		_m.ReleaseMutex ();
+
+		if (OnContact != null) {
+			OnContact (collision);
+		}
+	}
+
+	public void Respawn()
+	{
+		enabled = true;
+		setVisibility (true);
 	}
 
 	// Use this for initialization

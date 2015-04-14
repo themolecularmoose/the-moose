@@ -33,7 +33,6 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log ("GUIMAN: " + GUIMan + ", Collected: " + collected);
 		GUIMan.UpdateCollectedMolecules (Flatten (collected));
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
@@ -63,7 +62,8 @@ public class LevelManager : MonoBehaviour {
 
 	public void OnDeath() 
 	{
-		RespawnPlayer();
+		GUIMan.UpdateHealthBar (0, ship.MaxHealth);
+		Invoke ("RespawnPlayer", 3.0f);
 	}
 	
 	public void OnCollect(CollectableEvent colEvent) {
@@ -144,13 +144,13 @@ public class LevelManager : MonoBehaviour {
 		ship.gameObject.transform.position = this.checkpoint;
 		ship.gameObject.rigidbody.velocity = Vector3.zero;
 		ship.gameObject.rigidbody.angularVelocity = Vector3.zero;
+		ship.Respawn ();
 		GUIMan.UpdateHealthBar (ship.Health, ship.MaxHealth);
 		GUIMan.UpdateCollectedMolecules (Flatten(collected));
 	}
 
 	public void SetCheckpoint(Vector3 checkpoint)
 	{
-		Debug.Log ("SetCheckpoint(Vector3 checkpoint)...Health: " + ship.Health);
 		this.state.SaveState(score,Flatten(collected),ship.BeamEnergy, ship.Health);
 		this.checkpoint = checkpoint;
 	}

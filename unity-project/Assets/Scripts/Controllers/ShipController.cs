@@ -26,14 +26,16 @@ public class ShipController : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 		updateMouse ();
-		rotateShip ();
-		moveShip ();
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			m_shipBhv.JumpDrive (m_boostStrength);
+		if (m_shipBhv.enabled) {
+			rotateShip ();
+			moveShip ();
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				m_shipBhv.JumpDrive (m_boostStrength);
+			}
+			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.F))
+				m_shipBhv.FireBuster ();
+			m_shipBhv.beamState (Input.GetButton ("Tractor Beam"));
 		}
-		if (Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.F))
-			m_shipBhv.FireBuster();
-		m_shipBhv.beamState(Input.GetButton("Tractor Beam"));
 	}
 
 	void lockMouse()
@@ -100,8 +102,6 @@ public class ShipController : MonoBehaviour {
 		}
 		//gotcha ;)
 		toggleMouse ();
-
-		Debug.Log (Input.acceleration);
 	}
 
 	void rotateShip()
