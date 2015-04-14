@@ -55,6 +55,12 @@ public class ShipController : MonoBehaviour {
 		if (Input.GetButton ("Right")) {
 			m_shipBhv.Strafe(m_thrustStrength * m_motionScale);
 		}
+		if (Input.GetButton ("Rise")) {
+			m_shipBhv.Climb(m_thrustStrength * m_motionScale);
+		}
+		if (Input.GetButton ("Fall")) {
+			m_shipBhv.Climb(-m_thrustStrength * m_motionScale);
+		}
 	}
 
 	void setupMouse()
@@ -100,7 +106,7 @@ public class ShipController : MonoBehaviour {
 
 	void rotateShip()
 	{
-		float max = 10;
+		float max = 100;
 		float shrink = 5;
 		float turnSide = Mathf.Clamp(m_mouseDifference.x / shrink, -max, max);
 		float turnVertical = Mathf.Clamp(-m_mouseDifference.y / shrink, -max, max);
