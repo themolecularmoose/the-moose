@@ -61,12 +61,13 @@ public class ShipBehaviour : MonoBehaviour {
 			mass = 1; // TODO: Brian S -> Add custom variables to game objects to avoid use of rigidbody on static objects
 		}
 		float force = mass * hitMagnitude;
-		float forceSpread = 0; // Default to one damamge for any collision
+		/*float forceSpread = 0; // Default to one damamge for any collision
 		if (force > pointsOfContact && pointsOfContact != 0) {
 			// Naively spread damamge over points of collision
-			forceSpread = Mathf.FloorToInt (force) / pointsOfContact;
+			forceSpread = Mathf.Floor(force) / pointsOfContact;
 		}
-		return forceSpread * damageScalar;
+		return forceSpread * damageScalar;*/
+		return force;
 	}
 	
 	public void Climb(float a_speed)
@@ -76,11 +77,13 @@ public class ShipBehaviour : MonoBehaviour {
 	
 	public void DecreaseHealth(float damage) 
 	{
+		Debug.Log("ShipBehaviours.DecreaseHealth(float damage = " + damage + ")");
+		Debug.Log ("\tHealth: " + health);
 		if(health > 0) {
 			health -= damage;
 			if(health <= 0) {
-				eventPublisher.publish (new DeathEvent());
 				health = 0;
+				eventPublisher.publish (new DeathEvent());
 			}
 		}
 	}
@@ -112,9 +115,11 @@ public class ShipBehaviour : MonoBehaviour {
 		string collidedWithTag = collision.gameObject.tag;
 		
 		// If game object collided with is not in damagers list -> exit
-		if (!damagers.Contains (collidedWithTag)) {
+		/*
+		 * Temporarily Disabling
+		 * if (!damagers.Contains (collidedWithTag)) {
 			return;
-		}
+		}*/
 		_m.WaitOne();
 		float damage = CalcDamage (collision);
 		eventPublisher.publish (new DamageEvent(damage, health, MAX_HEALTH));
