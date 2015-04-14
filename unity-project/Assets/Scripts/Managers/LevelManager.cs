@@ -57,6 +57,7 @@ public class LevelManager : MonoBehaviour {
 	public void setupHierarchy() {
 		GameObject[] levelObjects = FindObjectsOfType(typeof(GameObject)) as GameObject[];
 		foreach(GameObject orphan in levelObjects) {
+			if(orphan.transform.parent == null && !orphan.gameObject.Equals(gameObject) && (orphan.GetComponent<LevelLoader>() == null)) {
 				orphan.transform.parent = gameObject.transform;
 			}
 		}
