@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 
 public class ShipBehaviour : MonoBehaviour {
+	private ShipAudio sa;
 	private const int MAX_BEAM_ENERGY = 100; // "Constant" - not sure if this should be upgradeable.
 	private const float MAX_HEALTH = 100.0f; // "Constant" - not sure if this should be upgradeable?
 	private bool tractorBeam;
@@ -34,6 +35,7 @@ public class ShipBehaviour : MonoBehaviour {
 		beamEnergy = MAX_BEAM_ENERGY;
 		tractorBeam = false;
 		health = MAX_HEALTH;
+		sa = gameObject.GetComponent<ShipAudio> ();
 	}
 
 	public int BeamEnergy
@@ -83,6 +85,7 @@ public class ShipBehaviour : MonoBehaviour {
 	{
 		if(health > 0) {
 			health -= damage;
+			sa.PlayDamage();
 			if(health <= 0) {
 				Die();
 			}
@@ -124,6 +127,7 @@ public class ShipBehaviour : MonoBehaviour {
 	public void JumpDrive(float a_strength)
 	{
 		rigidbody.velocity += m_attachments.transform.forward * a_strength;
+		sa.PlayBoost ();
 	}
 
 	public float MaxHealth
