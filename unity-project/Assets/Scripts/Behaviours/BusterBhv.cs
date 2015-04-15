@@ -10,7 +10,6 @@ public class BusterBhv : MonoBehaviour {
 
 	void Die()
 	{
-		Debug.Log("Destroy");
 		explosionObject.transform.position = transform.position;
 		explosionObject.particleSystem.Play();
 		Destroy(gameObject);

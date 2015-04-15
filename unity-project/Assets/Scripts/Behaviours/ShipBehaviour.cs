@@ -12,7 +12,7 @@ public class ShipBehaviour : MonoBehaviour {
 	private float maxTurnRate = 5;
 
 	// Convience var for modifing damage upwards
-	private float damageScalar = 1;
+	private float damageScalar = 0.5f;
 	// List of object tags that can cause damage
 	private string[] damagers = {"Wall", "Obstacle", "Collectables"};
 	// Ensures order of damage taken
@@ -66,13 +66,12 @@ public class ShipBehaviour : MonoBehaviour {
 			mass = 1; // TODO: Brian S -> Add custom variables to game objects to avoid use of rigidbody on static objects
 		}
 		float force = mass * hitMagnitude;
-		/*float forceSpread = 0; // Default to one damamge for any collision
+		float forceSpread = 0; // Default to one damamge for any collision
 		if (force > pointsOfContact && pointsOfContact != 0) {
 			// Naively spread damamge over points of collision
-			forceSpread = Mathf.Floor(force) / pointsOfContact;
+			forceSpread = Mathf.FloorToInt(force) / pointsOfContact;
 		}
-		return forceSpread * damageScalar;*/
-		return force;
+		return forceSpread * damageScalar;
 	}
 	
 	public void Climb(float a_speed)
@@ -85,7 +84,6 @@ public class ShipBehaviour : MonoBehaviour {
 		if(health > 0) {
 			health -= damage;
 			if(health <= 0) {
-				Debug.Log("Death Health: " + health);
 				Die();
 			}
 		}

@@ -25,9 +25,9 @@ public class ShipController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		updateMouse ();
+		//updateMouse ();
 		if (m_shipBhv.enabled) {
-			rotateShip ();
+			//rotateShip ();
 			moveShip ();
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				m_shipBhv.JumpDrive (m_boostStrength);
