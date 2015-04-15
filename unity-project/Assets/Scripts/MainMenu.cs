@@ -5,7 +5,6 @@ public class MainMenu : MonoBehaviour {
 
 	private Color original_color;
 	public Color highlight_color = Color.yellow;
-
 	
 	void OnMouseEnter() {
 		//this doesn't work in start or update for some reason
@@ -23,7 +22,8 @@ public class MainMenu : MonoBehaviour {
 	
 	void OnMouseUp() {
 		//switch to main_game scene
-		Application.LoadLevel("level_select");
+		LevelLoader loader = GameObject.Find ("Utilities").GetComponent<LevelLoader> ();
+		loader.LoadLevel("level_select");
 	}
 	
 	

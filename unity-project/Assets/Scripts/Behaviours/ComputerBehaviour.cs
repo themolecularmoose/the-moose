@@ -4,15 +4,17 @@ using System.Collections;
 public class ComputerBehaviour : MonoBehaviour {
 
 	bool showLevelMessage = false;
+	private LevelLoader loader;
 
 	// Use this for initialization
 	void Start () {
+		loader = GameObject.Find ("Utilities").GetComponent<LevelLoader> ();
 	}
 	
 	void Update(){
 		if (showLevelMessage) {
 			if (Input.GetKeyDown ("space")) {
-					Application.LoadLevel ("level_1-0");
+					loader.LoadLevel ("level_1-0");
 			}
 		}
 	}

@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour {
 	private ShipBehaviour ship;
 	private EventPublisher ep;
 	public GUIManager GUIMan;
+	private LevelLoader loader;
 
 	//Call before Start()
 	void OnEnable () 
@@ -33,6 +34,7 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		loader = GameObject.Find ("Utilities").GetComponent<LevelLoader> ();
 		GUIMan.UpdateCollectedMolecules (Flatten (collected));
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
@@ -54,7 +56,7 @@ public class LevelManager : MonoBehaviour {
 	public void setupHierarchy() {
 		GameObject[] levelObjects = FindObjectsOfType(typeof(GameObject)) as GameObject[];
 		foreach(GameObject orphan in levelObjects) {
-			if(orphan.transform.parent == null && !orphan.gameObject.Equals(gameObject)) {
+			if(orphan.transform.parent == null && !orphan.gameObject.Equals(gameObject) && (orphan.name != "Utilities")) {
 				orphan.transform.parent = gameObject.transform;
 			}
 		}
@@ -162,12 +164,12 @@ public class LevelManager : MonoBehaviour {
 		if(winState)
 		{
 			PlayerPrefs.SetInt ("Win", 1);
-			Application.LoadLevel("game_over");
+			loader.LoadLevel("game_over");
 		}
 		else
 		{
 			PlayerPrefs.SetInt ("Win", 0);
-			Application.LoadLevel("game_over");
+			loader.LoadLevel("game_over");
 		}
 		
 	}
