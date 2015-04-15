@@ -19,14 +19,15 @@ public class GUIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		var rectTransform = healthBar.GetComponent<RectTransform> ();
 		// Set initial positions so we know what the maximum value is. 
-		healthInitialXPos = healthBar.transform.position.x; 
-		energyInitialXPos = energyBar.transform.position.x;
+		healthInitialXPos = rectTransform.position.x; 
+		energyInitialXPos = rectTransform.position.x;
 
-		healthPos = healthBar.transform.position; 
+		healthPos = rectTransform.position;
 		// Get the width of the bars - should be the same for both. 
-		barWidth = (float)healthBar.renderer.bounds.size.x;
-		barWidth *= 10; // Scaling. I'm not sure how to do this better at this time.
+		barWidth = rectTransform.rect.size.x;
+		//barWidth *= 10; // Scaling. I'm not sure how to do this better at this time.
 	}
 	
 	// Update is called once per frame
@@ -36,9 +37,9 @@ public class GUIManager : MonoBehaviour {
 
 	public void UpdateCollectedMolecules(ArrayList collected)
 	{
-		Text t = collectionText.GetComponent<Text> ();
+		//Text t = collectionText.GetComponent<Text> ();
 	
-		t.text = collected.Count.ToString ();
+		//t.text = collected.Count.ToString ();
 	}
 
 	public void UpdateHealthBar(float health, float maxHealth)
@@ -77,6 +78,7 @@ public class GUIManager : MonoBehaviour {
 
 		energyPos.x = energyX; 
 
+		Debug.Log ("Health Pos: " + healthPos);
 		healthBar.transform.position = healthPos; 
 		energyBar.transform.position = energyPos; 
 	}

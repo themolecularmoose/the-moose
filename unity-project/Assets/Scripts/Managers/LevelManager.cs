@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour {
 
 	private ShipBehaviour ship;
 	private EventPublisher ep;
-	private GUIManager GUIMan;
+	public GUIManager GUIMan;
 
 	//Call before Start()
 	void OnEnable () 
@@ -33,7 +33,6 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		GUIMan = transform.Find("HUD Prefab").gameObject.GetComponent<GUIManager>();
 		GUIMan.UpdateCollectedMolecules (Flatten (collected));
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
@@ -63,7 +62,8 @@ public class LevelManager : MonoBehaviour {
 
 	public void OnDeath() 
 	{
-		RespawnPlayer (ship.gameObject);
+		GUIMan.UpdateHealthBar (0, ship.MaxHealth);
+		Invoke ("RespawnPlayer", 3.0f);
 	}
 	
 	public void OnCollect(CollectableEvent colEvent) {
@@ -126,8 +126,10 @@ public class LevelManager : MonoBehaviour {
 	/**
 	 * Game Logic Methods
 	 */
-	public void RespawnPlayer(GameObject player)
+	public void RespawnPlayer()
 	{
+		//score, collected, dead objects
+		//player health, energy, position, velocity, angular vel.
 		this.score = this.state.getScore();
 		ArrayList collectedList = this.state.getCollected();
 		List<GameObject> saveCollected = collectedList.Cast<GameObject>().ToList();
@@ -139,9 +141,10 @@ public class LevelManager : MonoBehaviour {
 			obj.SetActive(true);
 		}
 		this.collected = TagLookupTable(collectedList);
-		player.transform.position = this.checkpoint;
-		player.rigidbody.velocity = Vector3.zero;
-		player.rigidbody.angularVelocity = Vector3.zero;
+		ship.gameObject.transform.position = this.checkpoint;
+		ship.gameObject.rigidbody.velocity = Vector3.zero;
+		ship.gameObject.rigidbody.angularVelocity = Vector3.zero;
+		ship.Respawn ();
 		GUIMan.UpdateHealthBar (ship.Health, ship.MaxHealth);
 		GUIMan.UpdateCollectedMolecules (Flatten(collected));
 	}

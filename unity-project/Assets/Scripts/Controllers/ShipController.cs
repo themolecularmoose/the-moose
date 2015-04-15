@@ -4,11 +4,15 @@ using System.Collections;
 public class ShipController : MonoBehaviour {
 	public float m_motionScale = 5;
 	public float m_thrustStrength = 10;
-	public float m_strafeStrength = 10;
+	public float m_strafeStrength = 0;
+	public float m_leanStrength = 10;
+	public float m_tiltStrength = 1;
 	public float m_brakeStrength = 10;
 	public float m_riseStrength = 10;
 	public float m_fallStrength = 10;
 	public float m_boostStrength = 100;
+	public float m_leanMax = 20;
+	Vector2 m_mouseCurrent, m_mousePrevious, m_mouseDifference;
 	ShipBehaviour m_shipBhv;
 
 	void checkCenterMouse()
@@ -21,35 +25,49 @@ public class ShipController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		if (Input.GetKey (KeyCode.W))
-			m_shipBhv.Thrust (m_thrustStrength * m_motionScale);
-		if (Input.GetKey (KeyCode.S))
-			m_shipBhv.Thrust (-m_thrustStrength * m_motionScale);
-		if (Input.GetKey (KeyCode.D))
-			m_shipBhv.Strafe (m_strafeStrength * m_motionScale);
-		if (Input.GetKey (KeyCode.A))
-			m_shipBhv.Strafe (-m_strafeStrength * m_motionScale);
-		if (Input.GetKey (KeyCode.E))
-			m_shipBhv.Climb (m_riseStrength * m_motionScale);
-		if (Input.GetKey (KeyCode.Q))
-			m_shipBhv.Climb (-m_riseStrength * m_motionScale);
-		if (Input.GetKeyDown (KeyCode.Space))
-			m_shipBhv.JumpDrive (m_boostStrength);
-		if (Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.F))
-			m_shipBhv.FireBuster();
-		m_shipBhv.beamState(Input.GetButton("Tractor Beam"));
+		//updateMouse ();
+		if (m_shipBhv.enabled) {
+			//rotateShip ();
+			moveShip ();
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				m_shipBhv.JumpDrive (m_boostStrength);
+			}
+			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.F))
+				m_shipBhv.FireBuster ();
+			m_shipBhv.beamState (Input.GetButton ("Tractor Beam"));
+		}
 	}
 
 	void lockMouse()
 	{
 		Screen.lockCursor = true;
-		Screen.showCursor = false;
+	}
+
+	void moveShip()
+	{
+		if (Input.GetButton ("Forward")) {
+			m_shipBhv.Thrust(m_thrustStrength * m_motionScale);
+		}
+		if (Input.GetButton ("Back")) {
+			m_shipBhv.Thrust(-m_thrustStrength * m_motionScale);
+		}
+		if (Input.GetButton ("Left")) {
+			m_shipBhv.Strafe(-m_thrustStrength * m_motionScale);
+		}
+		if (Input.GetButton ("Right")) {
+			m_shipBhv.Strafe(m_thrustStrength * m_motionScale);
+		}
+		if (Input.GetButton ("Rise")) {
+			m_shipBhv.Climb(m_thrustStrength * m_motionScale);
+		}
+		if (Input.GetButton ("Fall")) {
+			m_shipBhv.Climb(-m_thrustStrength * m_motionScale);
+		}
 	}
 
 	void setupMouse()
 	{
-		lockMouse();
-		unlockMouse();
+		Screen.showCursor = false;
 	}
 	
 	// Use this for initialization
@@ -72,6 +90,27 @@ public class ShipController : MonoBehaviour {
 	void unlockMouse()
 	{
 		Screen.lockCursor = false;
-		Screen.showCursor = true;
+	}
+
+	void updateMouse()
+	{
+		m_mousePrevious = m_mouseCurrent;
+		m_mouseCurrent = Input.mousePosition;
+		
+		if (!Screen.lockCursor) {
+			m_mouseDifference = m_mouseCurrent - m_mousePrevious;
+		}
+		//gotcha ;)
+		toggleMouse ();
+	}
+
+	void rotateShip()
+	{
+		float max = 100;
+		float shrink = 5;
+		float turnSide = Mathf.Clamp(m_mouseDifference.x / shrink, -max, max);
+		float turnVertical = Mathf.Clamp(-m_mouseDifference.y / shrink, -max, max);
+		transform.Rotate(turnVertical, 0, 0, Space.Self);
+		transform.Rotate(0, turnSide, 0, Space.World);
 	}
 }

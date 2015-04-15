@@ -5,24 +5,29 @@ using System.Threading;
 
 public class ShipBehaviour : MonoBehaviour {
 	private ShipAudio sa;
+	private const int MAX_BEAM_ENERGY = 100; // "Constant" - not sure if this should be upgradeable.
+	private const float MAX_HEALTH = 100.0f; // "Constant" - not sure if this should be upgradeable?
 	private bool tractorBeam;
 	private int beamEnergy;
-	private const int MAX_BEAM_ENERGY = 100; // "Constant" - not sure if this should be upgradeable.
 	private float health;
-	private const float MAX_HEALTH = 100.0f; // "Constant" - not sure if this should be upgradeable?
+	private float maxTurnRate = 5;
 
 	// Convience var for modifing damage upwards
-	private float damageScalar = 1;
+	private float damageScalar = 0.5f;
 	// List of object tags that can cause damage
 	private string[] damagers = {"Wall", "Obstacle", "Collectables"};
 	// Ensures order of damage taken
 	private static Mutex _m;
 
 	private EventPublisher eventPublisher;
-	private GameObject m_attachments;
+	public GameObject m_attachments;
+	public GameObject m_avatar;
 	
 	//store so we can shoot these later
 	GameObject m_buster;
+
+	public delegate void PlayerContactEvent(Collision collision);
+	public event PlayerContactEvent OnContact;
 
 	void OnEnable() 
 	{
@@ -66,7 +71,7 @@ public class ShipBehaviour : MonoBehaviour {
 		float forceSpread = 0; // Default to one damamge for any collision
 		if (force > pointsOfContact && pointsOfContact != 0) {
 			// Naively spread damamge over points of collision
-			forceSpread = Mathf.FloorToInt (force) / pointsOfContact;
+			forceSpread = Mathf.FloorToInt(force) / pointsOfContact;
 		}
 		return forceSpread * damageScalar;
 	}
@@ -82,9 +87,29 @@ public class ShipBehaviour : MonoBehaviour {
 			health -= damage;
 			sa.PlayDamage();
 			if(health <= 0) {
-				eventPublisher.publish (new DeathEvent());
-				health = 0;
+				Die();
 			}
+		}
+	}
+
+	public void Die()
+	{
+		//confirm death
+		health = 0;
+		gameObject.rigidbody.velocity = Vector3.zero;
+		//disable the visualization
+		setVisibility(false);
+		//inform first of kin
+		eventPublisher.publish (new DeathEvent());
+		//disable this behaviour
+		enabled = false;
+	}
+
+	void setVisibility(bool isVisible)
+	{
+		for (int i = 0; i < m_avatar.transform.childCount; ++i) {
+			var child = m_avatar.transform.GetChild(i);
+			child.gameObject.SetActive(isVisible);
 		}
 	}
 
@@ -116,26 +141,59 @@ public class ShipBehaviour : MonoBehaviour {
 		string collidedWithTag = collision.gameObject.tag;
 		
 		// If game object collided with is not in damagers list -> exit
-		if (!damagers.Contains (collidedWithTag)) {
+		/*
+		 * Temporarily Disabling
+		 * if (!damagers.Contains (collidedWithTag)) {
 			return;
-		}
+		}*/
 		_m.WaitOne();
 		float damage = CalcDamage (collision);
 		eventPublisher.publish (new DamageEvent(damage, health, MAX_HEALTH));
 		DecreaseHealth (damage);
 		_m.ReleaseMutex ();
+
+		if (OnContact != null) {
+			OnContact (collision);
+		}
+	}
+
+	public void Respawn()
+	{
+		enabled = true;
+		setVisibility (true);
 	}
 
 	// Use this for initialization
 	void Start () {
+		if (m_attachments == null)
+			Debug.Log ("Error: Attachments not set in player. These should be set by default.");
+		if (m_avatar == null)
+			Debug.Log ("Error: Avatar is not set in player. This should be loaded by default.");
 		m_buster = (GameObject)Resources.Load("Prefabs/Buster");
 		eventPublisher = GameObject.Find("Level").GetComponent<EventPublisher>();
-		m_attachments = transform.Find("Attachments").gameObject;
 	}
 	
 	public void Strafe(float a_speed)
 	{
 		rigidbody.AddForce(m_attachments.transform.right * a_speed);
+	}
+	public void Lean(float a_speed, float a_max)
+	{
+		float value = rigidbody.angularVelocity.y;
+		float sign = Mathf.Sign(a_speed);
+		float speed = value * sign;
+		float momentum = speed * rigidbody.mass;
+		float dif = a_max - momentum;
+		if (dif > 0) {
+			rigidbody.AddRelativeTorque (0, dif * sign, 0);
+		}
+	}
+	public void Tilt(float a_speed)
+	{
+		//broken
+		if (rigidbody.angularVelocity.x < maxTurnRate) {
+			rigidbody.AddRelativeTorque (a_speed, 0, 0);
+		}
 	}
 
 	public void Thrust(float a_speed)
