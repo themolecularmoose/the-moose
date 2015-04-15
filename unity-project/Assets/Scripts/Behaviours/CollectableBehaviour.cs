@@ -8,7 +8,11 @@ public class CollectableBehaviour : MonoBehaviour {
 	//need to have Start() so we can disable this.
 	void Start()
 	{
-		eventPublisher = GameObject.Find("Level").GetComponent<EventPublisher>();
+		if (GameObject.Find ("Level") != null) {
+			eventPublisher = GameObject.Find ("Level").GetComponent<EventPublisher> ();
+		} else { 
+			Debug.Log ("No level game object in scene: " + Application.loadedLevelName);
+		}
 	}
 
 	void OnCollisionEnter(Collision collision) {
