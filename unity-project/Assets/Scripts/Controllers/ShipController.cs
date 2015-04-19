@@ -17,10 +17,9 @@ public class ShipController : MonoBehaviour {
 	private EventPublisher eventPublisher;
 	private bool paused = false;
 
-	void OnPause(){
+	void OnPause (){
 		Time.timeScale = (Time.timeScale != 0.0f) ? 0.0f : 1.0f;
 		paused = !paused;
-		Debug.Log ("Paused?" + paused);
 	}
 
 	void checkCenterMouse()
@@ -45,7 +44,7 @@ public class ShipController : MonoBehaviour {
 					m_shipBhv.FireBuster ();
 				m_shipBhv.beamState (Input.GetButton ("Tractor Beam"));
 			}
-			if (Input.GetButtonDown ("Pause")) 
+			if (Input.GetButtonUp ("Pause")) 
 				eventPublisher.publish ( new PauseEvent(true) );
 		}
 	}

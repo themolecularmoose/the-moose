@@ -14,6 +14,14 @@ public class GameHUD : MonoBehaviour {
 	public Dictionary<string, Rect> moleculeTextureRects;
 	public Dictionary<string, Rect> moleculeLabelRects;
 
+	private bool paused = false;
+	private bool menupaused = false;
+
+	void OnPause( PauseEvent pe ){
+		paused = !paused;
+		menupaused = (pe.displayMenu && paused) ? true : false;
+	}
+
 	void Start () {
 		moleculeLabelRects = new Dictionary<string, Rect> {
 			{"Water", new Rect (120, Screen.height - 200, 200, 200)},
@@ -45,6 +53,9 @@ public class GameHUD : MonoBehaviour {
 			{
 				DrawMolecule (molecule, molecules.Count);
 			}
+		}
+		if (menupaused) {
+			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), MethaneTex);
 		}
 	}
 	
