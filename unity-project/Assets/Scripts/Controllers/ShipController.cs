@@ -14,6 +14,14 @@ public class ShipController : MonoBehaviour {
 	public float m_leanMax = 20;
 	Vector2 m_mouseCurrent, m_mousePrevious, m_mouseDifference;
 	ShipBehaviour m_shipBhv;
+	private EventPublisher eventPublisher;
+	private bool paused = false;
+
+	void OnPause(){
+		Time.timeScale = (Time.timeScale != 0.0f) ? 0.0f : 1.0f;
+		paused = !paused;
+		Debug.Log ("Paused?" + paused);
+	}
 
 	void checkCenterMouse()
 	{
@@ -28,13 +36,17 @@ public class ShipController : MonoBehaviour {
 		//updateMouse ();
 		if (m_shipBhv.enabled) {
 			//rotateShip ();
-			moveShip ();
-			if (Input.GetKeyDown (KeyCode.Space)) {
-				m_shipBhv.JumpDrive (m_boostStrength);
+			if( !paused ){
+				moveShip ();
+				if (Input.GetKeyDown (KeyCode.Space)) {
+					m_shipBhv.JumpDrive (m_boostStrength);
+				}
+				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.F))
+					m_shipBhv.FireBuster ();
+				m_shipBhv.beamState (Input.GetButton ("Tractor Beam"));
 			}
-			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.F))
-				m_shipBhv.FireBuster ();
-			m_shipBhv.beamState (Input.GetButton ("Tractor Beam"));
+			if (Input.GetButtonDown ("Pause")) 
+				eventPublisher.publish ( new PauseEvent(true) );
 		}
 	}
 
@@ -72,6 +84,11 @@ public class ShipController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		if (GameObject.Find ("Level") != null) {
+			eventPublisher = GameObject.Find ("Level").GetComponent<EventPublisher> ();
+		} else { 
+			Debug.Log ("No level game object in scene: " + Application.loadedLevelName);
+		}
 		m_shipBhv = gameObject.GetComponent<ShipBehaviour>();
 		setupMouse();
 		lockMouse();
@@ -106,11 +123,11 @@ public class ShipController : MonoBehaviour {
 
 	void rotateShip()
 	{
-		float max = 100;
-		float shrink = 5;
-		float turnSide = Mathf.Clamp(m_mouseDifference.x / shrink, -max, max);
-		float turnVertical = Mathf.Clamp(-m_mouseDifference.y / shrink, -max, max);
-		transform.Rotate(turnVertical, 0, 0, Space.Self);
-		transform.Rotate(0, turnSide, 0, Space.World);
+			float max = 100;
+			float shrink = 5;
+			float turnSide = Mathf.Clamp (m_mouseDifference.x / shrink, -max, max);
+			float turnVertical = Mathf.Clamp (-m_mouseDifference.y / shrink, -max, max);
+			transform.Rotate (turnVertical, 0, 0, Space.Self);
+			transform.Rotate (0, turnSide, 0, Space.World);
 	}
 }
