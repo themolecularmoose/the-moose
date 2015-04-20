@@ -47,6 +47,10 @@ public class FieldGuide : MonoBehaviour {
 		moleculeName.text = m.name;
 		flavorText.text = m.flavorText;
 	}
+
+	void SwitchMoleculeinfo(Molecule m)
+	{
+	}
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown ("p")) {
