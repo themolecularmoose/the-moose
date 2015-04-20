@@ -74,9 +74,8 @@ public class GameHUD : MonoBehaviour {
 			bottomCenterStyle.alignment = TextAnchor.MiddleCenter;
 			bottomCenterStyle.fontSize = 48;
 			bottomCenterStyle.font = hudFont;
-			bottomCenterStyle.normal.textColor = Color.yellow;
-			bottomCenterStyle.normal.background = (Texture2D)box;
-			bottomCenterStyle.hover.textColor = Color.white;
+			bottomCenterStyle.normal.textColor = Color.white;
+			bottomCenterStyle.hover.textColor = Color.yellow;
 			if (GUI.Button (new Rect (Screen.width / 2 - 150, Screen.height / 3 * 2 - 50, 300, 100), "EXIT GAME", bottomCenterStyle)){
 				if( loader != null ){
 					loader.LoadLevel("start_menu");
