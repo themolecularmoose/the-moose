@@ -21,6 +21,7 @@ public class FieldGuide : MonoBehaviour {
 
 	public GameObject Canvas; 
 	public Text moleculeName; 
+	public Text flavorText;
 
 	public List<Molecule> moleculeInfo;
 	public bool guideUp = false; 
@@ -28,9 +29,24 @@ public class FieldGuide : MonoBehaviour {
 	void Start () {
 		Canvas.gameObject.SetActive (false);
 		moleculeInfo = new List<Molecule> ();
-		moleculeName.text = "Hydrogen Dioxide";
+		moleculeInfo.Add (new Molecule ("Hydrogen Dioxide", "It's water!", 0)); 
+		moleculeInfo.Add (new Molecule ("Silicon Dioxide", "Solar panels", 0)); 
+		moleculeInfo.Add (new Molecule ("Carbon", "Fuel", 0)); 
+		moleculeInfo.Add (new Molecule ("Sodium Chloride", "Salt", 0)); 
+		moleculeInfo.Add (new Molecule ("Carbon Dioxide", "Consumed by plants", 0)); 
+		moleculeInfo.Add (new Molecule ("Hydrogen Chloride", "Acidic and highly corrosive", 0)); 
+		moleculeInfo.Add (new Molecule ("Methane", "Fuel / natural gas", 0)); 
+		moleculeInfo.Add (new Molecule ("Ammonia", "Fertilizer and cleaner.", 0)); 
+		moleculeInfo.Add (new Molecule ("Trinitrotoluene", "TNT: Explosive!", 0)); 
+
+		LoadMolInfo (moleculeInfo [0]);
 	}
-	
+
+	void LoadMolInfo(Molecule m)
+	{
+		moleculeName.text = m.name;
+		flavorText.text = m.flavorText;
+	}
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown ("p")) {
