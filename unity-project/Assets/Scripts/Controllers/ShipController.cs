@@ -17,9 +17,13 @@ public class ShipController : MonoBehaviour {
 	private EventPublisher eventPublisher;
 	private bool paused = false;
 
-	void OnPause (){
+	void OnPause ( PauseEvent pe ){
 		Time.timeScale = (Time.timeScale != 0.0f) ? 0.0f : 1.0f;
 		paused = !paused;
+		if (pe.displayMenu) {
+			toggleMouse ();
+			Screen.showCursor = !Screen.showCursor;
+		} 
 	}
 
 	void checkCenterMouse()
