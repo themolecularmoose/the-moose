@@ -28,7 +28,7 @@ public class BeamBehavior : MonoBehaviour {
 		string tag = other.tag;
 
 
-		if(stick && !jointed)
+		if(stick && !jointed && other.rigidbody)
 		{
 			if (tag == "Water" || tag == "Methane" || tag == "Oxygen")
 			{
