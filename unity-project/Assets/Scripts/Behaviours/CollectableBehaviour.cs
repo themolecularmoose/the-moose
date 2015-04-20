@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CollectableBehaviour : MonoBehaviour {
 	public bool m_respawn;
+	private bool canBeam = true;
 	private EventPublisher eventPublisher;
 
 	//need to have Start() so we can disable this.
@@ -29,5 +30,10 @@ public class CollectableBehaviour : MonoBehaviour {
 	{
 		gameObject.SetActive(true);
 		eventPublisher.publish ( new CollectableEvent(gameObject, true));
+	}
+
+	public bool getBeam() 
+	{
+		return canBeam;
 	}
 }

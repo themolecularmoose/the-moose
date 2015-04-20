@@ -19,6 +19,10 @@ public class BusterBhv : MonoBehaviour {
 	{
 		if(a_other.rigidbody == null|| a_other.rigidbody.isKinematic)
 		{
+			if(a_other.gameObject.tag == "Player")
+			{
+				return;
+			}
 			Die();
 		}
 		a_other.gameObject.SendMessageUpwards("onBusterHit", this, SendMessageOptions.DontRequireReceiver);

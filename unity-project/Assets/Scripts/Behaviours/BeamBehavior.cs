@@ -25,9 +25,18 @@ public class BeamBehavior : MonoBehaviour {
 
 	void OnTriggerStay(Collider other)
 	{
+		string tag = other.tag;
+
+
 		if(stick && !jointed)
 		{
-			CreateJoint(other.rigidbody);
+			if (tag == "Water" || tag == "Methane" || tag == "Oxygen")
+			{
+				Debug.Log ("Test");
+				CreateJoint(other.rigidbody);
+				//return;
+			}
+
 		}
 	}
 
