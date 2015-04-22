@@ -12,10 +12,12 @@ using System;
 public class PauseEvent : GameEvent
 {
 	public bool displayMenu;
+	public bool showMouse;
 
-	public PauseEvent ( bool displayMenu ) : base("OnPause")
+	public PauseEvent ( bool displayMenu, bool showMouse) : base("OnPause")
 	{
 		this.displayMenu = displayMenu;
+		this.showMouse = showMouse;
 	}
 }
 

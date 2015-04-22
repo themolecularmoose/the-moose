@@ -40,11 +40,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudFont: {fileID: 12800000, guid: 30e14b2ce74f8a045a378f18b5d93482, type: 3}
-  helpFont: {fileID: 12800000, guid: 30e14b2ce74f8a045a378f18b5d93482, type: 3}
-  showHelp: 1
   WaterTex: {fileID: 2800000, guid: e12ee4b3a30c77041b6798668e971040, type: 3}
   MethaneTex: {fileID: 2800000, guid: 7bbb52b7249150f47bde27bcd3cb164b, type: 3}
+  box: {fileID: 2800000, guid: 882ab1bad785b674cb19de6964db1b35, type: 3}
   level: {fileID: 0}
+  loader: {fileID: 0}
   collectableMolecules:
   - Water
   - Methane

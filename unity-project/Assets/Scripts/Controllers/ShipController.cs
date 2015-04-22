@@ -20,7 +20,10 @@ public class ShipController : MonoBehaviour {
 	void OnPause ( PauseEvent pe ){
 		Time.timeScale = (Time.timeScale != 0.0f) ? 0.0f : 1.0f;
 		paused = !paused;
-		if (pe.displayMenu) {
+		if (pe.displayMenu && pe.showMouse) {
+			// don't toggle mouse
+			Screen.showCursor = true;
+		} else if (pe.displayMenu) {
 			toggleMouse ();
 			Screen.showCursor = !Screen.showCursor;
 		} 
@@ -49,7 +52,7 @@ public class ShipController : MonoBehaviour {
 				m_shipBhv.beamState (Input.GetButton ("Tractor Beam"));
 			}
 			if (Input.GetButtonUp ("Pause")) 
-				eventPublisher.publish ( new PauseEvent(true) );
+				eventPublisher.publish ( new PauseEvent(true,false) );
 		}
 	}
 
