@@ -23,6 +23,8 @@ public class LevelLoader : MonoBehaviour {
 		// use loading screen for level_1-0, 1-1 only
 		if (level.Contains ("-")) {
 			LoadWithLoadingScreen (level);
+		} else if (level.Contains ("start")) {
+			Application.LoadLevel (level);
 		} else {
 			Application.LoadLevel (level);
 		}

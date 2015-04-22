@@ -10,6 +10,7 @@ public class GameHUD : MonoBehaviour {
 	public Texture box;
 	public LevelManager level;
 	public LevelLoader loader;
+	public EventPublisher eventPublisher;
 
 	public string[] collectableMolecules = {"Water", "Methane"};
 	public Dictionary<string, Texture> moleculeTextures;
@@ -41,6 +42,11 @@ public class GameHUD : MonoBehaviour {
 			loader = GameObject.Find ("Utilities").GetComponent<LevelLoader> ();
 		} else { 
 			Debug.Log ("No loader game object in scene: " + Application.loadedLevelName);
+		}
+		if (GameObject.Find ("Level") != null) {
+			eventPublisher = GameObject.Find ("Level").GetComponent<EventPublisher> ();
+		} else { 
+			Debug.Log ("No level game object in scene: " + Application.loadedLevelName);
 		}
 	}
 	
@@ -78,6 +84,7 @@ public class GameHUD : MonoBehaviour {
 			bottomCenterStyle.hover.textColor = Color.yellow;
 			if (GUI.Button (new Rect (Screen.width / 2 - 150, Screen.height / 3 * 2 - 50, 300, 100), "EXIT GAME", bottomCenterStyle)){
 				if( loader != null ){
+					eventPublisher.publish ( new PauseEvent(true, true) );
 					loader.LoadLevel("start_menu");
 				} else {
 					Debug.Log ("No level loader found in scene: " + Application.loadedLevelName);
