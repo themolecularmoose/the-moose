@@ -9,6 +9,13 @@ public class DialogueMarkerBehaviour : MonoBehaviour {
 	float m_spinRate;
 	GUIContent m_content;
 	CartoonBehaviour m_behaviour;
+	private bool paused = false;
+	private bool displayMenu = false;
+
+	void OnPause( PauseEvent pe ) {
+		paused = !paused;
+		displayMenu = (paused && pe.displayMenu);
+	}
 	
 	// Use this for initialization
 	void Start () {
@@ -24,7 +31,7 @@ public class DialogueMarkerBehaviour : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		if(m_on)
+		if(m_on && !displayMenu)
 		{
 			drawDialogue();
 		}

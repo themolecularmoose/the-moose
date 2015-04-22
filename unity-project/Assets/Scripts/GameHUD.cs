@@ -7,12 +7,22 @@ public class GameHUD : MonoBehaviour {
 	public Font hudFont;
 	public Texture WaterTex;
 	public Texture MethaneTex;
+	public Texture box;
 	public LevelManager level;
+	public LevelLoader loader;
 
 	public string[] collectableMolecules = {"Water", "Methane"};
 	public Dictionary<string, Texture> moleculeTextures;
 	public Dictionary<string, Rect> moleculeTextureRects;
 	public Dictionary<string, Rect> moleculeLabelRects;
+
+	private bool paused = false;
+	private bool menupaused = false;
+
+	void OnPause( PauseEvent pe ){
+		paused = !paused;
+		menupaused = (pe.displayMenu && paused) ? true : false;
+	}
 
 	void Start () {
 		moleculeLabelRects = new Dictionary<string, Rect> {
@@ -27,7 +37,11 @@ public class GameHUD : MonoBehaviour {
 			{"Water", WaterTex},
 			{"Methane", MethaneTex}
 		};
-
+		if (GameObject.Find ("Utilities") != null) {
+			loader = GameObject.Find ("Utilities").GetComponent<LevelLoader> ();
+		} else { 
+			Debug.Log ("No loader game object in scene: " + Application.loadedLevelName);
+		}
 	}
 	
 	void Update () {
@@ -44,6 +58,30 @@ public class GameHUD : MonoBehaviour {
 			if (molecules.Count != 0) 
 			{
 				DrawMolecule (molecule, molecules.Count);
+			}
+		}
+		if (menupaused) {
+			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), box);
+			GUIStyle topCenterStyle = GUI.skin.GetStyle("Label");
+			topCenterStyle.alignment = TextAnchor.UpperCenter;
+			topCenterStyle.fontSize = 48;
+			topCenterStyle.font = hudFont;
+			topCenterStyle.normal.textColor = Color.yellow;
+			//top center
+			GUI.Label (new Rect (Screen.width / 2 - 100, 25, 200, 100), "PAUSED", topCenterStyle);
+			GUIStyle bottomCenterStyle = GUI.skin.GetStyle("Label");
+			GUIContent content = new GUIContent();
+			bottomCenterStyle.alignment = TextAnchor.MiddleCenter;
+			bottomCenterStyle.fontSize = 48;
+			bottomCenterStyle.font = hudFont;
+			bottomCenterStyle.normal.textColor = Color.white;
+			bottomCenterStyle.hover.textColor = Color.yellow;
+			if (GUI.Button (new Rect (Screen.width / 2 - 150, Screen.height / 3 * 2 - 50, 300, 100), "EXIT GAME", bottomCenterStyle)){
+				if( loader != null ){
+					loader.LoadLevel("start_menu");
+				} else {
+					Debug.Log ("No level loader found in scene: " + Application.loadedLevelName);
+				}
 			}
 		}
 	}
