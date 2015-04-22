@@ -34,7 +34,13 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		loader = GameObject.Find ("Utilities").GetComponent<LevelLoader> ();
+		var util = GameObject.Find ("Utilities");
+		if (util == null) {
+			util = GameObject.CreatePrimitive (PrimitiveType.Cube);
+			util.AddComponent<LevelLoader>();
+			util.name = "Utilities";
+		}
+		loader = util.GetComponent<LevelLoader> ();
 		GUIMan.UpdateCollectedMolecules (Flatten (collected));
 		ship = GameObject.Find("Player").GetComponent<ShipBehaviour>();
 		SetCheckpoint(ship.transform.position);
