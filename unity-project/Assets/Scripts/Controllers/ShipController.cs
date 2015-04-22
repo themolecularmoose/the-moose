@@ -67,7 +67,7 @@ public class ShipController : MonoBehaviour {
 
 	void setupMouse()
 	{
-		Screen.showCursor = false;
+		Cursor.visible = false;
 	}
 	
 	// Use this for initialization

@@ -78,7 +78,7 @@ public class ShipBehaviour : MonoBehaviour {
 	
 	public void Climb(float a_speed)
 	{
-		rigidbody.AddForce(Vector3.up * a_speed);
+		GetComponent<Rigidbody>().AddForce(Vector3.up * a_speed);
 	}
 	
 	public void DecreaseHealth(float damage) 
@@ -96,7 +96,7 @@ public class ShipBehaviour : MonoBehaviour {
 	{
 		//confirm death
 		health = 0;
-		gameObject.rigidbody.velocity = Vector3.zero;
+		gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		//disable the visualization
 		setVisibility(false);
 		//inform first of kin
@@ -126,7 +126,7 @@ public class ShipBehaviour : MonoBehaviour {
 
 	public void JumpDrive(float a_strength)
 	{
-		rigidbody.velocity += m_attachments.transform.forward * a_strength;
+		GetComponent<Rigidbody>().velocity += m_attachments.transform.forward * a_strength;
 		sa.PlayBoost ();
 	}
 
@@ -175,30 +175,30 @@ public class ShipBehaviour : MonoBehaviour {
 	
 	public void Strafe(float a_speed)
 	{
-		rigidbody.AddForce(m_attachments.transform.right * a_speed);
+		GetComponent<Rigidbody>().AddForce(m_attachments.transform.right * a_speed);
 	}
 	public void Lean(float a_speed, float a_max)
 	{
-		float value = rigidbody.angularVelocity.y;
+		float value = GetComponent<Rigidbody>().angularVelocity.y;
 		float sign = Mathf.Sign(a_speed);
 		float speed = value * sign;
-		float momentum = speed * rigidbody.mass;
+		float momentum = speed * GetComponent<Rigidbody>().mass;
 		float dif = a_max - momentum;
 		if (dif > 0) {
-			rigidbody.AddRelativeTorque (0, dif * sign, 0);
+			GetComponent<Rigidbody>().AddRelativeTorque (0, dif * sign, 0);
 		}
 	}
 	public void Tilt(float a_speed)
 	{
 		//broken
-		if (rigidbody.angularVelocity.x < maxTurnRate) {
-			rigidbody.AddRelativeTorque (a_speed, 0, 0);
+		if (GetComponent<Rigidbody>().angularVelocity.x < maxTurnRate) {
+			GetComponent<Rigidbody>().AddRelativeTorque (a_speed, 0, 0);
 		}
 	}
 
 	public void Thrust(float a_speed)
 	{
-		rigidbody.AddForce(m_attachments.transform.forward * a_speed);
+		GetComponent<Rigidbody>().AddForce(m_attachments.transform.forward * a_speed);
 	}
 
 	public bool TractorBeam
@@ -209,6 +209,6 @@ public class ShipBehaviour : MonoBehaviour {
 
 	void Update()
 	{
-		rigidbody.velocity *= 0.95f;
+		GetComponent<Rigidbody>().velocity *= 0.95f;
 	}
 }

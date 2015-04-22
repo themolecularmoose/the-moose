@@ -15,7 +15,7 @@ public class GameOver : MonoBehaviour
 		level = PlayerPrefs.GetString ("Level");
 		score = PlayerPrefs.GetInt("Score");
 		win = PlayerPrefs.GetInt("Win");
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		Screen.lockCursor = false;
 	}
 

@@ -8,15 +8,15 @@ public class MainMenu : MonoBehaviour {
 	
 	void OnMouseEnter() {
 		//this doesn't work in start or update for some reason
-		original_color = guiText.material.color;
+		original_color = GetComponent<GUIText>().material.color;
 		//change text to different color
-		guiText.material.color = highlight_color;
+		GetComponent<GUIText>().material.color = highlight_color;
 	}
 	
 	void OnMouseExit() {
 		//change text back to original color
 		if(original_color.a > 0){
-			guiText.material.color = original_color;
+			GetComponent<GUIText>().material.color = original_color;
 		}
 	}
 	

@@ -144,8 +144,8 @@ public class LevelManager : MonoBehaviour {
 		}
 		this.collected = TagLookupTable(collectedList);
 		ship.gameObject.transform.position = this.checkpoint;
-		ship.gameObject.rigidbody.velocity = Vector3.zero;
-		ship.gameObject.rigidbody.angularVelocity = Vector3.zero;
+		ship.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+		ship.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 		ship.Respawn ();
 		GUIMan.UpdateHealthBar (ship.Health, ship.MaxHealth);
 		GUIMan.UpdateCollectedMolecules (Flatten(collected));

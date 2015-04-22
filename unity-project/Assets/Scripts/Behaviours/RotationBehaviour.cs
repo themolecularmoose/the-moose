@@ -38,10 +38,10 @@ public class RotationBehaviour : MonoBehaviour {
 			case ModificationType.VELOCITY:
 				if(m_world)
 				{
-					rigidbody.angularVelocity = change;
+					GetComponent<Rigidbody>().angularVelocity = change;
 				}else
 				{
-					rigidbody.angularVelocity = changeLocal;
+					GetComponent<Rigidbody>().angularVelocity = changeLocal;
 				}
 				break;
 		}

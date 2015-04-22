@@ -16,7 +16,7 @@ public class KillSwitchBehaviour : MonoBehaviour {
 			//disable avatar
 			m_shipAvatar.SetActive (false);
 			//play explosion
-			particleSystem.Play ();
+			GetComponent<ParticleSystem>().Play ();
 			m_exploded = true;
 			Invoke("Respawn", 2.0f);
 		}
@@ -26,7 +26,7 @@ public class KillSwitchBehaviour : MonoBehaviour {
 	{
 		DeathEvent dth = a_event as DeathEvent;
 		if (dth != null) {
-			particleSystem.Play();
+			GetComponent<ParticleSystem>().Play();
 		}
 	}
 

@@ -18,10 +18,10 @@ public class SparkBehaviour : MonoBehaviour {
 	void HandleOnContact (Collision collision)
 	{
 		ContactPoint contact = collision.contacts [0];
-		particleSystem.transform.position = contact.point;
-		particleSystem.transform.forward = contact.normal;
+		GetComponent<ParticleSystem>().transform.position = contact.point;
+		GetComponent<ParticleSystem>().transform.forward = contact.normal;
 
-		particleSystem.Play();
+		GetComponent<ParticleSystem>().Play();
 		lifespan = 0.5f;
 	}
 	
@@ -30,7 +30,7 @@ public class SparkBehaviour : MonoBehaviour {
 		lifespan -= Time.deltaTime;
 		if (lifespan <= 0) {
 			lifespan = 0;
-			particleSystem.Stop();
+			GetComponent<ParticleSystem>().Stop();
 		}
 	}
 }

@@ -11,13 +11,13 @@ public class BusterBhv : MonoBehaviour {
 	void Die()
 	{
 		explosionObject.transform.position = transform.position;
-		explosionObject.particleSystem.Play();
+		explosionObject.GetComponent<ParticleSystem>().Play();
 		Destroy(gameObject);
 	}
 
 	void OnTriggerEnter(Collider a_other)
 	{
-		if(a_other.rigidbody == null|| a_other.rigidbody.isKinematic)
+		if(a_other.GetComponent<Rigidbody>() == null|| a_other.GetComponent<Rigidbody>().isKinematic)
 		{
 			Die();
 		}

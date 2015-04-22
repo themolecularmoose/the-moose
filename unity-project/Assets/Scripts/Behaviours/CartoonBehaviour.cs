@@ -16,7 +16,7 @@ public class CartoonBehaviour : MonoBehaviour {
 	void Update () {
 		float bobHeight = Mathf.Sin(Time.time) * m_bobPeak;
 		float change = bobHeight - m_lastBobHeight;
-		if(rigidbody == null)
+		if(GetComponent<Rigidbody>() == null)
 		{
 			transform.Rotate(0, m_spinRate, 0);
 			transform.Translate(0, change, 0);

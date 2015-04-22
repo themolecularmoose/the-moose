@@ -18,8 +18,8 @@ public class ClusterBhv : MonoBehaviour {
 			child = transform.GetChild(i);
 			m_children[i] = child.gameObject;
 			//If the collectable has a rigidBody, disable it
-			if(child.rigidbody != null)
-				child.rigidbody.isKinematic = true;
+			if(child.GetComponent<Rigidbody>() != null)
+				child.GetComponent<Rigidbody>().isKinematic = true;
 			//disable scripts
 			MonoBehaviour[] scripts = child.GetComponents<MonoBehaviour>();
 			for(int s = 0; s <scripts.Length; ++s)
@@ -54,11 +54,11 @@ public class ClusterBhv : MonoBehaviour {
 			child.SetParent(m_level.transform);
 			i--;
 			//add explosive force
-			if(child.rigidbody != null)
+			if(child.GetComponent<Rigidbody>() != null)
 			{
-				child.rigidbody.isKinematic = false;
+				child.GetComponent<Rigidbody>().isKinematic = false;
 				//child.rigidbody.constraints = RigidbodyConstraints.None;
-				child.rigidbody.AddExplosionForce(a_power, a_center, 0, a_lift);
+				child.GetComponent<Rigidbody>().AddExplosionForce(a_power, a_center, 0, a_lift);
 			}
 		}
 		if (m_respawn) {

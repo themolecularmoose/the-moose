@@ -27,7 +27,7 @@ public class BeamBehavior : MonoBehaviour {
 	{
 		if(stick && !jointed)
 		{
-			CreateJoint(other.rigidbody);
+			CreateJoint(other.GetComponent<Rigidbody>());
 		}
 	}
 
