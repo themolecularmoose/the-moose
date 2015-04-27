@@ -1293,10 +1293,10 @@ AudioSource:
   m_GameObject: {fileID: 113704}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 6ce10f9ed5af65b4e960592a97cd4963, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 155f1cc100eb5ba438f7a432f8189485, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .560000002
-  m_Pitch: .560000002
+  m_Volume: .200000003
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Priority: 128
@@ -1614,6 +1614,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8257866}
   boost: {fileID: 8220866}
+  ship: {fileID: 8242070}
+  explode: {fileID: 8300000, guid: 323072d75e5479e4bbf0b1e9e9599842, type: 3}
+  shoot: {fileID: 8300000, guid: f7096ea59d2134d12899cf8f55977fe4, type: 3}
 --- !u!114 &11460734
 MonoBehaviour:
   m_ObjectHideFlags: 1
