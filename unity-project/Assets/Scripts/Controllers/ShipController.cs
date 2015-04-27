@@ -17,16 +17,22 @@ public class ShipController : MonoBehaviour {
 	private EventPublisher eventPublisher;
 	private bool paused = false;
 
+	//most pause logic
 	void OnPause ( PauseEvent pe ){
 		Time.timeScale = (Time.timeScale != 0.0f) ? 0.0f : 1.0f;
 		paused = !paused;
-		if (pe.displayMenu && pe.showMouse) {
-			// don't toggle mouse
+		eventPublisher.publish (new ShowMouseEvent (paused));
+	}
+
+	void OnShowMouse( ShowMouseEvent sme ){
+		if (sme.showMouse) {
 			Screen.showCursor = true;
-		} else if (pe.displayMenu) {
-			toggleMouse ();
-			Screen.showCursor = !Screen.showCursor;
-		} 
+			unlockMouse();
+		} else {
+			Screen.showCursor = false;
+			lockMouse();
+		}
+
 	}
 
 	void checkCenterMouse()
@@ -52,7 +58,7 @@ public class ShipController : MonoBehaviour {
 				m_shipBhv.beamState (Input.GetButton ("Tractor Beam"));
 			}
 			if (Input.GetButtonUp ("Pause")) 
-				eventPublisher.publish ( new PauseEvent(true,false) );
+				eventPublisher.publish ( new PauseEvent(true) );
 		}
 	}
 

@@ -84,7 +84,8 @@ public class GameHUD : MonoBehaviour {
 			bottomCenterStyle.hover.textColor = Color.yellow;
 			if (GUI.Button (new Rect (Screen.width / 2 - 150, Screen.height / 3 * 2 - 50, 300, 100), "EXIT GAME", bottomCenterStyle)){
 				if( loader != null ){
-					eventPublisher.publish ( new PauseEvent(true, true) );
+					eventPublisher.publish ( new PauseEvent(true) );
+					eventPublisher.publish ( new ShowMouseEvent(true) );
 					loader.LoadLevel("start_menu");
 				} else {
 					Debug.Log ("No level loader found in scene: " + Application.loadedLevelName);

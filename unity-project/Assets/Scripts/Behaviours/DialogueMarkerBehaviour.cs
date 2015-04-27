@@ -11,6 +11,7 @@ public class DialogueMarkerBehaviour : MonoBehaviour {
 	CartoonBehaviour m_behaviour;
 	private bool paused = false;
 	private bool displayMenu = false;
+	private EventPublisher eventPublisher;
 
 	void OnPause( PauseEvent pe ) {
 		paused = !paused;
@@ -22,6 +23,11 @@ public class DialogueMarkerBehaviour : MonoBehaviour {
 		m_behaviour = GetComponent<CartoonBehaviour>();
 		m_spinRate = m_behaviour.m_spinRate;
 		m_content = new GUIContent(m_text);
+		if (GameObject.Find ("Level") != null) {
+			eventPublisher = GameObject.Find ("Level").GetComponent<EventPublisher> ();
+		} else { 
+			Debug.Log ("No level game object in scene: " + Application.loadedLevelName);
+		}
 	}
 	
 	// Update is called once per frame
@@ -34,6 +40,16 @@ public class DialogueMarkerBehaviour : MonoBehaviour {
 		if(m_on && !displayMenu)
 		{
 			drawDialogue();
+			if( !paused )
+				eventPublisher.publish ( new PauseEvent(false) );
+			GUIStyle bottomCenterStyle = GUI.skin.GetStyle("Label");
+			bottomCenterStyle.alignment = TextAnchor.MiddleCenter;
+			bottomCenterStyle.fontSize = 48;
+			bottomCenterStyle.normal.textColor = Color.yellow;
+			if (GUI.Button (new Rect (Screen.width / 2 - 150, Screen.height - 100, 300, 100), "CONTINUE", bottomCenterStyle)){
+				eventPublisher.publish ( new PauseEvent(false));
+				turnOff ();
+			}
 		}
 	}
 	
@@ -61,10 +77,12 @@ public class DialogueMarkerBehaviour : MonoBehaviour {
 		m_on = true;
 		m_behaviour.m_spinRate = m_spinRate * 6;
 	}
+
 	void turnOff()
 	{
 		m_on = false;
 		m_behaviour.m_spinRate = m_spinRate;
+		Destroy (this.gameObject);
 	}
 	
 	void OnTriggerEnter(Collider a_other)
@@ -73,12 +91,13 @@ public class DialogueMarkerBehaviour : MonoBehaviour {
 			return;
 		turnOn ();
 	}
-	
+
+	/*
 	void OnTriggerExit(Collider a_other)
 	{
 		if (a_other.gameObject.tag != "Player")
 			return;
 		turnOff ();
-		Destroy (this.gameObject);
 	}
+	*/
 }

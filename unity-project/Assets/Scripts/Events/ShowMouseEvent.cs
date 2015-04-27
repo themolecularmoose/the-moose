@@ -8,15 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
-
-public class PauseEvent : GameEvent
+public class ShowMouseEvent : GameEvent
 {
-	public bool displayMenu;
-
-	public PauseEvent ( bool displayMenu ) : base("OnPause")
+	public bool showMouse; 
+	public ShowMouseEvent ( bool showMouse) : base("OnShowMouse")
 	{
-		this.displayMenu = displayMenu;
+		this.showMouse = showMouse;
 	}
 }
-
 
